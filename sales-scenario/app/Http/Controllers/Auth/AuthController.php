@@ -55,6 +55,11 @@ class AuthController extends Controller
         ]);
     }
 
+    public function getLogin()
+    {
+        return "logga in här";
+    }
+
     /**
      * Create a new user instance after a valid registration.
      *
