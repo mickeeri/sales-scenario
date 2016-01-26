@@ -1,0 +1,1 @@
+{"virtualbox":{"/home/vagrant/sales-scenario":{"type":null,"mount_options":[],"guestpath":"/home/vagrant/sales-scenario","hostpath":"C:/Users/Erik/Documents/GitHub/1DV411_Grupp3/sales-scenario","disabled":false,"__vagrantfile":true},"/vagrant":{"guestpath":"/vagrant","hostpath":"C:/Users/Erik/Documents/GitHub/1DV411_Grupp3/sales-scenario","disabled":false,"__vagrantfile":true}}}
