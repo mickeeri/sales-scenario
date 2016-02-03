@@ -1,1 +1,12 @@
 .idea/
+sales-scenario/vendor/vlucas/phpdotenv/src/Exception/InvalidPathException.php
+
+sales-scenario/vendor/vlucas/phpdotenv/src/Exception/ExceptionInterface.php
+
+sales-scenario/vendor/vlucas/phpdotenv/src/Exception/ExceptionInterface.php
+
+sales-scenario/vendor/vlucas/phpdotenv/src/Exception/InvalidCallbackException.php
+
+sales-scenario/vendor/vlucas/phpdotenv/src/Exception/InvalidFileException.php
+
+sales-scenario/vendor/vlucas/phpdotenv/src/Exception/ValidationException.php
