@@ -11,7 +11,7 @@ use Illuminate\Foundation\Testing\DatabaseMigrations;
 use Illuminate\Foundation\Testing\DatabaseTransactions;
 
 
-class RegistrationTest extends TestCase
+class AuthTest extends TestCase
 {
 
     use DatabaseTransactions;
