@@ -20,14 +20,14 @@ class UserController extends CrudController{
 
 
 			$this->filter = \DataFilter::source(new User);
-			$this->filter->add('name', 'Username', 'text');
+			$this->filter->add('username', 'Username', 'text');
 			$this->filter->add('email', 'Email', 'text');
 			$this->filter->submit('search');
 			$this->filter->reset('reset');
 			$this->filter->build();
 
 			$this->grid = \DataGrid::source($this->filter);
-			$this->grid->add('name', 'Name');
+			$this->grid->add('username', 'Username');
 			$this->grid->add('email', 'Email');
 			$this->grid->add('created_at', 'Created');
 			$this->addStylesToGrid();
@@ -46,7 +46,7 @@ class UserController extends CrudController{
 
 			$this->edit->label('Edit User');
 
-			$this->edit->add('name', 'Username', 'text')->rule('required');
+			$this->edit->add('username', 'Username', 'text')->rule('required');
 		
 			$this->edit->add('email', 'Email', 'text')->rule('required|email|max:255');
 
