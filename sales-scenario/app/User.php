@@ -6,6 +6,16 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 
 class User extends Authenticatable
 {
+
+    public function setPasswordAttribute($value)
+    {
+        if(!is_null($value) && !empty($value)){
+            $this->attributes['password'] = bcrypt($value);
+        }elseif(isset($this->attributes['password'])){
+            unset($this->attributes['password']);
+        }
+    }
+
     /**
      * The attributes that are mass assignable.
      *
