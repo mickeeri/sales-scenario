@@ -11,10 +11,33 @@
 |
 */
 
+/**
+ * Startsida efter innlogning
+ */
 Route::get('/', function () {
-    return view('welcome');
+    return 'vy 4: Detta är startsidan med dashboard';
 });
 
+/**
+ * När man klickar på experten namn i listan
+ */
+Route::get('expert/{name}', function () {
+    return 'vy 7: Lista med expertens låtar (OBS {name} kanske inte är unikt. id istället kanske?)';
+});
+
+/**
+ * När man klickar på explore
+ */
+Route::get('explore', function () {
+    return 'vy 7: Lista med taggar';
+});
+
+/**
+ * Bloggradion.
+ */
+Route::get('player/{name}/{title}', function () {
+    return 'vy 8: spelaren. {name} och {title} kanske inte är unikt?';
+});
 /*
 |--------------------------------------------------------------------------
 | Application Routes
