@@ -3,3 +3,4 @@
 .idea/
 Homestead.yaml
 Vagrantfile
+.vagrant/
