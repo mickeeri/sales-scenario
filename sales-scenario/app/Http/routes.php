@@ -47,7 +47,7 @@ Route::get('expert/{id}', function () {
  * Bloggradion.
  */
 Route::get('player/{expert}/{track}', function () {
-    return 'vy 8: spelaren med expertens ljudblogg';
+    return View('player');
 });
 /*
 |--------------------------------------------------------------------------
