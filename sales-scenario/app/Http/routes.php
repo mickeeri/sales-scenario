@@ -14,29 +14,34 @@
 /**
  * Startsida efter innlogning
  */
-Route::get('/', function () {
+Route::get('dashboard', function () {
     return 'vy 4: Detta är startsidan med dashboard';
-});
-
-/**
- * När man klickar på experten namn i listan
- */
-Route::get('expert/{name}', function () {
-    return 'vy 7: Lista med expertens låtar (OBS {name} kanske inte är unikt. id istället kanske?)';
 });
 
 /**
  * När man klickar på explore
  */
 Route::get('explore', function () {
-    return 'vy 7: Lista med taggar';
+    return 'vy 6: Lista alla experter med alla taggar';
 });
+
+Route::get('explore/{id}', function () {
+    return 'vy 6: Lista alla experter efter vald taggid från dashboard';
+});
+
+/**
+ * När man klickar på experten namn i listan
+ */
+Route::get('expert/{id}', function () {
+    return 'vy 7: Lista med expertens ljudbloggar';
+});
+
 
 /**
  * Bloggradion.
  */
-Route::get('player/{name}/{title}', function () {
-    return 'vy 8: spelaren. {name} och {title} kanske inte är unikt?';
+Route::get('player/{expert}/{track}', function () {
+    return 'vy 8: spelaren med expertens ljudblogg';
 });
 /*
 |--------------------------------------------------------------------------
