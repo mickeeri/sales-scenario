@@ -14,6 +14,12 @@
 /**
  * Startsida efter innlogning
  */
+
+Route::get('/', function () {
+    return View('home');
+});
+
+
 Route::get('dashboard', function () {
     return 'vy 4: Detta är startsidan med dashboard';
 });
