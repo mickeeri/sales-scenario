@@ -44,6 +44,11 @@ body {
 .orange-nav {
     height: 50px;
     background: #e95d0f;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 500;
 }
 
 html, body{
@@ -61,6 +66,7 @@ html, body{
     position: absolute;
     top: 0px;
     bottom: 0px;
+    box-sizing: border-box;
 }
 
 .profile-img {
@@ -84,32 +90,46 @@ html, body{
 /**************************************Mobile view**************************************/
 @media screen and (max-width: 768px) {
 
+
     .wrapper {
         width: auto;
-        margin: 10px;
+        padding: 10px;
+        padding-top: 50px;
+        overflow: auto;
+        box-sizing: border-box;
     }
 
     .slide {
         width: auto;
         height: auto;
         float: none;
-        background: #ffffff;
-        padding-top: 60px;
+        padding: 10px 0px;
         position: relative;
+        box-sizing: border-box;
+        margin-top: -10px;
+        margin-left: -10px;
+        margin-right: -10px;
     }
     .profile-img {
-        box-shadow: 0 0 10px 5px #b1b3b4;
         display: block;
-        width: 200px;
-        margin: 0 auto;
-        border-radius: 0;
-        padding-bottom: 0px;
+        width: 130px;
+        max-height: 130px;
+        float: left;
+        margin: 12px 0 12px 20px;
+        border-radius: 65px;
+        padding: 0;
+    }
+
+    .description{
+        width: 45%;
+        float: left;
     }
     .podcast-title, .podcast-author {
-        width: 220px;
     }
 
     #player-wrapper {
-        padding-top: 0px;
+        position: absolute;
+        bottom: 50px;
+        left: calc( 50% - 100px );
     }
 }
