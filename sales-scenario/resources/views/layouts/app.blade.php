@@ -19,6 +19,7 @@
 </head>
 <body>
 
+    <div class="orange-nav">        <!-- temporary for orange at top -->
     @if (Auth::guest())
         <a href="{{ url('/login') }}">Login</a>
         <a href="{{ url('/register') }}">Register</a>
@@ -32,6 +33,7 @@
             </ul>
         </nav>
     @endif
+    </div>
     <div class="wrapper">
     @yield('content')
     </div>

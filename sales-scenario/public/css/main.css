@@ -1,7 +1,6 @@
 /**
 *Main css for over all styling
 *
-*
 *Includes desktop & mobile
 */
 
@@ -15,10 +14,7 @@ body {
 }
 
 /**************************************Audio player**************************************/
-.profile-img {
-    box-shadow: 0 0 10px 5px #b1b3b4;
-    display: block;
-}
+
 .podcast-title, .podcast-author {
     text-transform: uppercase;
     text-align: center;
@@ -39,30 +35,50 @@ body {
 /**************************************Desktop view**************************************/
 .wrapper {
     width:940px;
+    height: 100%;
     margin: 0 auto;
+    position: relative;
 }
 
-/*nav {
-    height: 40px;
+/*temporary to be able to get some orange at the top*/
+.orange-nav {
+    height: 50px;
     background: #e95d0f;
-}*/
-#player-content {
+}
+
+html, body{
     height: 100%;
 }
 
+/*aside*/
 .slide {
     width: 25%;
     height:100%;
+    padding-top: 100px;
     float: left;
     background: #000000;
     overflow: auto;
+    position: absolute;
+    top: 0px;
+    bottom: 0px;
 }
 
 .profile-img {
     width: 150px;
     margin: 0 auto;
+    display: block;
+    border-radius: 50%;
+    padding-bottom: 10px;
 }
 
+/*audio player*/
+#player-wrapper {
+    padding-top: 100px;
+}
+
+.podcast-author {
+    font-size: smaller;
+}
 
 
 /**************************************Mobile view**************************************/
@@ -73,26 +89,27 @@ body {
         margin: 10px;
     }
 
-    #player-content {
-
-    }
     .slide {
         width: auto;
+        height: auto;
         float: none;
         background: #ffffff;
-        padding-top: 100px;
+        padding-top: 60px;
+        position: relative;
     }
-
     .profile-img {
-        width: 220px;
+        box-shadow: 0 0 10px 5px #b1b3b4;
+        display: block;
+        width: 200px;
         margin: 0 auto;
+        border-radius: 0;
+        padding-bottom: 0px;
     }
-
     .podcast-title, .podcast-author {
         width: 220px;
     }
 
-    .podcast-author {
-        font-size: smaller;
+    #player-wrapper {
+        padding-top: 0px;
     }
 }
