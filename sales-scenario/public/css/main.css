@@ -1,9 +1,98 @@
 /**
+*Main css for over all styling
 *
 *
+*Includes desktop & mobile
 */
 
-/*typography*/
+
+
+
+
+/**************************************Typography**************************************/
 body {
     font-family: 'Open Sans', sans-serif;
+}
+
+/**************************************Audio player**************************************/
+.profile-img {
+    box-shadow: 0 0 10px 5px #b1b3b4;
+    display: block;
+}
+.podcast-title, .podcast-author {
+    text-transform: uppercase;
+    text-align: center;
+    color: #b1b3b4;
+    font-weight: bold;
+    display: block;
+    width: 70%;
+    margin: 0 auto;
+
+}
+/*the player itself*/
+.cp-container {
+    margin: 0 auto;
+}
+
+
+
+/**************************************Desktop view**************************************/
+.wrapper {
+    width:940px;
+    margin: 0 auto;
+}
+
+/*nav {
+    height: 40px;
+    background: #e95d0f;
+}*/
+#player-content {
+    height: 100%;
+}
+
+.slide {
+    width: 25%;
+    height:100%;
+    float: left;
+    background: #000000;
+    overflow: auto;
+}
+
+.profile-img {
+    width: 150px;
+    margin: 0 auto;
+}
+
+
+
+/**************************************Mobile view**************************************/
+@media screen and (max-width: 768px) {
+
+    .wrapper {
+        width: auto;
+        margin: 10px;
+    }
+
+    #player-content {
+
+    }
+    .slide {
+        width: auto;
+        float: none;
+        background: #ffffff;
+        padding-top: 100px;
+    }
+
+    .profile-img {
+        width: 220px;
+        margin: 0 auto;
+    }
+
+    .podcast-title, .podcast-author {
+        width: 220px;
+    }
+
+    .podcast-author {
+        font-size: smaller;
+    }
 }

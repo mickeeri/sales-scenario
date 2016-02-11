@@ -11,12 +11,14 @@
     <link href='https://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
 
     <!-- Styles -->
+    <link type="text/css" href="/css/normalize.css" rel="stylesheet" />
     <link type="text/css" href="/css/main.css" rel="stylesheet" />
 
     @yield('css')
     <title>Sales Scenario</title>
 </head>
 <body>
+
     @if (Auth::guest())
         <a href="{{ url('/login') }}">Login</a>
         <a href="{{ url('/register') }}">Register</a>
@@ -30,9 +32,9 @@
             </ul>
         </nav>
     @endif
-
+    <div class="wrapper">
     @yield('content')
-
+    </div>
     <!-- JavaScripts -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
         @yield('js')

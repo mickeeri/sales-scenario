@@ -16,25 +16,22 @@
 @endsection
 
 @section('content')
-    <!-- The jPlayer div must not be hidden. Keep it at the root of the body element to avoid any such problems. -->
-    <div id="jquery_jplayer_1" class="cp-jplayer"></div>
-    <div id="slider">
-        <h2>What's new</h2>
+
+    <div id="player-content">
         <div class="slide">
-            <img src="" alt="Profile image of Dave Stein" />
+            <img class="profile-img" src="/temp_before_db_implem/david_stein.png" alt="Profile image of Dave Stein" />
             <p class="description">
                 <span class="podcast-title">The sales letter comes last in sales</span>
                 <span class="podcast-author">By David Stein</span>
             </p>
         </div>
-        <audio controls>
+        {{--<audio controls>
             <source src="http://www.jplayer.org/audio/m4a/Miaow-07-Bubble.m4a" type="audio/mpeg">
             Your browser does not support the audio element.
-        </audio>
-    </div>
+        </audio>--}}
 
-
-
+        <!-- The jPlayer div must not be hidden. Keep it at the root of the body element to avoid any such problems. -->
+        <div id="jquery_jplayer_1" class="cp-jplayer"></div>
         <!-- The container for the interface can go where you want to display it. Show and hide it as you need. -->
         <div id="cp_container_1" class="cp-container">
             <div class="cp-buffer-holder"> <!-- .cp-gt50 only needed when buffer is > than 50% -->
@@ -51,6 +48,7 @@
                 <li><a class="cp-pause" style="display:none;" tabindex="1">pause</a></li> <!-- Needs the inline style here, or jQuery.show() uses display:inline instead of display:block -->
             </ul>
         </div>
+    </div>
 
 
 @endsection

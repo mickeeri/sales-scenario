@@ -14,7 +14,7 @@
 	position:relative;
 	width:104px; /* 200 - (2 * 48) */
 	height:104px;
-	background:url("/img/circle_player/bgr.jpg") 0 0 no-repeat;
+	background:url("/img/circle_player/bgr_white.jpg") 0 0 no-repeat;
 	padding:48px;
 	-webkit-tap-highlight-color:rgba(0,0,0,0);
 }
@@ -52,13 +52,13 @@
  */
 
 .cp-container .cp-fallback {
-	background:url("/img/circle_player/progress_sprite.jpg") no-repeat;
+	background:url("/img/circle_player/progress_sprite_orange.jpg") no-repeat;
 	background-position:0 104px; 
 }
 
 .cp-progress-1,
 .cp-progress-2 {
-	background:url("/img/circle_player/progress.png") 0 0 no-repeat;
+	background:url("/img/circle_player/progress_orange.png") 0 0 no-repeat;
 }
 
 .cp-buffer-holder,
