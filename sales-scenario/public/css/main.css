@@ -1,0 +1,135 @@
+/**
+*Main css for over all styling
+*
+*Includes desktop & mobile
+*/
+
+
+
+
+
+/**************************************Typography**************************************/
+body {
+    font-family: 'Open Sans', sans-serif;
+}
+
+/**************************************Audio player**************************************/
+
+.podcast-title, .podcast-author {
+    text-transform: uppercase;
+    text-align: center;
+    color: #b1b3b4;
+    font-weight: bold;
+    display: block;
+    width: 70%;
+    margin: 0 auto;
+
+}
+/*the player itself*/
+.cp-container {
+    margin: 0 auto;
+}
+
+
+
+/**************************************Desktop view**************************************/
+.wrapper {
+    width:940px;
+    height: 100%;
+    margin: 0 auto;
+    position: relative;
+}
+
+/*temporary to be able to get some orange at the top*/
+.orange-nav {
+    height: 50px;
+    background: #e95d0f;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 500;
+}
+
+html, body{
+    height: 100%;
+}
+
+/*aside*/
+.slide {
+    width: 25%;
+    height:100%;
+    padding-top: 100px;
+    float: left;
+    background: #000000;
+    overflow: auto;
+    position: absolute;
+    top: 0px;
+    bottom: 0px;
+    box-sizing: border-box;
+}
+
+.profile-img {
+    width: 150px;
+    margin: 0 auto;
+    display: block;
+    border-radius: 50%;
+    padding-bottom: 10px;
+}
+
+/*audio player*/
+#player-wrapper {
+    padding-top: 100px;
+}
+
+.podcast-author {
+    font-size: smaller;
+}
+
+
+/**************************************Mobile view**************************************/
+@media screen and (max-width: 768px) {
+
+
+    .wrapper {
+        width: auto;
+        padding: 10px;
+        padding-top: 50px;
+        overflow: auto;
+        box-sizing: border-box;
+    }
+
+    .slide {
+        width: auto;
+        height: auto;
+        float: none;
+        padding: 10px 0px;
+        position: relative;
+        box-sizing: border-box;
+        margin-top: -10px;
+        margin-left: -10px;
+        margin-right: -10px;
+    }
+    .profile-img {
+        display: block;
+        width: 130px;
+        max-height: 130px;
+        float: left;
+        margin: 12px 0 12px 20px;
+        border-radius: 65px;
+        padding: 0;
+    }
+
+    .description{
+        width: 45%;
+        float: left;
+    }
+    .podcast-title, .podcast-author {
+    }
+
+    #player-wrapper {
+        position: absolute;
+        bottom: 50px;
+        left: calc( 50% - 100px );
+    }
+}
