@@ -19,26 +19,33 @@
 </head>
 <body>
 
-    <div class="orange-nav">        <!-- temporary for orange at top -->
-    @if (Auth::guest())
-        <a href="{{ url('/login') }}">Login</a>
-        <a href="{{ url('/register') }}">Register</a>
-    @else
-        <nav>
-            <ul>
-                <li><a href="{{ url('/') }}">Dashboard</a></li>
-                <li><a href="{{ url('/') }}">Explore</a></li>
-                <li><a href="{{ url('/') }}">Profile Settings</a></li>
+    @if (Auth::check())
+
+
+    <div id="header" class="orange-nav">        <!-- temporary for orange at top -->
+        <div id="menu_open"></div>
+        <nav class="wrapper">
+            <ul id="top">
+                <li><a href="{{ url('/dashboard') }}">Dashboard</a></li>
+                <li><a href="{{ url('/explore') }}">Explore</a></li>
+            </ul>
+            <ul id="bottom">
+                <li><a href="#">Profile Settings</a></li>
                 <li><a href="{{ url('/logout') }}">Logout</a></li>
             </ul>
         </nav>
-    @endif
     </div>
-    <div class="wrapper">
+    @else
+        <a href="{{ url('/login') }}">Login</a>
+        <a href="{{ url('/register') }}">Register</a>
+    @endif
+
+    <div class="wrapper" id="content">
     @yield('content')
     </div>
     <!-- JavaScripts -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+    <script src="/js/scripts.js"></script>
         @yield('js')
     {{-- <script src="{{ elixir('js/app.js') }}"></script> --}}
 </body>

@@ -19,36 +19,6 @@ Route::get('/', function () {
     return View('home');
 });
 
-
-Route::get('dashboard', function () {
-    return 'vy 4: Detta är startsidan med dashboard';
-});
-
-/**
- * När man klickar på explore
- */
-Route::get('explore', function () {
-    return 'vy 6: Lista alla experter med alla taggar';
-});
-
-Route::get('explore/{id}', function () {
-    return 'vy 6: Lista alla experter efter vald taggid från dashboard';
-});
-
-/**
- * När man klickar på experten namn i listan
- */
-Route::get('expert/{id}', function () {
-    return 'vy 7: Lista med expertens ljudbloggar';
-});
-
-
-/**
- * Bloggradion.
- */
-Route::get('player/{expert}/{track}', function () {
-    return View('player');
-});
 /*
 |--------------------------------------------------------------------------
 | Application Routes
@@ -68,4 +38,36 @@ Route::group(['middleware' => 'web'], function () {
     Route::auth();
 
     Route::get('/home', 'HomeController@index');
+
+});
+
+Route::group(['middleware' => ['web','auth']], function(){
+    Route::get('/dashboard', function() {
+        return "inloggad";
+    });
+
+    /**
+     * När man klickar på explore
+     */
+    Route::get('explore', function () {
+        return 'vy 6: Lista alla experter med alla taggar';
+    });
+
+    Route::get('explore/{id}', function () {
+        return 'vy 6: Lista alla experter efter vald taggid från dashboard';
+    });
+
+    /**
+     * När man klickar på experten namn i listan
+     */
+    Route::get('expert/{id}', function () {
+        return 'vy 7: Lista med expertens ljudbloggar';
+    });
+
+    /**
+     * Bloggradion.
+     */
+    Route::get('player/{expert}/{track}', function () {
+        return View('player');
+    });
 });
