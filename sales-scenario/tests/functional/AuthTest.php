@@ -30,7 +30,7 @@ class AuthTest extends TestCase
             ->type($password, 'password')
             ->type($password, 'password_confirmation')
             ->press('Register')
-            ->seePageIs('/')->see('Welcome')
+            ->seePageIs('/dashboard')->see('inloggad')
 
             //checks if name value is stored in database
             ->seeInDatabase('users', ['username' => $name]);
