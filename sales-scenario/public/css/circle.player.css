@@ -14,7 +14,7 @@
 	position:relative;
 	width:104px; /* 200 - (2 * 48) */
 	height:104px;
-	background:url("/img/circle_player/bgr_white.jpg") 0 0 no-repeat;
+	background:url("/img/circle_player/bgr.jpg") 0 0/100% no-repeat;
 	padding:48px;
 	-webkit-tap-highlight-color:rgba(0,0,0,0);
 }
@@ -42,7 +42,7 @@
 
 .cp-buffer-1,
 .cp-buffer-2 {
-	background:url("/img/circle_player/buffer.png") 0 0 no-repeat;
+	background:url("/img/circle_player/buffer.png") 0 0/100% no-repeat;
 }
 
 
@@ -58,7 +58,7 @@
 
 .cp-progress-1,
 .cp-progress-2 {
-	background:url("/img/circle_player/progress_orange.png") 0 0 no-repeat;
+	background:url("/img/circle_player/progress.png") 0 0/100% no-repeat;
 }
 
 .cp-buffer-holder,
@@ -112,19 +112,19 @@
 }
 
 .cp-controls .cp-play {
-	background:url("/img/circle_player/controls.jpg") 0 0 no-repeat;
+	background:url("/img/circle_player/controls.jpg") 0 0/200% no-repeat;
 }
 
 .cp-controls .cp-play:hover {
-	background:url("/img/circle_player/controls.jpg") -50px 0 no-repeat;
+	background:url("/img/circle_player/controls.jpg") -50px 0/200% no-repeat;
 }
 
 .cp-controls .cp-pause {
-	background:url("/img/circle_player/controls.jpg") 0 -50px no-repeat;
+	background:url("/img/circle_player/controls.jpg") 0 -50px/200% no-repeat;
 }
 
 .cp-controls .cp-pause:hover {
-	background:url("/img/circle_player/controls.jpg") -50px -50px no-repeat;
+	background:url("/img/circle_player/controls.jpg") -50px -50px/200% no-repeat;
 }
 
 .cp-jplayer {
