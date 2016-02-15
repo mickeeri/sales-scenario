@@ -39,7 +39,7 @@ class PodcastController extends CrudController{
 
 		$this->edit = \DataEdit::source(new Podcast);
 
-		$this->edit->label('Edit Category');
+		$this->edit->label('Edit Podcast');
 
 		$this->edit->add('title', 'Title', 'text')->rule('required');
 

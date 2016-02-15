@@ -35,6 +35,9 @@
     <!-- jQuery Version 1.11.0 -->
     <script src="{{asset("packages/serverfireteam/panel/js/jquery-1.11.0.js")}}"></script>
 
+
+
+
 </head>
 
 <body class="@yield('bodyClass')">
@@ -59,8 +62,14 @@
     <!--script src="{{asset("packages/serverfireteam/rapyd-laravel/assets/colorpicker/js/bootstrap-colorpicker.min.js")}}"></script-->
 
     
-    {!! Rapyd::scripts() !!} 
-    
+    {!! Rapyd::scripts() !!}
+
+    {{-- Script to remove Delete file checkbox --}}
+    <script>
+        var elem = $('input[type=file]').siblings('.clearfix');
+        elem.find('input').remove();
+        $(elem).text(elem.find('a').text());
+    </script>
 </body>
 
 </html>
