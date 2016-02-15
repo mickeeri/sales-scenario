@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Expert;
 use App\User;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
@@ -15,8 +16,10 @@ class ExpertController extends CrudController{
         parent::all($entity);
 
         // Simple code of  filter and grid part , List of all fields here : http://laravelpanel.com/docs/master/crud-fields
+        // TODO:: Render all users and not only experts
 
-        $this->filter = \DataFilter::source(new User);
+        $this->filter = \DataFilter::source(new User());
+
         $this->filter->add('username', 'Username', 'text');
         $this->filter->add('email', 'Email', 'text');
         $this->filter->submit('search');
@@ -28,6 +31,8 @@ class ExpertController extends CrudController{
         $this->grid->add('email', 'Email');
         $this->grid->add('created_at', 'Created');
         $this->addStylesToGrid();
+
+        $this->grid->paginate(20);
 
         return $this->returnView();
     }
@@ -49,7 +54,7 @@ class ExpertController extends CrudController{
         $this->edit->add('experts.last_name', 'Last name', 'text')->rule('required');
         $this->edit->add('experts.website', 'Website', 'text');
         $this->edit->add('experts.info', 'Info', 'text');
-
+        $this->edit->add('experts.photo', 'Photo', 'image')->rule('mimes:jpg,png')->move('expert_photo')->preview(180,180);
         return $this->returnEditView();
     }
 }
