@@ -67,4 +67,15 @@ Route::group(['middleware' => ['web','auth']], function(){
     Route::get('player/{expert}/{track}', function () {
         return View('player');
     });
+
+    /**
+     * Hämta ljudfil.
+     */
+    Route::get('audio/{id}', function($id) {
+        $podcast = \App\Podcast::find($id);
+        $file=storage_path().'/app/podcasts/'.$podcast->filename;
+        return Response::download($file);
+    });
 });
+
+
