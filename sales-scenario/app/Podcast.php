@@ -21,4 +21,22 @@ class Podcast extends Model
         return $this->belongsTo('App\Expert');
     }
 
+    public function save(array $options = array())
+    {
+        // before save code
+        parent::save($options);
+        // after save code
+        $finalLocation = storage_path().'/app/podcasts/';
+        $tempLocation = $finalLocation.'temp/';
+        $tempFileName = $this->attributes['filename'];
+
+        if (file_exists($tempLocation.$tempFileName)) {
+            $finalFileName = $this->attributes['id'].'.'.pathinfo($tempLocation.$tempFileName, PATHINFO_EXTENSION);
+            rename($tempLocation.$tempFileName, $finalLocation.$finalFileName);
+            $this->attributes['filename'] = $finalFileName;
+            parent::save();
+        }
+
+    }
+
 }
