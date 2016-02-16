@@ -25,7 +25,7 @@ class AddPhotoToExpertsTable extends Migration
     public function down()
     {
         Schema::table('experts', function (Blueprint $table) {
-
+            $table->dropColumn('photo');
         });
     }
 }
