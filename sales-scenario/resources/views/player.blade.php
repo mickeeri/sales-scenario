@@ -19,7 +19,7 @@
 
     <div id="player-content">
         <div class="slide">
-            <img class="profile-img" src="/temp_before_db_implem/david_stein.png" alt="Profile image of Dave Stein" />
+            <img class="profile-img" src="{{ $player['imgSrc']}}" alt="{{$player['imgAlt']}}"/>
             <p class="description">
                 <span class="podcast-title">The sales letter comes last in sales</span>
                 <span class="podcast-author">By David Stein</span>
