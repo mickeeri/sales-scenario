@@ -61,9 +61,7 @@ Route::group(['middleware' => ['web','auth']], function(){
     /**
      * När man klickar på explore
      */
-    Route::get('explore', function () {
-        return 'vy 6: Lista alla experter med alla taggar';
-    });
+    Route::get('explore', 'ExploreController@Index');
 
     Route::get('explore/{id}', function () {
         return 'vy 6: Lista alla experter efter vald taggid från dashboard';
@@ -72,9 +70,7 @@ Route::group(['middleware' => ['web','auth']], function(){
     /**
      * När man klickar på experten namn i listan
      */
-    Route::get('expert/{id}', function () {
-        return 'vy 7: Lista med expertens ljudbloggar';
-    });
+    Route::get('expert/{id}', 'ExploreController@Expert');
 
     /**
      * Bloggradion.
