@@ -1,5 +1,7 @@
 <?php
 
+
+
 /*
 |--------------------------------------------------------------------------
 | Routes File
@@ -30,12 +32,25 @@ Route::get('/', function () {
 |
 */
 
-// Route::group(['middleware' => ['web']], function () {
-//     //
-// });
-
 Route::group(['middleware' => 'web'], function () {
+
     Route::auth();
+
+    /**
+     * Hämta ljudfil.
+     * Mime = audio/x-m4a
+     */
+    Route::get('audio/{id}', function($id) {
+
+        // Check if logged in.
+        if (!Auth::check()) {
+            App::abort(401, 'Not authenticated');
+        }
+
+        $podcast = \App\Podcast::find($id);
+        $file=storage_path().'/app/podcasts/'.$podcast->filename;
+        return Response::download($file);
+    });
 });
 
 Route::group(['middleware' => ['web','auth']], function(){
@@ -68,14 +83,11 @@ Route::group(['middleware' => ['web','auth']], function(){
         return View('player');
     });
 
-    /**
-     * Hämta ljudfil.
-     */
-    Route::get('audio/{id}', function($id) {
-        $podcast = \App\Podcast::find($id);
-        $file=storage_path().'/app/podcasts/'.$podcast->filename;
-        return Response::download($file);
-    });
 });
+
+
+
+
+
 
 
