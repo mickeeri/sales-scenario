@@ -35,7 +35,7 @@ class Podcast extends Model
      * @var array
      */
     protected $fillable = [
-        'title', 'filename',
+        'title', 'filename', 'expert_id'
     ];
 
     /**

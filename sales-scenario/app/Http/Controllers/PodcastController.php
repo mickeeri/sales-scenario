@@ -15,17 +15,21 @@ class PodcastController extends CrudController{
     public function all($entity){
         parent::all($entity); 
 
-		$this->filter = \DataFilter::source(new Podcast);
+		$this->filter = \DataFilter::source(Podcast::with('expert'));
 		$this->filter->add('title', 'Title', 'text');
+		$this->filter->add('expert.last_name', 'Last name', 'text');
 		$this->filter->submit('search');
 		$this->filter->reset('reset');
 		$this->filter->build();
 
 		$this->grid = \DataGrid::source($this->filter);
 		$this->grid->add('title', 'Title');
+		$this->grid->add('expert.full_name', 'Expert');
+
+
 		$this->grid->add('created_at', 'Created');
 		$this->addStylesToGrid();
-                 
+
         return $this->returnView();
     }
     
@@ -33,6 +37,12 @@ class PodcastController extends CrudController{
         
 
 		parent::edit($entity);
+
+		Podcast::deleted(function($podCast) {
+			header('Location: /panel/Podcast/all');
+			die();
+		});
+
 
         // Simple code of  edit part , List of all fields here : http://laravelpanel.com/docs/master/crud-fields
 		$this->edit = \DataEdit::source(new Podcast);
