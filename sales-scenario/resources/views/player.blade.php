@@ -19,10 +19,10 @@
 
     <div id="player-content">
         <div class="slide">
-            <img class="profile-img" src="{{ $player['imgSrc']}}" alt="{{$player['imgAlt']}}"/>
+            <img class="profile-img" src="/expert_photo/{{ $player['imgSrc']}}" alt="Profile image of {{ $player['expertFirst'] }} {{ $player['expertLast'] }}"/>
             <p class="description">
-                <span class="podcast-title">The sales letter comes last in sales</span>
-                <span class="podcast-author">By David Stein</span>
+                <span class="podcast-title">{{$player['podcastTitle']}}</span>
+                <span class="podcast-author">By {{ $player['expertFirst'] }} {{ $player['expertLast'] }}</span>
             </p>
         </div>
         {{--<audio controls>
