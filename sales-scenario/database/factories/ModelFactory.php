@@ -37,3 +37,11 @@ $factory->define(App\Podcast::class, function (Faker\Generator $faker) {
     ];
 });
 
+$factory->define(Serverfireteam\Panel\Admin::class, function (Faker\Generator $faker) {
+    return [
+        'email' => 'admin@test.com',
+        'password' => '12345',
+        'activated' => 0,
+    ];
+});
+

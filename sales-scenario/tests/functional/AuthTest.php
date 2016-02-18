@@ -23,17 +23,21 @@ class AuthTest extends TestCase
         $faker = Faker\Factory::create();
         $name = $faker->name;
         $password = $faker->password;
-
+        $fields = ['username' => $name, 'email' => $faker->email, 'password' => $password, 'password_confirmation' =>$password];
         $this->visit('register')
-            ->type($name, 'username')
-            ->type($faker->email, 'email')
-            ->type($password, 'password')
-            ->type($password, 'password_confirmation')
-            ->press('Register')
+            ->submitForm('Register', $fields)
             ->seePageIs('/dashboard')->see('inloggad')
-
             //checks if name value is stored in database
             ->seeInDatabase('users', ['username' => $name]);
+    }
+
+    /** @test */
+
+    public function can_user_login()
+    {
+        $this->login()
+            ->visit('login')
+            ->see('inloggad');
     }
 
 }
