@@ -75,9 +75,7 @@ Route::group(['middleware' => ['web','auth']], function(){
     /**
      * Bloggradion.
      */
-    Route::get('player/{expert}/{track}', function () {
-        return View('player');
-    });
+    Route::get('player/{expert}/{track}', 'PlayerController@Index');
 
 });
 

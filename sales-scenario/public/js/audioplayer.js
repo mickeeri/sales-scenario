@@ -13,11 +13,15 @@ $(document).ready(function(){
      *
      * Multiple instances must set the cssSelectorAncestor in the jPlayer options. Defaults to "#cp_container_1" in CirclePlayer.
      */
+    var type = $("#cp_container_1").data('type');
+    var path = $("#cp_container_1").data('path');
+    var media = {};
+    media[type]= path;
+
     var myCirclePlayer = new CirclePlayer("#jquery_jplayer_1",
-        {
-            m4a: "http://www.jplayer.org/audio/m4a/Miaow-07-Bubble.m4a",
-            oga: "http://www.jplayer.org/audio/ogg/Miaow-07-Bubble.ogg"
-        }, {
+
+            media,
+         {
             cssSelectorAncestor: "#cp_container_1"
         });
 });
