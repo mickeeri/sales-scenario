@@ -13,10 +13,11 @@ class PlayerController extends Controller
 {
     public function Index($expert, $track) {
 
-        $podcast = Podcast::find($track);
         $author = Expert::find($expert);    //TODO: Change to slug???
+        $podcast = Podcast::find($track);
 
-        if(!$podcast) {
+
+        if(!$podcast || $podcast->expert_id != $author->id) {
             return redirect('expert/'.$expert)->with('status', 'The podcast you are looking for cant be found.');
         }
 
@@ -38,6 +39,7 @@ class PlayerController extends Controller
                 'podcastType' => $ext,
                 'podcastPath' => $path,
             ];
+            //return $player;
 
             return view('player')->with(compact('player'));
         }

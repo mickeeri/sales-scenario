@@ -19,7 +19,12 @@
 
     <div id="player-content">
         <div class="slide">
-            <img class="profile-img" src="/expert_photo/{{ $player['imgSrc'] or 'blank-profile-picture.png'}}" alt="Profile image of {{ $player['expertFirst'] }} {{ $player['expertLast'] }}"/>
+            @if (!empty($player['imgSrc']))
+                <img class="profile-img" src="/expert_photo/{{ $player['imgSrc']}}" alt="Profile image of {{ $player['expertFirst'] }} {{ $player['expertLast'] }}"/>
+            @else
+                <img class="profile-img" src="/expert_photo/blank-profile-picture.png" alt="Profile image not available"/>
+            @endif
+
             <p class="description">
                 <span class="podcast-title">{{$player['podcastTitle']}}</span>
                 <span class="podcast-author">By {{ $player['expertFirst'] }} {{ $player['expertLast'] }}</span>
