@@ -16,21 +16,31 @@ class PlayerController extends Controller
         $podcast = Podcast::find($track);
         $author = Expert::find($expert);    //TODO: Change to slug???
 
-        $path = '/audio/'.$podcast->id;
-        //Get the ext of the file
-        $ext = pathinfo($podcast->filename);
-        $ext = $ext['extension'];
+        if(!$podcast) {
+            return redirect('expert/'.$expert)->with('status', 'The podcast you are looking for cant be found.');
+        }
 
-        $player = [
-            'imgSrc'        => $author->photo,
-            'expertFirst'   => $author->first_name,
-            'expertLast'    => $author->last_name,
-            'podcastTitle'  => $podcast->title,
-            'podcastType'   => $ext,
-            'podcastPath'   => $path,
-        ] ;
+        if(!$author) {
+            return redirect('explore')->with('status', 'The sales expert you are looking for cant be found.');
+        }
 
-        return view('player')->with(compact('player'));
+        else {
+            $path = '/audio/' . $podcast->id;
+            //Get the ext of the file
+            $ext = pathinfo($podcast->filename);
+            $ext = $ext['extension'];
+
+            $player = [
+                'imgSrc' => $author->photo,
+                'expertFirst' => $author->first_name,
+                'expertLast' => $author->last_name,
+                'podcastTitle' => $podcast->title,
+                'podcastType' => $ext,
+                'podcastPath' => $path,
+            ];
+
+            return view('player')->with(compact('player'));
+        }
     }
 
 }

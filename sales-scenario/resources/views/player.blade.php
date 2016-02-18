@@ -19,7 +19,7 @@
 
     <div id="player-content">
         <div class="slide">
-            <img class="profile-img" src="/expert_photo/{{ $player['imgSrc']}}" alt="Profile image of {{ $player['expertFirst'] }} {{ $player['expertLast'] }}"/>
+            <img class="profile-img" src="/expert_photo/{{ $player['imgSrc'] or 'blank-profile-picture.png'}}" alt="Profile image of {{ $player['expertFirst'] }} {{ $player['expertLast'] }}"/>
             <p class="description">
                 <span class="podcast-title">{{$player['podcastTitle']}}</span>
                 <span class="podcast-author">By {{ $player['expertFirst'] }} {{ $player['expertLast'] }}</span>

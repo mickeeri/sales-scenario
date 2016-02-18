@@ -5,6 +5,11 @@
 @endsection
 
 @section('content')
+        @if (session('status'))
+                <div class="alert">
+                        {{ session('status') }}
+                </div>
+        @endif
         <div class="profile-information">
                 <h1>{{ $expert->first_name }} {{ $expert->last_name }} </h1>
                 <p>{{ $expert->info }}</p>
