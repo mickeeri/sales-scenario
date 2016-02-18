@@ -13,10 +13,21 @@
 
 $factory->define(App\User::class, function (Faker\Generator $faker) {
     return [
-        'name' => $faker->name,
+        'username' => $faker->name,
         'email' => $faker->email,
         'password' => bcrypt(str_random(10)),
         'remember_token' => str_random(10),
+    ];
+});
+
+$factory->define(App\Expert::class, function (Faker\Generator $faker) {
+    $user = factory(App\User::class)->create();
+    return [
+        'first_name' => $faker->firstName,
+        'last_name' => $faker->lastName,
+        'info' => $faker->sentence,
+        'website' => $faker->url,
+        'user_id' => $user->id
     ];
 });
 
@@ -25,3 +36,4 @@ $factory->define(App\Podcast::class, function (Faker\Generator $faker) {
         'title' => $faker->firstName
     ];
 });
+
