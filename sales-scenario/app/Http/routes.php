@@ -1,5 +1,7 @@
 <?php
 
+
+
 /*
 |--------------------------------------------------------------------------
 | Routes File
@@ -30,12 +32,25 @@ Route::get('/', function () {
 |
 */
 
-// Route::group(['middleware' => ['web']], function () {
-//     //
-// });
-
 Route::group(['middleware' => 'web'], function () {
+
     Route::auth();
+
+    /**
+     * Hämta ljudfil.
+     * Mime = audio/x-m4a
+     */
+    Route::get('audio/{id}', function($id) {
+
+        // Check if logged in.
+        if (!Auth::check()) {
+            App::abort(401, 'Not authenticated');
+        }
+
+        $podcast = \App\Podcast::find($id);
+        $file=storage_path().'/app/podcasts/'.$podcast->filename;
+        return Response::download($file);
+    });
 });
 
 Route::group(['middleware' => ['web','auth']], function(){
@@ -46,9 +61,7 @@ Route::group(['middleware' => ['web','auth']], function(){
     /**
      * När man klickar på explore
      */
-    Route::get('explore', function () {
-        return 'vy 6: Lista alla experter med alla taggar';
-    });
+    Route::get('explore', 'ExploreController@Index');
 
     Route::get('explore/{id}', function () {
         return 'vy 6: Lista alla experter efter vald taggid från dashboard';
@@ -57,14 +70,18 @@ Route::group(['middleware' => ['web','auth']], function(){
     /**
      * När man klickar på experten namn i listan
      */
-    Route::get('expert/{id}', function () {
-        return 'vy 7: Lista med expertens ljudbloggar';
-    });
+    Route::get('expert/{id}', 'ExploreController@Expert');
 
     /**
      * Bloggradion.
      */
-    Route::get('player/{expert}/{track}', function () {
-        return View('player');
-    });
+    Route::get('player/{expert}/{track}', 'PlayerController@Index');
+
 });
+
+
+
+
+
+
+
