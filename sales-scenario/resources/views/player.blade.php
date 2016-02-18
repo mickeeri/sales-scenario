@@ -25,16 +25,12 @@
                 <span class="podcast-author">By {{ $player['expertFirst'] }} {{ $player['expertLast'] }}</span>
             </p>
         </div>
-        {{--<audio controls>
-            <source src="http://www.jplayer.org/audio/m4a/Miaow-07-Bubble.m4a" type="audio/mpeg">
-            Your browser does not support the audio element.
-        </audio>--}}
 
         <!-- The jPlayer div must not be hidden. Keep it at the root of the body element to avoid any such problems. -->
         <div id="jquery_jplayer_1" class="cp-jplayer"></div>
         <!-- The container for the interface can go where you want to display it. Show and hide it as you need. -->
         <div id="player-wrapper">
-            <div id="cp_container_1" class="cp-container">
+            <div id="cp_container_1" class="cp-container" data-type="{{$player['podcastType']}}" data-path="{{$player['podcastPath']}}">
                 <div class="cp-buffer-holder"> <!-- .cp-gt50 only needed when buffer is > than 50% -->
                     <div class="cp-buffer-1"></div>
                     <div class="cp-buffer-2"></div>
