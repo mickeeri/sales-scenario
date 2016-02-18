@@ -54,7 +54,7 @@ class ExpertController extends CrudController{
         $this->edit->add('experts.last_name', 'Last name', 'text')->rule('required');
         $this->edit->add('experts.website', 'Website', 'text');
         $this->edit->add('experts.info', 'Info', 'text');
-        $this->edit->add('experts.photo', 'Photo', 'image')->rule('mimes:jpg,png')->move('expert_photo')->preview(180,180);
+        $this->edit->add('experts.photo', 'Photo', 'image')->rule('image')->move('expert_photo')->preview(180,180);
         return $this->returnEditView();
     }
 }
