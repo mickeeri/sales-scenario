@@ -39,7 +39,6 @@ class PlayerController extends Controller
                 'podcastType' => $ext,
                 'podcastPath' => $path,
             ];
-            //return $player;
 
             return view('player')->with(compact('player'));
         }
