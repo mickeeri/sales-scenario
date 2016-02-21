@@ -16,32 +16,28 @@ class PlayerController extends Controller
         $author = Expert::find($expert);    //TODO: Change to slug???
         $podcast = Podcast::find($track);
 
-
-        if(!$podcast || $podcast->expert_id != $author->id) {
-            return redirect('expert/'.$expert)->with('status', 'The podcast you are looking for cant be found.');
+        if($author && (!$podcast || $podcast->expert_id != $author->id)) {
+            return redirect('expert/'.$expert)->with('status', "The podcast you are looking for can't be found.");
+        }elseif(!$author){
+            return redirect('explore')->with('status', "The sales expert you are looking for can't be found.");
         }
 
-        if(!$author) {
-            return redirect('explore')->with('status', 'The sales expert you are looking for cant be found.');
-        }
+        $path = '/audio/' . $podcast->id;
+        //Get the ext of the file
+        $ext = pathinfo($podcast->filename);
+        $ext = $ext['extension'];
 
-        else {
-            $path = '/audio/' . $podcast->id;
-            //Get the ext of the file
-            $ext = pathinfo($podcast->filename);
-            $ext = $ext['extension'];
+        $player = [
+            'imgSrc' => $author->photo,
+            'expertFirst' => $author->first_name,
+            'expertLast' => $author->last_name,
+            'podcastTitle' => $podcast->title,
+            'podcastType' => $ext,
+            'podcastPath' => $path,
+        ];
 
-            $player = [
-                'imgSrc' => $author->photo,
-                'expertFirst' => $author->first_name,
-                'expertLast' => $author->last_name,
-                'podcastTitle' => $podcast->title,
-                'podcastType' => $ext,
-                'podcastPath' => $path,
-            ];
+        return view('player')->with(compact('player'));
 
-            return view('player')->with(compact('player'));
-        }
     }
 
 }
