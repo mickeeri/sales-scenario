@@ -16,10 +16,10 @@ class Expert extends Model
         'first_name', 'last_name', 'website', 'info'
     ];
 
-    public function user()
+    /*public function user()
     {
         return $this->belongsTo('App\User');
-    }
+    }*/
 
     /**
      * Get podcasts associated with given expert

@@ -39,8 +39,8 @@ class User extends Authenticatable
      *
      * @return \Illuminate\Database\Eloquent\Relations\HasOne
      */
-    public function experts()
+    /*public function experts()
     {
         return $this->hasOne('App\Expert');
-    }
+    }*/
 }
