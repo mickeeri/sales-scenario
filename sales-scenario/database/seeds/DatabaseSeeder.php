@@ -77,13 +77,13 @@ class PodcastsTableSeeder extends Seeder {
                 $podcast = new \App\Podcast();
                 $podcast->expert_id = $expert->id;
                 $podcast->title = $faker->sentence($nbWords = 3);
-                $podcast->filename = str_random(6).'m4a';
-                $podcast->save();
-                // Assigns filename same as podcast id and saves again.
-                $podcast->filename = $podcast->id.'.m4a';
+                // On save seedpodcast.m4a is moved and renamed to (podcast->id).m4a ...
+                $podcast->filename = 'seedpodcast.m4a';
                 $podcast->save();
 
-                // TODO: filnamn kopplade till riktig fil.
+                // ... to use it again. Copy the file and rename to seedpodcast.m4a again.
+                $file = 'storage/app/podcasts/'.$podcast->filename;
+                copy($file, 'storage/app/podcasts/temp/seedpodcast.m4a');
             }
         }
     }
