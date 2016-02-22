@@ -5,9 +5,10 @@
     <form method="POST" action="{{ url('/login') }}">
         {!! csrf_field() !!}
 
+        @include('unauthorized.logo')
+
         <div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}">
-            <label for="input_email">E-Mail Address</label>
-            <input id="input_email" type="email" name="email" value="{{ old('email') }}">
+            <input id="input_email" type="email" name="email" placeholder="Email" value="{{ old('email') }}">
 
             @if ($errors->has('email'))
                 <span class="help-block">
@@ -17,8 +18,7 @@
         </div>
 
         <div class="form-group{{ $errors->has('password') ? ' has-error' : '' }}">
-            <label for="input_password">Password</label>
-            <input id="input_password" name="password">
+            <input id="input_password" name="password" placeholder="Password" type="password">
 
             @if ($errors->has('password'))
                 <span class="help-block">
@@ -28,20 +28,23 @@
 
         </div>
 
-        <div class="form-group">
+        <div class="form-group float-left">
             <div class="checkbox">
-                <label>
-                    <input type="checkbox" name="remember"> Remember Me
+                <label class="upper smaller" id="remember_me">
+                    <input type="checkbox" name="remember"> Keep me logged in
                 </label>
             </div>
         </div>
 
-        <div class="form-group">
+        <div class="form-group children-block float-right">
 
-            <button type="submit">Login</button>
+            <button type="submit" class="upper">Sign in</button>
 
-            <a href="{{ url('/password/reset') }}">Forgot Your Password?</a>
+            <a href="{{ url('/password/reset') }}" class="small">Forgot Your Password?</a>
         </div>
+        <div class="clear"></div>
+        <a href="{{ url('/register') }}" class="full-width button upper top-space" id="register_button">Register</a>
+
     </form>
 
 @endsection

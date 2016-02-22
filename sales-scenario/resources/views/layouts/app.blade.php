@@ -17,7 +17,12 @@
     @yield('css')
     <title>Sales Scenario</title>
 </head>
-<body>
+<body
+    @unless (Auth::check())
+        class="unauthorized"
+    @endunless
+    >
+
 
     @if (Auth::check())
 
@@ -35,9 +40,7 @@
             </ul>
         </nav>
     </div>
-    @else
-        <a href="{{ url('/login') }}">Login</a>
-        <a href="{{ url('/register') }}">Register</a>
+
     @endif
 
     <div class="wrapper" id="content">

@@ -8,8 +8,7 @@
         <input type="hidden" name="token" value="{{ $token }}">
 
         <div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}">
-            <label for="input_email">E-Mail Address</label>
-            <input id="input_email" type="email" name="email" value="{{ $email or old('email') }}">
+            <input id="input_email" type="email" name="email" placeholder="Email" value="{{ $email or old('email') }}">
 
             @if ($errors->has('email'))
                 <span class="help-block">
