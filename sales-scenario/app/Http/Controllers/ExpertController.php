@@ -15,8 +15,7 @@ class ExpertController extends CrudController{
     public function all($entity){
         parent::all($entity);
 
-        // Simple code of  filter and grid part , List of all fields here : http://laravelpanel.com/docs/master/crud-fields
-        // TODO:: Render all users and not only experts
+        // Simple code of  filter and grid part
 
         $this->filter = \DataFilter::source(new Expert());
         $this->filter->add('first_name', 'First Name', 'text');
@@ -50,6 +49,7 @@ class ExpertController extends CrudController{
         $this->edit->add('website', 'Website', 'text')->rule('url')->placeholder('http://');;
         $this->edit->add('info', 'Info', 'textarea');
         $this->edit->add('photo', 'Photo', 'image')->rule('image')->move('expert_photo')->preview(180,180);
+        $this->edit->add('tags', 'Categories', 'checkboxgroup')->options(\App\Tag::lists("name", "id")->all());
 
         return $this->returnEditView();
     }
