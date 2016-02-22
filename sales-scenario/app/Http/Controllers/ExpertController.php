@@ -15,20 +15,18 @@ class ExpertController extends CrudController{
     public function all($entity){
         parent::all($entity);
 
-        // Simple code of  filter and grid part , List of all fields here : http://laravelpanel.com/docs/master/crud-fields
-        // TODO:: Render all users and not only experts
+        // Simple code of  filter and grid part
 
-        $this->filter = \DataFilter::source(new User());
-
-        $this->filter->add('username', 'Username', 'text');
-        $this->filter->add('email', 'Email', 'text');
+        $this->filter = \DataFilter::source(new Expert());
+        $this->filter->add('first_name', 'First Name', 'text');
+        $this->filter->add('last_name', 'Last Name', 'text');
         $this->filter->submit('search');
         $this->filter->reset('reset');
         $this->filter->build();
 
         $this->grid = \DataGrid::source($this->filter);
-        $this->grid->add('username', 'Username');
-        $this->grid->add('email', 'Email');
+        $this->grid->add('first_name', 'First Name');
+        $this->grid->add('last_name', 'Last Name');
         $this->grid->add('created_at', 'Created');
         $this->addStylesToGrid();
 
@@ -39,22 +37,20 @@ class ExpertController extends CrudController{
 
     public function  edit($entity){
 
-        parent::edit($entity);
+        //TODO Why is this code here??? //Andréas
+        //parent::edit($entity);
 
-        $this->edit = \DataEdit::source(new User());
-        $this->edit->label('Edit User');
-        $this->edit->add('username', 'Username', 'text')->rule('required|unique:users');
-        $this->edit->add('email', 'Email', 'text')->rule('required|email|max:255|unique:users');
-        $this->edit->add('password', 'Password', 'password')->rule('confirmed|min:6');
-        $this->edit->add('password_confirmation', 'Repeat Password', 'password')->rule('min:6');
+        $this->edit = \DataEdit::source(new Expert());
 
-        /** The expert part */
+        //Drop down from users table.
+        $this->edit->label('Edit Expert');
+        $this->edit->add('first_name', 'First name', 'text')->rule('required');
+        $this->edit->add('last_name', 'Last name', 'text')->rule('required');
+        $this->edit->add('website', 'Website', 'text')->rule('url')->placeholder('http://');;
+        $this->edit->add('info', 'Info', 'textarea');
+        $this->edit->add('photo', 'Photo', 'image')->rule('image')->move('expert_photo')->preview(180,180);
+        $this->edit->add('tags', 'Categories', 'checkboxgroup')->options(\App\Tag::lists("name", "id")->all());
 
-        $this->edit->add('experts.first_name', 'First name', 'text')->rule('required');
-        $this->edit->add('experts.last_name', 'Last name', 'text')->rule('required');
-        $this->edit->add('experts.website', 'Website', 'text')->rule('url')->placeholder('http://');;
-        $this->edit->add('experts.info', 'Info', 'textarea');
-        $this->edit->add('experts.photo', 'Photo', 'image')->rule('image')->move('expert_photo')->preview(180,180);
         return $this->returnEditView();
     }
 }

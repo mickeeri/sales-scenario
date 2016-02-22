@@ -34,13 +34,4 @@ class User extends Authenticatable
         'password', 'remember_token',
     ];
 
-    /**
-     * User belongs to one expert
-     *
-     * @return \Illuminate\Database\Eloquent\Relations\HasOne
-     */
-    public function experts()
-    {
-        return $this->hasOne('App\Expert');
-    }
 }

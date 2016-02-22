@@ -17,7 +17,7 @@ class PodcastController extends CrudController{
 
 		$this->filter = \DataFilter::source(Podcast::with('expert'));
 		$this->filter->add('title', 'Title', 'text');
-		$this->filter->add('expert.last_name', 'Last name', 'text');
+		$this->filter->add('experts.last_name', 'Last name', 'text');
 		$this->filter->submit('search');
 		$this->filter->reset('reset');
 		$this->filter->build();
