@@ -129,7 +129,7 @@ button:hover, .button:hover, input[type=submit]:hover{
 }
 
 .unauthorized #content{
-    padding: 0;
+    padding-top: 0;
 }
 
 .unauthorized #logo {
