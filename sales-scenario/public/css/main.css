@@ -34,7 +34,150 @@ body {
 
 /**************************************Desktop view**************************************/
 
-/************************************** Header **************************************/
+.upper {
+    text-transform: uppercase;
+}
+
+button, .button, input[type=submit]{
+    background-color: #b1b3b4;
+    border: 2px solid #b1b3b4;
+    box-sizing: border-box;
+    color: #fff;
+    display: inline-block;
+    font-weight: 700;
+    margin-bottom: 10px;
+    padding: 15px 30px;
+    text-align: center;
+    text-decoration: none;
+    transition: color 0.2s, background-color 0.2s;
+    -webkit-transition: color 0.2s, background-color 0.2s;
+
+}
+
+button:hover, .button:hover, input[type=submit]:hover{
+    background-color: #b1b3b4;
+    color: #fff;
+}
+
+.button.full-width {
+    margin-bottom: 10px;
+    margin-top: 10px;
+}
+
+.full-width {
+    display: block;
+    width: 100%;
+}
+
+.children-block > * {
+    display: block;
+}
+
+.float-right {
+    float: right;
+}
+
+.float-left {
+    float: left;
+}
+
+.no-float {
+    float: none;
+}
+
+.clear {
+    clear: both;
+}
+
+.top-space {
+    margin-top: 30px !important;
+}
+
+.bottom-space {
+    margin-bottom: 30px;
+}
+
+.smaller {
+    font-size: 12px;
+}
+
+::-webkit-input-placeholder { /* Chrome/Opera/Safari */
+    color: #afafaf;
+    font-weight: 700;
+    text-transform: uppercase;
+}
+::-moz-placeholder { /* Firefox 19+ */
+    color: #afafaf;
+    font-weight: 700;
+    text-transform: uppercase;
+}
+:-ms-input-placeholder { /* IE 10+ */
+    color: #afafaf;
+    font-weight: 700;
+    text-transform: uppercase;
+}
+:-moz-placeholder { /* Firefox 18- */
+    color: #afafaf;
+    font-weight: 700;
+    text-transform: uppercase;
+}
+
+/************************************** Unauthorized views **************************************/
+
+.unauthorized #content {
+    background-color: #e95d0f;
+}
+
+.unauthorized #logo {
+    display: block;
+    margin: 0 auto 30px;
+    max-width: 650px;
+    width: 100%;
+}
+
+.unauthorized #logo img {
+    height: auto;
+    max-width: 100%;
+}
+
+.unauthorized form {
+    display: block;
+    margin: 0 auto;
+    width: 400px;
+}
+
+.unauthorized form input[type = "text"],
+.unauthorized form input[type = "email"],
+.unauthorized form input[type = "password"]{
+    border: none;
+    box-sizing: border-box;
+    display: block;
+    margin-bottom: 10px;
+    padding: 10px;
+    width: 100%;
+}
+
+.unauthorized label {
+    color: white;
+    font-weight: 700;
+}
+
+.unauthorized a {
+    color: #fff;
+}
+
+.unauthorized a.small {
+    font-size: 11px;
+}
+
+.unauthorized #register_button {
+    font-size: 22px;
+}
+
+.unauthorized #remember_me input {
+    vertical-align: sub;
+}
+    /************************************** Header **************************************/
 
 
 #header {
@@ -315,5 +458,9 @@ html, body{
 
     #header nav ul li a:before {
         display: none;
+    }
+
+    .unauthorized form {
+        width: auto;
     }
 }

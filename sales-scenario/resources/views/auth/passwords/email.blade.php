@@ -12,10 +12,10 @@
     <form method="POST" action="{{ url('/password/email') }}">
         {!! csrf_field() !!}
 
-        <div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}">
-            <label for="input_email">E-Mail Address</label>
+        @include('unauthorized.logo')
 
-            <input id="input_email" class="form-control" name="email" value="{{ old('email') }}">
+        <div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}">
+            <input type="email" id="input_email" class="form-control" name="email" placeholder="Email" value="{{ old('email') }}">
 
             @if ($errors->has('email'))
                 <span class="help-block">
@@ -25,8 +25,9 @@
         </div>
 
         <div class="form-group">
-            <button type="submit">Send Password Reset Link</button>
+            <button type="submit" class="button full-width upper top-space">Send Password Reset Link</button>
         </div>
+        <a href="{{ url('/login') }}" class="small">Back to login page</a>
     </form>
 
 @endsection
