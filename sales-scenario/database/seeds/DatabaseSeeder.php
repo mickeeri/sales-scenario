@@ -1,5 +1,6 @@
 <?php
 
+use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Seeder;
 use App\User;
 use App\Expert;
@@ -15,7 +16,7 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        \Illuminate\Database\Eloquent\Model::unguard();
+        Model::unguard();
 
         // To avoid foreign key constraints.
         DB::statement('SET FOREIGN_KEY_CHECKS = 0');
@@ -44,6 +45,7 @@ class DatabaseSeeder extends Seeder
 
         // TODO: tags to experts.
         // TODO: Seedklasser i egna filer?
+        // TODO: Enkel User.
     }
 }
 
@@ -59,7 +61,7 @@ class ExpertsTableSeeder extends Seeder {
 
     public function run()
     {
-        factory('App\Expert', 40)->create();
+        factory('App\Expert', 100)->create();
     }
 }
 
@@ -71,19 +73,21 @@ class PodcastsTableSeeder extends Seeder {
         $faker = Faker\Factory::create();
         $experts =  \App\Expert::all();
 
-        // Creates 3 podcast per expert.
+        // Creates between 1 and 10 podcasts per expert.
         foreach ($experts as $expert) {
-            foreach (range(1, 3) as $index) {
+            $loop = rand(0,10);
+            for($i = 0; $i <= $loop; $i++) {
                 $podcast = new \App\Podcast();
                 $podcast->expert_id = $expert->id;
                 $podcast->title = $faker->sentence($nbWords = 3);
-                // On save seedpodcast.m4a is moved and renamed to (podcast->id).m4a ...
-                $podcast->filename = 'seedpodcast.m4a';
+                $podcast->filename = str_random(6).'m4a';
+                $podcast->save();
+                // Assigns filename same as podcast id and saves again.
+                $podcast->filename = $podcast->id.'.m4a';
                 $podcast->save();
 
-                // ... to use it again. Copy the file and rename to seedpodcast.m4a again.
-                $file = 'storage/app/podcasts/'.$podcast->filename;
-                copy($file, 'storage/app/podcasts/temp/seedpodcast.m4a');
+                // Replace with example-file in /seed.
+                copy(__DIR__ . '/example.m4a', \App\Podcast::podcastLocation() . $podcast->filename);
             }
         }
     }

@@ -50,7 +50,6 @@ class ExpertController extends CrudController{
         $this->edit->add('website', 'Website', 'text')->rule('url')->placeholder('http://');;
         $this->edit->add('info', 'Info', 'textarea');
         $this->edit->add('photo', 'Photo', 'image')->rule('image')->move('expert_photo')->preview(180,180);
-        $this->edit->add('tags', 'Categories', 'checkboxgroup')->options(\App\Tag::lists("name", "id")->all());
 
         return $this->returnEditView();
     }
