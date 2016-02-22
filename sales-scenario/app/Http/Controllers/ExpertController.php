@@ -44,7 +44,6 @@ class ExpertController extends CrudController{
         $this->edit = \DataEdit::source(new Expert());
 
         //Drop down from users table.
-        $this->edit->add('user_id','Expert\'s email','select')->options(\App\User::lists("email", "id")->all());
         $this->edit->label('Edit Expert');
         $this->edit->add('first_name', 'First name', 'text')->rule('required');
         $this->edit->add('last_name', 'Last name', 'text')->rule('required');

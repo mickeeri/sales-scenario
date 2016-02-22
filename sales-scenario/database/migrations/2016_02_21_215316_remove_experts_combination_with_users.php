@@ -14,6 +14,7 @@ class RemoveExpertsCombinationWithUsers extends Migration
     {
         Schema::table('experts', function (Blueprint $table) {
             $table->dropForeign('experts_user_id_foreign');
+            $table->dropColumn('user_id');
         });
     }
 

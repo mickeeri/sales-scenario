@@ -30,7 +30,6 @@ class UserTableSeeder extends Seeder {
         User::create
         (
             [
-                'id'        => 99999,
                 'username'  => 'userseed',
                 'email'     => 'user@user.se',
                 'password'  => '123456'
@@ -47,7 +46,6 @@ class UserTableSeeder extends Seeder {
                 'last_name'                 => 'testers_last_name',
                 'website'                  => 'www.tester.com',
                 'info'                      => 'Best salesman ever!',
-                'user_id'   => 99999
             ]
         );
     }
