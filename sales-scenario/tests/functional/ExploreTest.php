@@ -46,7 +46,7 @@ class ExploreTest extends TestCase
         $podcast->filename = "{$podcast->id}.mp3";
         $podcast->save();
 
-        $this->seeInDatabase('podcasts', ['title' => $podcast->title]);
+        $this->seeInDatabase('podcasts', ['title' => "$podcast->title"]);
 
         //First letter in last name that we want to see in expert list
         $letter = strtoupper(substr($expert->last_name, 0, 1));
