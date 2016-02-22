@@ -124,8 +124,12 @@ button:hover, .button:hover, input[type=submit]:hover{
 
 /************************************** Unauthorized views **************************************/
 
-.unauthorized #content {
+.unauthorized {
     background-color: #e95d0f;
+}
+
+.unauthorized #content{
+    padding: 0;
 }
 
 .unauthorized #logo {
