@@ -13,12 +13,18 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        $this->call('UserTableSeeder');
-        $this->command->info('User table seeded!');
+
+        $this->call('LinksTableSeeder');
+        $this->command->info('Links table seeded');
+
+        //$this->call('UserTableSeeder');
+        //$this->command->info('User table seeded!');
     }
 
 }
 
+
+/*
 //To seed db with som data run php artisna db:seed
 class UserTableSeeder extends Seeder {
 
@@ -50,6 +56,38 @@ class UserTableSeeder extends Seeder {
         );
     }
 }
+*/
+
+
+class LinksTableSeeder extends Seeder {
+
+    public function run()
+    {
+        //Warning! Delete() will Remove all existing rows
+        DB::table('links')->delete();
+
+        $defaultLinksSalesScenario =
+        [
+            ['display' => 'Users'   ,   'url' => 'User'],
+            ['display' => 'Experts' ,   'url' => 'Expert'],
+            ['display' => 'Podcasts',   'url' => 'Podcast']
+        ];
+
+
+        //Seed to db from $defaultLinksSalesScenario =
+        foreach($defaultLinksSalesScenario as $link)
+        {
+            \Serverfireteam\Panel\Link::create
+            (
+                [
+                    'display' => $link['display'],
+                    'url'     => $link['url']
+                ]
+            );
+        };
+    }
+}
+
 
 
 
