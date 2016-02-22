@@ -43,8 +43,8 @@ class ExpertController extends CrudController{
 
         $this->edit = \DataEdit::source(new User());
         $this->edit->label('Edit User');
-        $this->edit->add('username', 'Username', 'text')->rule('required');
-        $this->edit->add('email', 'Email', 'text')->rule('required|email|max:255');
+        $this->edit->add('username', 'Username', 'text')->rule('required|unique:users');
+        $this->edit->add('email', 'Email', 'text')->rule('required|email|max:255|unique:users');
         $this->edit->add('password', 'Password', 'password')->rule('confirmed|min:6');
         $this->edit->add('password_confirmation', 'Repeat Password', 'password')->rule('min:6');
 
@@ -52,9 +52,9 @@ class ExpertController extends CrudController{
 
         $this->edit->add('experts.first_name', 'First name', 'text')->rule('required');
         $this->edit->add('experts.last_name', 'Last name', 'text')->rule('required');
-        $this->edit->add('experts.website', 'Website', 'text');
-        $this->edit->add('experts.info', 'Info', 'text');
-        $this->edit->add('experts.photo', 'Photo', 'image')->rule('mimes:jpg,png')->move('expert_photo')->preview(180,180);
+        $this->edit->add('experts.website', 'Website', 'text')->rule('url')->placeholder('http://');;
+        $this->edit->add('experts.info', 'Info', 'textarea');
+        $this->edit->add('experts.photo', 'Photo', 'image')->rule('image')->move('expert_photo')->preview(180,180);
         return $this->returnEditView();
     }
 }

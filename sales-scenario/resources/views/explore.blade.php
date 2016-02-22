@@ -5,6 +5,11 @@
 @endsection
 
 @section('content')
+    @if (session('status'))
+        <div class="alert">
+            {{ session('status') }}
+        </div>
+    @endif
     @foreach($list as $letter => $experts)
         <h2>{{ $letter }}</h2>
         @foreach($experts as $expert)
