@@ -30,6 +30,12 @@ $factory->define(App\Expert::class, function (Faker\Generator $faker) {
     ];
 });
 
+$factory->define(App\Podcast::class, function (Faker\Generator $faker) {
+    return [
+        'title' => $faker->firstName
+    ];
+});
+
 $factory->define(Serverfireteam\Panel\Admin::class, function (Faker\Generator $faker) {
     return [
         'email' => 'admin@test.com',
