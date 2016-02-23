@@ -47,7 +47,6 @@ class ProfileController extends Controller
         }
 
         $input = $request->all();
-
         $user->fill($input)->save();
 
         Session::flash('flash_message', 'User successfully updated');
