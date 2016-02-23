@@ -71,8 +71,6 @@ class ExpertsTableSeeder extends Seeder {
     {
         factory('App\Expert', 100)->create();
     }
-
-
 }
 
 
@@ -134,15 +132,15 @@ class TagsTableSeeder extends Seeder {
 
     public function run()
     {
-        $defaultTagNames = ['Sales Strategy', 'Sales Tactics', 'Big Deals Management', 'Big Deals Management',
+        $defaultTagNames = ['Sales Strategy', 'Sales Tactics', 'Sales Process', 'Big Deals Management',
             'Selling To Small & Medium Businesses', 'Sales Team Coaching', 'Sales Hiring', 'Social Selling',
-            "Sales KPI's", 'Old School Sales', 'Management & Business Growth'];
+            "Sales KPIs", 'Old School Sales', 'Management & Business Growth'];
 
         foreach($defaultTagNames as $tagName) {
             \App\Tag::create(['name' => $tagName]);
         };
 
-
+        // Adding tags to experts.
         $experts = Expert::all();
         $tags = \App\Tag::all();
 
@@ -155,6 +153,7 @@ class TagsTableSeeder extends Seeder {
 
                 $id = rand($tags->min('id'), $tags->count());
 
+                // Avoiding duplication.
                 if(!$expert->tags()->find($id))
                 {
                     $expert->tags()->attach($id);
