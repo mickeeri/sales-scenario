@@ -77,6 +77,12 @@ Route::group(['middleware' => ['web','auth']], function(){
      */
     Route::get('player/{expert}/{track}', 'PlayerController@Index');
 
+    /**
+     * Users profile.
+     */
+    Route::get('profile', 'ProfileController@index');
+    Route::put('users/{id}', 'ProfileController@update');
+
 });
 
 

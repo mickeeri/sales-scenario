@@ -4,10 +4,6 @@
 *Includes desktop & mobile
 */
 
-
-
-
-
 /**************************************Typography**************************************/
 body {
     font-family: 'Open Sans', sans-serif;
@@ -25,12 +21,11 @@ body {
     margin: 0 auto;
 
 }
+
 /*the player itself*/
 .cp-container {
     margin: 0 auto;
 }
-
-
 
 /**************************************Desktop view**************************************/
 
@@ -38,7 +33,7 @@ body {
     text-transform: uppercase;
 }
 
-button, .button, input[type=submit]{
+button, .button, input[type=submit] {
     background-color: #b1b3b4;
     border: 2px solid #b1b3b4;
     box-sizing: border-box;
@@ -54,7 +49,7 @@ button, .button, input[type=submit]{
 
 }
 
-button:hover, .button:hover, input[type=submit]:hover{
+button:hover, .button:hover, input[type=submit]:hover {
     background-color: #b1b3b4;
     color: #fff;
 }
@@ -106,16 +101,19 @@ button:hover, .button:hover, input[type=submit]:hover{
     font-weight: 700;
     text-transform: uppercase;
 }
+
 ::-moz-placeholder { /* Firefox 19+ */
     color: #afafaf;
     font-weight: 700;
     text-transform: uppercase;
 }
+
 :-ms-input-placeholder { /* IE 10+ */
     color: #afafaf;
     font-weight: 700;
     text-transform: uppercase;
 }
+
 :-moz-placeholder { /* Firefox 18- */
     color: #afafaf;
     font-weight: 700;
@@ -128,7 +126,7 @@ button:hover, .button:hover, input[type=submit]:hover{
     background-color: #e95d0f;
 }
 
-.unauthorized #content{
+.unauthorized #content {
     padding-top: 0;
 }
 
@@ -152,7 +150,7 @@ button:hover, .button:hover, input[type=submit]:hover{
 
 .unauthorized form input[type = "text"],
 .unauthorized form input[type = "email"],
-.unauthorized form input[type = "password"]{
+.unauthorized form input[type = "password"] {
     border: none;
     box-sizing: border-box;
     display: block;
@@ -181,8 +179,8 @@ button:hover, .button:hover, input[type=submit]:hover{
 .unauthorized #remember_me input {
     vertical-align: sub;
 }
-    /************************************** Header **************************************/
 
+/************************************** Header **************************************/
 
 #header {
     height: 50px;
@@ -194,22 +192,21 @@ button:hover, .button:hover, input[type=submit]:hover{
     z-index: 500;
 }
 
-#header ul{
+#header ul {
     margin: 0;
     padding: 0;
 }
 
-#header ul li{
+#header ul li {
     display: inline-block;
 }
 
-#header ul#top{
+#header ul#top {
     position: absolute;
     left: 0;
 }
 
-
-#header ul#bottom{
+#header ul#bottom {
     position: absolute;
     right: 0;
 }
@@ -235,33 +232,32 @@ nav ul li:last-child a {
 }
 
 nav ul li.current a,
-nav ul li a:hover{
+nav ul li a:hover {
     color: #000;
 }
 
 /************************************** Misc **************************************/
 
-#content{
+#content {
     height: 100%;
     padding-top: 50px;
 }
 
 .wrapper {
-    width:100%;
+    width: 100%;
     max-width: 940px;
     margin: 0 auto;
     position: relative;
 }
 
-
-html, body{
+html, body {
     height: 100%;
 }
 
 /*aside*/
 .slide {
     width: 25%;
-    height:100%;
+    height: 100%;
     padding-top: 100px;
     float: left;
     background: #000000;
@@ -289,10 +285,8 @@ html, body{
     font-size: smaller;
 }
 
-
 /**************************************Mobile view**************************************/
 @media screen and (max-width: 768px) {
-
 
     .wrapper {
         width: auto;
@@ -313,6 +307,7 @@ html, body{
         margin-left: -10px;
         margin-right: -10px;
     }
+
     .profile-img {
         display: block;
         width: 130px;
@@ -323,25 +318,25 @@ html, body{
         padding: 0;
     }
 
-    .description{
+    .description {
         width: 45%;
         float: left;
     }
+
     .podcast-title, .podcast-author {
     }
 
     #player-wrapper {
         position: absolute;
         bottom: 50px;
-        left: calc( 50% - 100px );
+        left: calc(50% - 100px);
     }
 
     /**
     *
     * Menu
     */
-
-    #header{
+    #header {
         z-index: 135;
     }
 
@@ -411,21 +406,20 @@ html, body{
         left: 0%
     }
 
-
-    #header nav ul{
+    #header nav ul {
         margin: 0;
         padding: 0 15px;
         box-sizing: border-box;
         width: 100%;
     }
 
-    #header nav ul#top{
+    #header nav ul#top {
         position: absolute;
         top: 50px;
         left: auto;
     }
 
-    #header nav ul#bottom{
+    #header nav ul#bottom {
         position: absolute;
         bottom: 50px;
         right: auto;
@@ -467,4 +461,85 @@ html, body{
     .unauthorized form {
         width: auto;
     }
+}
+
+/************************************** Flash Messages **************************************/
+
+.container {
+    width: 600px;
+    margin: 0 auto;
+    margin-top: 40px;
+    padding-bottom: 30px;
+}
+
+.message {
+    padding: 13px;
+    margin-top: 15px;
+    border-radius: 4px;
+    border: #ccc solid 1px;
+}
+
+.message p {
+    margin: 0px;
+    font-size: 14px;
+    font-weight: normal;
+    font-family: arial;
+}
+
+.success {
+    color: #2C7635;
+    background-color: #DFF0D4;
+    border: #D6E9C4 solid 1px;
+}
+
+.information {
+    color: #31708C;
+    background-color: #D1E4F1;
+    border: #BCE8EF solid 1px;
+}
+
+.warning {
+    color: #8A6D39;
+    background-color: #FCF8E1;
+    border: #FAEBCA solid 1px;
+}
+
+.failure {
+    color: #AC260D;
+    background-color: #F2DEDC;
+    border: #EBCCCF solid 1px;
+}
+
+/************************************** Update form **************************************/
+
+.update-form {
+    padding-top: 30px;
+}
+
+.update-form input {
+    display: block;
+    margin: 0;
+    width: 98%;
+    font-size: 18px;
+}
+
+.update-form input {
+    outline: none;
+}
+
+.update-form input {
+    padding: 10px;
+    border: solid 1px #dcdcdc;
+    transition: box-shadow 0.3s, border 0.3s;
+}
+
+.update-form input:focus,
+.update-form input.focus {
+    border: solid 1px #707070;
+    box-shadow: 0 0 5px 1px #969696;
+}
+
+.update-form .update-btn {
+    width: 100.4%;
+    margin-top: 2%;
 }
