@@ -33,11 +33,10 @@ class Expert extends Model
      */
     public function tags()
     {
-        return $this->belongsToMany('App\Tag');
+        return $this->belongsToMany('App\Tag')->withTimestamps();
     }
 
     public function getFullNameAttribute() {
         return $this->first_name . ' ' . $this->last_name;
     }
-
 }

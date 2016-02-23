@@ -26,26 +26,23 @@ class DatabaseSeeder extends Seeder
             DB::table($table)->truncate();
         }
 
-        DB::statement('SET FOREIGN_KEY_CHECKS = 1');
-
         $this->call('LinksTableSeeder');
         $this->command->info('Links table seeded');
 
         $this->call('UsersTableSeeder');
         $this->command->info('User table seeded!');
 
-        $this->call('TagsTableSeeder');
-        $this->command->info('Tags table seeded!');
-
         $this->call('ExpertsTableSeeder');
         $this->command->info('Experts table seeded!');
+
+        $this->call('TagsTableSeeder');
+        $this->command->info('Tags table seeded!');
 
         $this->call('PodcastsTableSeeder');
         $this->command->info('Podcast table seeded!');
 
-        // TODO: tags to experts.
-        // TODO: Seedklasser i egna filer?
-        // TODO: Enkel User.
+        DB::statement('SET FOREIGN_KEY_CHECKS = 1');
+
     }
 }
 
@@ -54,6 +51,17 @@ class UsersTableSeeder extends Seeder {
     public function run()
     {
         factory('App\User', 40)->create();
+
+        User::create
+        (
+            [
+                'username'  => 'Testuser',
+                'email'     => 'test@user.se',
+                'password'  => '123456',
+                'remember_token' => str_random(10),
+
+            ]
+        );
     }
 }
 
@@ -63,6 +71,8 @@ class ExpertsTableSeeder extends Seeder {
     {
         factory('App\Expert', 100)->create();
     }
+
+
 }
 
 
@@ -131,5 +141,27 @@ class TagsTableSeeder extends Seeder {
         foreach($defaultTagNames as $tagName) {
             \App\Tag::create(['name' => $tagName]);
         };
+
+
+        $experts = Expert::all();
+        $tags = \App\Tag::all();
+
+        /** @var \App\Expert $expert */
+        foreach($experts as $expert)
+        {
+            $loop = rand(0,3);
+
+            for($i = 0; $i <= $loop; $i++) {
+
+                $id = rand($tags->min('id'), $tags->count());
+
+                //TODO Förhindra dubblering
+                //if($expert->tags->find($id))
+                //{
+                    $expert->tags()->attach($id);
+                    $expert->save();
+                //}
+            }
+        }
     }
 }
