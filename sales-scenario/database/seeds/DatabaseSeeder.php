@@ -155,12 +155,11 @@ class TagsTableSeeder extends Seeder {
 
                 $id = rand($tags->min('id'), $tags->count());
 
-                //TODO Förhindra dubblering
-                //if($expert->tags->find($id))
-                //{
+                if(!$expert->tags()->find($id))
+                {
                     $expert->tags()->attach($id);
                     $expert->save();
-                //}
+                }
             }
         }
     }
