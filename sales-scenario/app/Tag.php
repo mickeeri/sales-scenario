@@ -13,6 +13,6 @@ class Tag extends Model
      */
     public function experts()
     {
-        return $this->belongsToMany('App\Expert');
+        return $this->belongsToMany('App\Expert')->withTimestamps();
     }
 }
