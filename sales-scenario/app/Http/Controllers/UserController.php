@@ -18,7 +18,6 @@ class UserController extends CrudController{
 
         /** Simple code of  filter and grid part , List of all fields here : http://laravelpanel.com/docs/master/crud-fields */
 
-
 			$this->filter = \DataFilter::source(new User);
 			$this->filter->add('username', 'Username', 'text');
 			$this->filter->add('email', 'Email', 'text');
@@ -31,29 +30,18 @@ class UserController extends CrudController{
 			$this->grid->add('email', 'Email');
 			$this->grid->add('created_at', 'Created');
 			$this->addStylesToGrid();
-
                  
         return $this->returnView();
     }
     
     public function  edit($entity){
 
-        parent::edit($entity);
-
-        /* Simple code of  edit part , List of all fields here : http://laravelpanel.com/docs/master/crud-fields */
-
-			$this->edit = \DataEdit::source(new User);
-
+			$id = $this->edit = \DataEdit::source(new User);
 			$this->edit->label('Edit User');
-
-			$this->edit->add('username', 'Username', 'text')->rule('required');
-		
-			$this->edit->add('email', 'Email', 'text')->rule('required|email|max:255');
-
+			$this->edit->add('username', 'Username', 'text')->rule('required|unique:users,username,'.$id->model->id);
+			$this->edit->add('email', 'Email', 'text')->rule('required|max:255|unique:users,email,'.$id->model->id );
 			$this->edit->add('password', 'Password', 'password')->rule('confirmed|min:6');
-
 			$this->edit->add('password_confirmation', 'Repeat Password', 'password')->rule('min:6');
-
 
         return $this->returnEditView();
     }    
