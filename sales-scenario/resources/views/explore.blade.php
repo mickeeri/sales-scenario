@@ -12,9 +12,8 @@
     @endif
     @foreach($list as $letter => $experts)
         <h2>{{ $letter }}</h2>
-        @foreach($experts as $expert)
-            <a href="/expert/{{$expert->id}}">{{ $expert->first_name }} {{ $expert->last_name }}</a>
-            <p>Sales Strategy, Social Selling, Old School Sales</p>
-        @endforeach
+        <ul class="expert-list explore-list">
+            @each('partials.expert_listing', $experts, 'expert')
+        </ul>
     @endforeach
 @endsection

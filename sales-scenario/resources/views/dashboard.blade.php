@@ -13,27 +13,18 @@
         @endforeach
     </div>
 
-    <h2>Most Contributing</h2>
+    <h2 class="center">Most Contributing</h2>
 
-    <ul>
-        @foreach($experts as $expert)
-            <li>
-                <a href="/expert/{{ $expert->id }}">
-
-                    <h4>{{ $expert->first_name }} {{ $expert->last_name }}</h4>
-                    @foreach($expert->tags as $tag)
-                        {{ $tag->name }}
-                    @endforeach
-                </a>
-            </li>
-        @endforeach
+    <ul class="expert-list explore-list">
+        @each('partials.expert_listing', $experts, 'expert')
     </ul>
+    <a href="/explore" class="read-more">View more</a>
 
-    <h2>Explore topics</h2>
+    <h2 class="center">Explore topics</h2>
 
-    <ul>
+    <ul class="tag-list explore-list">
         @foreach($tags as $tag)
-            <li><a href="/explore/{{ $tag->id }}">{{ $tag->name }}</a></li>
+            <li><a href="/explore/{{ $tag->id }}"><span>{{ $tag->name }}</span></a></li>
         @endforeach
     </ul>
 
