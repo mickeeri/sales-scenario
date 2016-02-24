@@ -35,7 +35,7 @@
                 <li><a href="{{ url('/explore') }}">Explore</a></li>
             </ul>
             <ul id="bottom">
-                <li><a href="#">Profile Settings</a></li>
+                <li><a href="{{ url('/profile') }}">Profile Settings</a></li>
                 <li><a href="{{ url('/logout') }}">Logout</a></li>
             </ul>
         </nav>
