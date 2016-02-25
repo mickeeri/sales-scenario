@@ -140,8 +140,13 @@ button:hover, .button:hover, input[type=submit]:hover {
 
 /************************************** Dashboard **************************************/
 .slider{
-    border: 3px dotted greenyellow;
-    height: 300px;
+
+}
+#slider-wrapper{
+    padding-top: 25px;
+    padding-bottom: 25px;
+    background-color: black;
+    color: white;
 }
 .explore-list,
 .explore-list ul
@@ -366,16 +371,8 @@ html, body {
         box-sizing: border-box;
     }
 
-    .slide {
-        width: auto;
-        height: auto;
-        float: none;
-        padding: 10px 0px;
-        position: relative;
-        box-sizing: border-box;
-        margin-top: -10px;
-        margin-left: -10px;
-        margin-right: -10px;
+    #slider-wrapper {
+        padding: 10px 0;
     }
 
     .profile-img {
