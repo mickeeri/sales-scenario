@@ -148,6 +148,10 @@ button:hover, .button:hover, input[type=submit]:hover {
     background-color: black;
     color: white;
 }
+.slider-info{
+    margin: 20px;
+    float: left;
+}
 .slider-button{
     background-color: #709d25;
     border: #709d25;

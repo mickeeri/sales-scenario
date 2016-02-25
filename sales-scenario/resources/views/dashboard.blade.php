@@ -10,10 +10,12 @@
         <div class="slider">
             @foreach($podcasts as $podcast)
                 <div class="slider-item">
-                    <img class="profile-img" src="/expert_photo/blank-profile-picture.png" alt="Profile image of {{ $podcast->expert->first_name}} {{  $podcast->expert->last_name }}"/>
-                    <p class="upper">{{ $podcast->title }}</p>
-                    <p class="upper">By {{ $podcast->expert->first_name }} {{ $podcast->expert->last_name }}</p>
-                    <button class="slider-button upper" href="/player/{{ $podcast->expert->id }}/{{ $podcast->id }}"> Play</button>
+                    <img class="profile-img float-left" src="/expert_photo/blank-profile-picture.png" alt="Profile image of {{ $podcast->expert->first_name}} {{  $podcast->expert->last_name }}"/>
+                    <div class="slider-info">
+                        <p class="upper">{{ $podcast->title }}</p>
+                        <p class="upper">By {{ $podcast->expert->first_name }} {{ $podcast->expert->last_name }}</p>
+                        <button class="slider-button upper" href="/player/{{ $podcast->expert->id }}/{{ $podcast->id }}"> Play</button>
+                    </div>
                 </div>
             @endforeach
         </div>
