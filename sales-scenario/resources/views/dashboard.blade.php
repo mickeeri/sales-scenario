@@ -9,8 +9,8 @@
         <h2 class="center upper">What's new</h2>
         <div class="slider">
             @foreach($podcasts as $podcast)
-                <div class="slider-item">
-                    <img class="profile-img float-left" src="/expert_photo/blank-profile-picture.png" alt="Profile image of {{ $podcast->expert->first_name}} {{  $podcast->expert->last_name }}"/>
+                <div class="slider-item slider-content-wrapper">
+                    <img class="float-left slider-img" src="/expert_photo/blank-profile-picture.png" alt="Profile image of {{ $podcast->expert->first_name}} {{  $podcast->expert->last_name }}"/>
                     <div class="slider-info">
                         <p class="upper">{{ $podcast->title }}</p>
                         <p class="upper">By {{ $podcast->expert->first_name }} {{ $podcast->expert->last_name }}</p>

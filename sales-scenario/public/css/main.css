@@ -149,8 +149,17 @@ button:hover, .button:hover, input[type=submit]:hover {
     color: white;
 }
 .slider-info{
-    margin: 20px;
-    float: left;
+    float: right;
+    width: 50%;
+}
+.slider-content-wrapper{
+}
+.slider-img{
+    width: 45%;
+    margin: 0 auto;
+    display: block;
+    border-radius: 50%;
+    padding-bottom: 10px;
 }
 .slider-button{
     background-color: #709d25;
@@ -374,14 +383,13 @@ html, body {
 
     .wrapper {
         width: auto;
-        padding: 10px;
         padding-top: 50px;
         overflow: auto;
         box-sizing: border-box;
     }
 
     #slider-wrapper {
-        padding: 10px 0;
+        padding: 10px;
     }
 
     .profile-img {

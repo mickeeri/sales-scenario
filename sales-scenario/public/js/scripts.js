@@ -5,7 +5,7 @@ $('#menu_open').click(function(e){
 $(document).ready(function(){
     $('.slider').slick({
         accessibility:true,
-        autoplay: true,
+        autoplay: false,
         autoplaySpeed: 2000,
         arrows: true,
         dots: true,
