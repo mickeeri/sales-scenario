@@ -1,7 +1,11 @@
 @extends('layouts.app')
-
+@section('css')
+        <!-- Styles for slider-->
+<link rel="stylesheet" type="text/css" href="/slick/slick.css"/>
+<link rel="stylesheet" type="text/css" href="/slick/slick-theme.css"/>
+@endsection
 @section('content')
-
+<!--
     <div id="dashboard_slider">
         @foreach($podcasts as $podcast)
             <div class="slide">
@@ -12,6 +16,13 @@
 
         @endforeach
     </div>
+-->
+
+<div class="slider">
+    <div>your content</div>
+    <div>your content</div>
+    <div>your content</div>
+</div>
 
     <h2 class="center">Most Contributing</h2>
 
@@ -27,7 +38,12 @@
             <li><a href="/explore/{{ $tag->id }}"><span>{{ $tag->name }}</span></a></li>
         @endforeach
     </ul>
-
-
-
 @endsection
+
+@section('js')
+        <!-- Script for slider-->
+<script type="text/javascript" src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+<script type="text/javascript" src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+<script type="text/javascript" src="/slick/slick.min.js"></script>
+@endsection
+

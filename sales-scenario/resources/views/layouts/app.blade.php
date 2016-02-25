@@ -51,5 +51,6 @@
     <script src="/js/scripts.js"></script>
         @yield('js')
     {{-- <script src="{{ elixir('js/app.js') }}"></script> --}}
+
 </body>
 </html>
