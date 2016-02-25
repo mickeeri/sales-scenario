@@ -148,10 +148,10 @@ button:hover, .button:hover, input[type=submit]:hover {
 }
 
 #slider-wrapper{
-    padding-top: 25px;
-    padding-bottom: 25px;
     background-color: black;
     color: white;
+    padding-bottom: 25px;
+    padding-top: 25px;
 }
 .slider-info{
     float: right;
@@ -160,11 +160,11 @@ button:hover, .button:hover, input[type=submit]:hover {
 .slider-content-wrapper{
 }
 .slider-img{
-    width: 45%;
-    margin: 0 auto;
-    display: block;
     border-radius: 50%;
+    display: block;
+    margin: 0 auto;
     padding-bottom: 10px;
+    width: 45%;
 }
 .slider-button{
     background-color: #709d25;
@@ -398,9 +398,9 @@ html, body {
     }
 
     #slider-wrapper {
-        padding: 10px;
         border-bottom: 10px solid #e96d01;
         box-shadow: 0 0 10px 5px #969696;
+        padding: 10px;
     }
     #slider-wrapper h2 {
         margin-top: 10px;
