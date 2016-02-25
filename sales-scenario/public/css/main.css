@@ -146,6 +146,7 @@ button:hover, .button:hover, input[type=submit]:hover {
 .slider{
 
 }
+
 #slider-wrapper{
     padding-top: 25px;
     padding-bottom: 25px;
@@ -392,12 +393,18 @@ html, body {
         box-sizing: border-box;
     }
 
+    .slick-slider{
+        margin-bottom: 15px !important;
+    }
+
     #slider-wrapper {
         padding: 10px;
         border-bottom: 10px solid #e96d01;
         box-shadow: 0 0 10px 5px #969696;
     }
-
+    #slider-wrapper h2 {
+        margin-top: 10px;
+    }
     .slick-next,
     .slick-prev{
         display: none !important;
