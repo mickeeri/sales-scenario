@@ -13,7 +13,7 @@
                     <img class="profile-img" src="/expert_photo/blank-profile-picture.png" alt="Profile image of {{ $podcast->expert->first_name}} {{  $podcast->expert->last_name }}"/>
                     <p class="upper">{{ $podcast->title }}</p>
                     <p class="upper">By {{ $podcast->expert->first_name }} {{ $podcast->expert->last_name }}</p>
-                    <button class="button" href="/player/{{ $podcast->expert->id }}/{{ $podcast->id }}"> Play</button>
+                    <button class="slider-button upper" href="/player/{{ $podcast->expert->id }}/{{ $podcast->id }}"> Play</button>
                 </div>
             @endforeach
         </div>

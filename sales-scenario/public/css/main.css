@@ -148,6 +148,11 @@ button:hover, .button:hover, input[type=submit]:hover {
     background-color: black;
     color: white;
 }
+.slider-button{
+    background-color: #709d25;
+    border: #709d25;
+    padding: 5px 50px;
+}
 .explore-list,
 .explore-list ul
 {
