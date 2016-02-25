@@ -10,6 +10,7 @@
     @foreach($podcasts as $podcast)
         <div class="slider-item">
             <p>{{ $podcast->title }}</p>
+            <img class="profile-img" src="/expert_photo/blank-profile-picture.png" alt="Profile image of {{ $podcast->expert->first_name}} {{  $podcast->expert->last_name }}"/>
             <p>By {{ $podcast->expert->first_name }} {{ $podcast->expert->last_name }}</p>
             <a href="/player/{{ $podcast->expert->id }}/{{ $podcast->id }}">Play</a>
         </div>
