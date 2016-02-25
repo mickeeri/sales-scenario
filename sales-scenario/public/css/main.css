@@ -142,6 +142,10 @@ button:hover, .button:hover, input[type=submit]:hover {
 #dashboard_slider{
     display: none;
 }
+.slider{
+    border: 3px dotted greenyellow;
+    height: 300px;
+}
 .explore-list,
 .explore-list ul
 {

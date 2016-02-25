@@ -6,6 +6,10 @@ $(document).ready(function(){
     $('.slider').slick({
         accessibility:true,
         autoplay: true,
-        autoplaySpeed: 2000
+        autoplaySpeed: 2000,
+        arrows: true,
+        dots: true,
+        mobileFirst: true
+
 });
 });
