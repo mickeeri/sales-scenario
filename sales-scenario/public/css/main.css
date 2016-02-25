@@ -612,7 +612,7 @@ html, body {
     border: #EBCCCF solid 1px;
 }
 
-/************************************** Update form **************************************/
+/************************************** Profile form **************************************/
 
 .update-form {
     padding-top: 30px;
@@ -645,4 +645,43 @@ html, body {
 
 .update-form .update-btn {
     margin-top: 2%;
+}
+
+/************************************** Profile form **************************************/
+
+#filter-tags li {
+    padding: 0;
+    border: 0 !important;
+}
+
+#filter-tags li .ui-checkbox {
+    margin: 0;
+}
+
+#filter-tags li .ui-checkbox label {
+    border-radius: 0 !important;
+}
+
+.ui-link {
+    color: #000;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.ui-link:hover {
+    color: hotpink;
+}
+
+.tags {
+    color: #A5A3A2;
+    font-size: small;
+}
+
+.letter {
+    color: #A5A3A2;
+    font-weight: bold;
+}
+
+.expert-tags {
+    padding-left: 10px;
 }
