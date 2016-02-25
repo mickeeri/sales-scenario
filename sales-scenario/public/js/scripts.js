@@ -7,7 +7,6 @@ $(document).ready(function(){
         accessibility:true,
         autoplay: false,
         autoplaySpeed: 2000,
-        arrows: true,
         dots: true,
         mobileFirst: true
 
