@@ -394,6 +394,11 @@ html, body {
         box-shadow: 0 0 10px 5px #969696;
     }
 
+    .slick-next,
+    .slick-prev{
+        display: none !important;
+    }
+
     .profile-img {
         display: block;
         width: 130px;
