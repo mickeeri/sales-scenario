@@ -5,23 +5,15 @@
 <link rel="stylesheet" type="text/css" href="/slick/slick-theme.css"/>
 @endsection
 @section('content')
-<!--
-    <div id="dashboard_slider">
-        @foreach($podcasts as $podcast)
-            <div class="slide">
-                <p>{{ $podcast->title }}</p>
-                <p>By {{ $podcast->expert->first_name }} {{ $podcast->expert->last_name }}</p>
-                <a href="/player/{{ $podcast->expert->id }}/{{ $podcast->id }}">Play</a>
-            </div>
-
-        @endforeach
-    </div>
--->
 
 <div class="slider">
-    <div>your content</div>
-    <div>your content</div>
-    <div>your content</div>
+    @foreach($podcasts as $podcast)
+        <div class="slider-item">
+            <p>{{ $podcast->title }}</p>
+            <p>By {{ $podcast->expert->first_name }} {{ $podcast->expert->last_name }}</p>
+            <a href="/player/{{ $podcast->expert->id }}/{{ $podcast->id }}">Play</a>
+        </div>
+    @endforeach
 </div>
 
     <h2 class="center">Most Contributing</h2>

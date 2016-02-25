@@ -139,9 +139,6 @@ button:hover, .button:hover, input[type=submit]:hover {
 }
 
 /************************************** Dashboard **************************************/
-#dashboard_slider{
-    display: none;
-}
 .slider{
     border: 3px dotted greenyellow;
     height: 300px;
@@ -340,18 +337,6 @@ html, body {
 }
 
 /*aside*/
-.slide {
-    width: 25%;
-    height: 100%;
-    padding-top: 100px;
-    float: left;
-    background: #000000;
-    overflow: auto;
-    position: absolute;
-    top: 0px;
-    bottom: 0px;
-    box-sizing: border-box;
-}
 
 .profile-img {
     width: 150px;
