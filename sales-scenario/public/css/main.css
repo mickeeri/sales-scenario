@@ -114,6 +114,10 @@ button:hover, .button:hover, input[type=submit]:hover {
     font-size: 12px;
 }
 
+.margin-left{
+    margin-left: 15px;
+}
+
 ::-webkit-input-placeholder { /* Chrome/Opera/Safari */
     color: #afafaf;
     font-weight: 700;
