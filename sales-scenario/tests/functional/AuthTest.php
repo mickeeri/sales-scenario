@@ -16,6 +16,23 @@ class AuthTest extends TestCase
 
     use DatabaseTransactions;
 
+    private function getRegistrationUserFields()
+    {
+        $faker = Faker\Factory::create();
+        return ['username' => $faker->name, 'email' => $faker->email, 'password' => $faker->password, 'password_confirmation' =>$faker->password];
+    }
+
+    private function attemptRegistration($message, $empty, $check = 'email')
+    {
+        $fields = $this->getRegistrationUserFields();
+        $fields[$empty] = '';
+
+        $this->visit('register')
+            ->submitForm('Register', $fields)
+            ->seePageIs('/register')->see($message)
+            //checks if name value is stored in database
+            ->dontSeeInDatabase('users', [$check => $fields[$check]]);
+    }
     /** @test */
 
     public function test_if_new_user_can_register()
@@ -35,60 +52,28 @@ class AuthTest extends TestCase
 
     public function test_if_new_user_can_register_without_name()
     {
-        $faker = Faker\Factory::create();
-        $name = $faker->name;
-        $password = $faker->password;
-        $fields = ['username' => '', 'email' => $faker->email, 'password' => $password, 'password_confirmation' =>$password];
-        $this->visit('register')
-            ->submitForm('Register', $fields)
-            ->seePageIs('/register')->see('The username field is required.')
-            //checks if name value is stored in database
-            ->dontSeeInDatabase('users', ['email' => $faker->email]);
+        $this->attemptRegistration('The username field is required.', 'username');
     }
 
     /** @test */
 
     public function test_if_new_user_can_register_without_email()
     {
-        $faker = Faker\Factory::create();
-        $name = $faker->name;
-        $password = $faker->password;
-        $fields = ['username' => $name, 'email' => '', 'password' => $password, 'password_confirmation' =>$password];
-        $this->visit('register')
-            ->submitForm('Register', $fields)
-            ->seePageIs('/register')->see('The email field is required.')
-            //checks if name value is stored in database
-            ->dontSeeInDatabase('users', ['username' => $name]);
+        $this->attemptRegistration('The email field is required.', 'email', 'username');
     }
 
     /** @test */
 
     public function test_if_new_user_can_register_without_password()
     {
-        $faker = Faker\Factory::create();
-        $name = $faker->name;
-        $password = $faker->password;
-        $fields = ['username' => $name, 'email' => $faker->email, 'password' => '', 'password_confirmation' =>$password];
-        $this->visit('register')
-            ->submitForm('Register', $fields)
-            ->seePageIs('/register')->see('The password field is required.')
-            //checks if name value is stored in database
-            ->dontSeeInDatabase('users', ['username' => $name]);
+        $this->attemptRegistration('The password field is required.', 'password');
     }
 
     /** @test */
 
     public function test_if_new_user_can_register_without_password_confirmation()
     {
-        $faker = Faker\Factory::create();
-        $name = $faker->name;
-        $password = $faker->password;
-        $fields = ['username' => $name, 'email' => $faker->email, 'password' => $password, 'password_confirmation' => ''];
-        $this->visit('register')
-            ->submitForm('Register', $fields)
-            ->seePageIs('/register')->see('The password confirmation does not match.')
-            //checks if name value is stored in database
-            ->dontSeeInDatabase('users', ['username' => $name]);
+        $this->attemptRegistration('The password confirmation does not match.', 'password_confirmation');
     }
 
     /** @test */
@@ -100,34 +85,31 @@ class AuthTest extends TestCase
             ->see('inloggad');
     }
 
-    /** @test */
+
+    private function attemptLogin($fields, $message)
+    {
+        $this->visit('login')
+            ->submitForm('Sign in', $fields)
+            ->seePageIs('/login')->see($message);
+    }
 
     public function invalid_user_can_not_user_login()
     {
-        $fields = ['email' => "invalid@invalid.se", 'password' => "passed"];
-        $this->visit('login')
-            ->submitForm('Sign in', $fields)
-            ->seePageIs('/login')->see('These credentials do not match our records.');
+        $this->attemptLogin(['email' => "invalid@invalid.se", 'password' => "passed"], 'These credentials do not match our records.');
     }
 
     /** @test */
 
     public function user_can_not_login_without_password()
     {
-        $fields = ['email' => "invalid@invalid.se", 'password' => ""];
-        $this->visit('login')
-            ->submitForm('Sign in', $fields)
-            ->seePageIs('/login')->see('The password field is required.');
+        $this->attemptLogin(['email' => "invalid@invalid.se", 'password' => ""], 'The password field is required.');
     }
 
     /** @test */
 
     public function user_can_not_login_without_email()
     {
-        $fields = ['email' => "", 'password' => "passed"];
-        $this->visit('login')
-            ->submitForm('Sign in', $fields)
-            ->seePageIs('/login')->see('The email field is required.');
+        $this->attemptLogin(['email' => "", 'password' => "passed"], 'The email field is required.');
     }
 
     /** @test */
@@ -145,7 +127,7 @@ class AuthTest extends TestCase
 
         }
         finally{
-            //Kan ge fail om exekveringstiden är för lång!! Ska tas tillbaka när mail är uppsatt
+            //Kan ge fail om exekveringstiden ï¿½r fï¿½r lï¿½ng!! Ska tas tillbaka nï¿½r mail ï¿½r uppsatt
             $this->seeInDatabase('password_resets', ['email' => $user->email /*, 'created_at' => $time*/]);
         }
     }
