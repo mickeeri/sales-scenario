@@ -53,6 +53,10 @@
     <div id="expert-list">
     <!-- List all the experts by first letter in their last name -->
     @foreach($list as $letter => $experts)
+        <h2>{{ $letter }}</h2>
+        <ul class="expert-list explore-list">
+            @each('partials.expert_listing', $experts, 'expert')
+        </ul>
         <p class="letter">{{ $letter }}</p>
 
         @foreach($experts as $expert)

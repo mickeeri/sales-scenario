@@ -54,9 +54,8 @@ Route::group(['middleware' => 'web'], function () {
 });
 
 Route::group(['middleware' => ['web','auth']], function(){
-    Route::get('/dashboard', function() {
-        return "inloggad";
-    });
+    Route::get('/dashboard', 'DashboardController@Index');
+
 
     /**
      * När man klickar på explore
