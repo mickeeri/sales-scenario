@@ -43,7 +43,7 @@ class AuthTest extends TestCase
         $fields = ['username' => $name, 'email' => $faker->email, 'password' => $password, 'password_confirmation' =>$password];
         $this->visit('register')
             ->submitForm('Register', $fields)
-            ->seePageIs('/dashboard')->see('inloggad')
+            ->seePageIs('/dashboard')->see('Logout')
             //checks if name value is stored in database
             ->seeInDatabase('users', ['username' => $name]);
     }
@@ -82,7 +82,7 @@ class AuthTest extends TestCase
     {
         $this->login()
             ->visit('login')
-            ->see('inloggad');
+            ->see('Logout');
     }
 
 
