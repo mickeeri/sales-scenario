@@ -12,18 +12,23 @@ class DashboardController extends Controller
 {
     public function Index()
     {
+        //Get x number of tags by parameter in function random()
         $tags = Tag::all()->random(5);
+        //Get x newest created pordcasts
         $podcasts =  Podcast::orderBy('created_at', 'desc')->take(5)->get();
         $experts = Expert::all();
 
+        //Most contributing expert
         foreach ($experts as $expert)
         {
+            //For each expert we add a field that makes it easier to sort.
             $expert->nrOfPodcasts = $expert->podcasts->count();
         }
 
+        //Now we can use this field to sort out most contributing experts
         $experts = $experts->sortByDesc('nrOfPodcasts')->splice(0, 5);
 
+        //Now we have our models so we can send these to the dashboard view
         return view('dashboard')->with(compact('experts', 'podcasts', 'tags'));
-
     }
 }
