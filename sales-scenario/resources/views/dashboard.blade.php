@@ -39,8 +39,19 @@
 
 @section('js')
         <!-- Script for slider-->
-<script type="text/javascript" src="//code.jquery.com/jquery-1.11.0.min.js"></script>
 <script type="text/javascript" src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
 <script type="text/javascript" src="/slick/slick.min.js"></script>
+<script>
+    $(document).ready(function(){
+        $('.slider').slick({
+            accessibility:true,
+            autoplay: false,
+            autoplaySpeed: 2000,
+            dots: true,
+            mobileFirst: true
+
+        });
+    });
+</script>
 @endsection
 
