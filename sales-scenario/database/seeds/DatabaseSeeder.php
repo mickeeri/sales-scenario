@@ -78,6 +78,14 @@ class PodcastsTableSeeder extends Seeder {
 
     public function run()
     {
+
+        //For new created we need to create a folder to our podcasts.
+        //If folder not exist, seed will not work for podcastsseeder
+        if (!is_dir('./storage/app/podcasts/')) {
+            @mkdir('./storage/app/podcasts/');
+        }
+
+
         $faker = Faker\Factory::create();
         $experts =  \App\Expert::all();
 
