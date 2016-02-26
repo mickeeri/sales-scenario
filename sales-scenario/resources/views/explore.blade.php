@@ -57,24 +57,6 @@
         <ul class="expert-list explore-list">
             @each('partials.expert_listing', $experts, 'expert')
         </ul>
-        <p class="letter">{{ $letter }}</p>
-
-        @foreach($experts as $expert)
-            <div class="expert-tags">
-            <a href="/expert/{{$expert->id}}">{{ $expert->first_name }} {{ $expert->last_name }}</a>
-                <div class="tags">
-                <!-- Fetch all experts tags and then render them with comma except for the last one -->
-                    <?php $allTags = [];
-                    foreach($expert->tags as $tag){
-                        $allTags[] = $tag['name'];
-                    } ?>
-
-                    {{ implode(", ",$allTags) }}
-                </div>
-                <hr>
-            </div>
-        @endforeach
-
     @endforeach
 </div>
 @endsection
