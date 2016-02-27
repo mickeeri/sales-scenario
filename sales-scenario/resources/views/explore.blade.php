@@ -34,13 +34,13 @@
             <li><input type="checkbox" value="Sales Tactics" checked/> Sales Tactics</li>
             <li><input type="checkbox" value="Sales Process" checked/> Sales Process</li>
             <li><input type="checkbox" value="Big Deals Management" checked/> Big Deals Management</li>
-            <li><input type="checkbox" value="Selling To Small & Medium Businesses" checked/> Selling To Small & MediumBusinesses</li>
+            <li><input type="checkbox" value="Selling To Small & Medium Businesses" checked/> Selling To Small & Medium Businesses</li>
             <li><input type="checkbox" value="Sales Team Coaching" checked/> Sales Team Coaching</li>
             <li><input type="checkbox" value="Sales Hiring" checked/> Sales Hiring</li>
             <li><input type="checkbox" value="Social Selling" checked/> Social Selling</li>
             <li><input type="checkbox" value="Sales KPIs" checked/> Sales KPIs</li>
             <li><input type="checkbox" value="Old School Sales" checked/> Old School Sales</li>
-            <li><input type="checkbox" value="Management & Business Growth" checked/> Management & Business Growth</li>
+            <li><input type="checkbox" value="Show All" id="check_all" checked/> Show All</li>
         </ul>
 
 
