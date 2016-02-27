@@ -40,6 +40,7 @@
             <li><input type="checkbox" value="Social Selling" checked/> Social Selling</li>
             <li><input type="checkbox" value="Sales KPIs" checked/> Sales KPIs</li>
             <li><input type="checkbox" value="Old School Sales" checked/> Old School Sales</li>
+            <li><input type="checkbox" value="Management & Business Growth" checked/> Management & Business Growth</li>
             <li><input type="checkbox" value="Show All" id="check_all" checked/> Show All</li>
         </ul>
 
