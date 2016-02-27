@@ -7,12 +7,12 @@ class ModelTests extends TestCase
 {
     use DatabaseTransactions;
 
-    /** @test */
 
-    public function a_user_can_be_an_expert()
-    {
-        $user = factory(User::class)->create();
-        $expert = factory(Expert::class)->make();
-        $user->experts()->save($expert);
-    }
+
+//    public function a_user_can_be_an_expert()
+//    {
+//        $user = factory(User::class)->create();
+//        $expert = factory(Expert::class)->make();
+//        $user->experts()->save($expert);
+//    }
 }
