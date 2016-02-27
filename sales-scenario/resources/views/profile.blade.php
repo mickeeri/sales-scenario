@@ -28,13 +28,13 @@
         {{ Form::email('email',$user->email ) }}
 
         <!-- password inputs -->
-        {{ Form::label('password','Password') }}
+        {{ Form::label('password','New Password') }}
         {{ Form::password('password','') }}
 
-        {{ Form::label('password_confirmation','Password repeat') }}
+        {{ Form::label('password_confirmation','Confirm password') }}
         {{ Form::password('password_confirmation','') }}
 
-        {{ Form::label('current_password','Current password') }}
+        {{ Form::label('current_password','Current password (required)') }}
         {{ Form::password('current_password','') }}
 
         <!-- submit buttons -->
