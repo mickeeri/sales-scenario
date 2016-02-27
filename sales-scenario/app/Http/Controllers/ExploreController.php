@@ -32,7 +32,9 @@ class ExploreController extends Controller
             }
         }
 
-        return view('explore')->with(compact('list', 'tag'));
+        $tags = \App\Tag::all();
+
+        return view('explore')->with(compact('list', 'tag', 'tags'));
 
 
     }
