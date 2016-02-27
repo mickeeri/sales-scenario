@@ -37,18 +37,15 @@ class ExpertController extends CrudController{
 
     public function  edit($entity){
 
-        //TODO Why is this code here??? //Andréas
-        //parent::edit($entity);
-
         $this->edit = \DataEdit::source(new Expert());
 
         //Drop down from users table.
         $this->edit->label('Edit Expert');
         $this->edit->add('first_name', 'First name', 'text')->rule('required');
         $this->edit->add('last_name', 'Last name', 'text')->rule('required');
-        $this->edit->add('website', 'Website', 'text')->rule('url')->placeholder('http://');;
-        $this->edit->add('info', 'Info', 'textarea');
-        $this->edit->add('photo', 'Photo', 'image')->rule('image')->move('expert_photo')->preview(180,180);
+        $this->edit->add('website', 'Website', 'text')->rule('url|required')->placeholder('http://');;
+        $this->edit->add('info', 'Info', 'textarea')->rule('required');
+        $this->edit->add('photo', 'Photo', 'image')->rule('image|required')->move('expert_photo')->preview(180,180);
         $this->edit->add('tags', 'Categories', 'checkboxgroup')->options(\App\Tag::lists("name", "id")->all());
 
         return $this->returnEditView();
