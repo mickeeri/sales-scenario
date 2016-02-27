@@ -11,7 +11,7 @@ use Illuminate\Support\Facades\View;
 
 class ExploreController extends Controller
 {
-    public function Index()
+    public function index($tag = 0)
     {
         $list = array();
         $letters = range('A', 'Z');
@@ -32,7 +32,7 @@ class ExploreController extends Controller
             }
         }
 
-        return view('explore')->with(compact('list'));
+        return view('explore')->with(compact('list', 'tag'));
 
 
     }

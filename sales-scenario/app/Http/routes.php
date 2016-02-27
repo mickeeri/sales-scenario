@@ -60,11 +60,8 @@ Route::group(['middleware' => ['web','auth']], function(){
     /**
      * När man klickar på explore
      */
-    Route::get('explore', 'ExploreController@Index');
-
-    Route::get('explore/{id}', function () {
-        return 'vy 6: Lista alla experter efter vald taggid från dashboard';
-    });
+    Route::get('explore', 'ExploreController@index');
+    Route::get('explore/{id}', 'ExploreController@index');
 
     /**
      * När man klickar på experten namn i listan
