@@ -648,6 +648,21 @@ html, body {
 }
 
 /************************************** Profile form **************************************/
+.explore-sort-button{
+    float: right;
+    margin-right: 15px;
+}
+
+.filter-popup{
+    background-color: white;
+    border: 1px solid#000000;
+    float: right;
+    clear: right;
+    margin-right: 15px;
+    box-shadow: #afafaf 8px 8px 10px;
+    width: 300px;
+}
+
 
 #filter-tags li {
     padding: 0;

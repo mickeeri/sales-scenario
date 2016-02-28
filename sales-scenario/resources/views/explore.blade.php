@@ -21,7 +21,7 @@
         $('#filter-tags').toggle();
 
         //TODO Just to test toogle sort list...
-        $(document).ready(function(){
+        $(function(){
             $('#hideshow').on('click', function(event) {
                 $('#filter-tags').toggle('show');
             });
@@ -40,15 +40,16 @@
     @endif
 
             <!--Popup list-->
-        <input class='explore-sort-button'type='button' id='hideshow' value='hide/show'>
+        <a href="#" class='explore-sort-button'type='button' id='hideshow' value='hide/show'>Sort</a>
 
-        <ul id="filter-tags">
-            @foreach($tags as $tags )
-                <li><input type="checkbox" value="{{ $tags->name }}" checked/> {{ $tags->name }}</li>
-            @endforeach
-            <li><input type="checkbox" value="Show All" id="check_all" checked/> Show All</li>
-        </ul>
-
+        <div class="filter-popup">
+            <ul id="filter-tags">
+                @foreach($tags as $tags )
+                    <li><input type="checkbox" value="{{ $tags->name }}" checked/> {{ $tags->name }}</li>
+                @endforeach
+                <li><input type="checkbox" value="Show All" id="check_all" checked/> Show All</li>
+            </ul>
+        </div>
 
         <div id="expert-list">
             <!-- List all the experts by first letter in their last name -->
