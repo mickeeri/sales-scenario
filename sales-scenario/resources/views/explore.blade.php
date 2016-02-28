@@ -17,6 +17,17 @@
             // Uncheck checkboxes except the present one
             $(':checkbox').attr('checked', false)[tag].checked = true;
         });
+
+        $('#filter-tags').toggle();
+
+        //TODO Just to test toogle sort list...
+        $(document).ready(function(){
+            $('#hideshow').on('click', function(event) {
+                $('#filter-tags').toggle('show');
+            });
+        });
+
+
     </script>
 @endsection
 @endif
@@ -29,6 +40,8 @@
     @endif
 
             <!--Popup list-->
+        <input class='explore-sort-button'type='button' id='hideshow' value='hide/show'>
+
         <ul id="filter-tags">
             @foreach($tags as $tags )
                 <li><input type="checkbox" value="{{ $tags->name }}" checked/> {{ $tags->name }}</li>
