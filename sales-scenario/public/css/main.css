@@ -650,17 +650,23 @@ html, body {
 /************************************** Profile form **************************************/
 .explore-sort-button{
     float: right;
-    margin-right: 15px;
+    margin: 15px;
+}
+
+.explore-sort-button img{
+    width: 50px;
 }
 
 .filter-popup{
     background-color: white;
-    border: 1px solid#000000;
-    box-shadow: #afafaf 8px 8px 10px;
+    box-shadow: #afafaf 0 0 20px;
     clear: right;
     float: right;
     margin-right: 15px;
+    position: relative;
     width: 300px;
+    z-index: 100;
+
 }
 
 .filter-popup ul {
@@ -670,9 +676,13 @@ html, body {
 
 #filter-tags li {
     border: 0 !important;
-    font-weight: 700;
     list-style-type: none;
     text-transform: uppercase;
+}
+
+#filter-tags li label:first-child{
+    border: 0 !important;
+    list-style-type: none;
 }
 
 #filter-tags li input[type="checkbox"] {
@@ -684,7 +694,7 @@ html, body {
     float: left;
     width:19px;
     height:19px;
-    margin:-1px 4px 0 0;
+    margin:2px 10px 0 0;
     vertical-align:middle;
     background:url(check_radio_sheet.png) left top no-repeat;
     cursor:pointer;

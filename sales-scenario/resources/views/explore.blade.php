@@ -23,7 +23,7 @@
         //TODO Just to test toogle sort list...
         $(function(){
             $('#hideshow').on('click', function(event) {
-                $('#filter-tags').toggle('show');
+                $('.filter-popup').toggle('show');
             });
         });
 
@@ -40,7 +40,9 @@
     @endif
 
             <!--Popup list-->
-        <a href="#" class='explore-sort-button'type='button' id='hideshow' value='hide/show'>Sort</a>
+        <a href="#" class='explore-sort-button'type='button' id='hideshow' value='hide/show'>
+            <img src="/img/sort.btn.png">
+        </a>
 
         <div class="filter-popup">
             <ul id="filter-tags">
@@ -52,6 +54,7 @@
                 @endforeach
                 <li><input type="checkbox" value="Show All" id="check_all" checked/> Show All</li>
             </ul>
+            <a href="#">Close or Save...</a>
         </div>
 
         <div id="expert-list">
