@@ -656,21 +656,47 @@ html, body {
 .filter-popup{
     background-color: white;
     border: 1px solid#000000;
-    float: right;
-    clear: right;
-    margin-right: 15px;
     box-shadow: #afafaf 8px 8px 10px;
+    clear: right;
+    float: right;
+    margin-right: 15px;
     width: 300px;
+}
+
+.filter-popup ul {
+    -webkit-padding-start: 10px;
 }
 
 
 #filter-tags li {
-    padding: 0;
     border: 0 !important;
+    font-weight: 700;
+    list-style-type: none;
+    text-transform: uppercase;
+}
+
+#filter-tags li input[type="checkbox"] {
+    display:none;
+}
+
+#filter-tags input[type="checkbox"] + label span {
+    display:inline-block;
+    float: left;
+    width:19px;
+    height:19px;
+    margin:-1px 4px 0 0;
+    vertical-align:middle;
+    background:url(check_radio_sheet.png) left top no-repeat;
+    cursor:pointer;
+}
+
+#filter-tags input[type="checkbox"]:checked + label span {
+    background:url(check_radio_sheet.png) -19px top no-repeat;
 }
 
 #filter-tags li .ui-checkbox {
     margin: 0;
+    padding: 0;
 }
 
 #filter-tags li .ui-checkbox label {
