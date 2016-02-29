@@ -563,6 +563,18 @@ html, body {
     .unauthorized form {
         width: auto;
     }
+    
+
+    /* Experts show page */
+    .profile-information {
+        text-align: center;
+        margin-bottom: 50px !important;
+    }
+
+    .expert-img {
+        margin: 20px auto !important;
+        float: none !important;
+    }
 }
 
 /************************************** Flash Messages **************************************/
@@ -735,4 +747,88 @@ html, body {
 
 .expert-tags {
     padding-left: 10px;
+}
+
+
+/************************************** Expert show view **************************************/
+
+.experts-podcasts {
+    margin: 0 10px;
+}
+
+/*.experts-podcasts ul {*/
+    /*display: inline;*/
+    /*list-style-type: none;*/
+    /*margin: 0;*/
+    /*padding: 0;*/
+/*}*/
+
+/*.experts-podcasts li {*/
+    /*display: block;*/
+    /*position: relative;*/
+    /*padding: 10px 0;*/
+    /*border-bottom: 1px solid #afafaf;*/
+/*}*/
+
+/*.experts-podcasts a {*/
+    /*padding-right: 42px;*/
+    /*display: block;*/
+    /*text-decoration: none;*/
+    /*color: #222;*/
+    /*font-weight: 700;*/
+/*}*/
+
+
+/*.experts-podcasts a:after{*/
+    /*display: inline-block;*/
+    /*content: '\f101';*/
+    /*font-family: FontAwesome;*/
+    /*color: #afafaf;*/
+    /*position: absolute;*/
+    /*right: 16px;*/
+    /*top: calc(50% - 14px);*/
+    /*height: auto;*/
+    /*width: auto;*/
+    /*background: none;*/
+    /*opacity: 1;*/
+    /*font-size: 28px;*/
+/*}*/
+
+.experts-podcasts a {
+    color: #222;
+    font-weight: 700;
+}
+
+.experts-podcasts a::after {
+    color: #afafaf;
+    font-weight: 700;
+}
+
+.profile-information {
+    margin: 40px 10px 0 10px;
+    min-height: 250px;
+}
+
+.info .expert-tags {
+    color: #afafaf;
+    margin-top: 0;
+    font-size: 16px;
+}
+
+.info h1 {
+    margin-bottom: 10px;
+}
+
+.experts-podcasts h3 {
+    color: #afafaf;
+    font-size: 20px;
+}
+
+.expert-img {
+    float: left;
+    border-radius: 50%;
+    padding-bottom: 0;
+    width: 200px;
+    display: block;
+    margin-right: 40px;
 }
