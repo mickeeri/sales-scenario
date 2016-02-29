@@ -28,6 +28,13 @@ class DashboardController extends Controller
         //Now we can use this field to sort out most contributing experts
         $experts = $experts->sortByDesc('nrOfPodcasts')->splice(0, 5);
 
+        //Check if any expert is without podcast, if so, remove that expert from the array
+        foreach ($experts as $key => $expert){
+            if($expert->nrOfPodcasts <=0){
+                unset($experts[$key]);
+            }
+        }
+
         //Now we have our models so we can send these to the dashboard view
         return view('dashboard')->with(compact('experts', 'podcasts', 'tags'));
     }
