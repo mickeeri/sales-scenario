@@ -18,7 +18,7 @@
             $(':checkbox').attr('checked', false)[tag].checked = true;
         });
 
-        //$('#filter-tags').toggle();
+        $('.filter-popup').toggle();
 
         //TODO Just to test toogle sort list...
         $(function(){
@@ -48,11 +48,14 @@
             <ul id="filter-tags">
                 @foreach($tags as $tags )
                     <li>
-                        <input id="{{ $tags->name }}" type="checkbox" value="{{ $tags->name }}" checked>
-                        <label for="{{ $tags->name }}">{{ $tags->name }}<span></span></label>
+                        <input id="{{ $tags->id }}" type="checkbox" value="{{ $tags->name }}" checked>
+                        <label for="{{ $tags->id }}"><span></span>{{ $tags->name }}</label>
                     </li>
                 @endforeach
-                <li><input type="checkbox" value="Show All" id="check_all" checked/> Show All</li>
+                <li>
+                    <input type="checkbox" value="Show All" id="check_all" checked/> Show All
+                    <label for="check_all"><span></span></label>
+                </li>
             </ul>
             <a href="#">Close or Save...</a>
         </div>

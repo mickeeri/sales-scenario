@@ -676,21 +676,19 @@ html, body {
 
 #filter-tags li {
     border: 0 !important;
+    left: 30px;
     list-style-type: none;
+    position: inherit;
     text-transform: uppercase;
-}
-
-#filter-tags li label:first-child{
-    border: 0 !important;
-    list-style-type: none;
 }
 
 #filter-tags li input[type="checkbox"] {
     display:none;
+    float: left;
 }
 
 #filter-tags input[type="checkbox"] + label span {
-    display:inline-block;
+    display: block;
     float: left;
     width:19px;
     height:19px;
