@@ -566,7 +566,7 @@ html, body {
     }
     
 
-    /* Experts show page */
+    /* Expert show page */
     .profile-information {
         text-align: center;
         margin-bottom: 50px !important;
@@ -576,6 +576,7 @@ html, body {
         margin: 20px auto !important;
         float: none !important;
     }
+    /******/
 }
 
 /************************************** Flash Messages **************************************/
@@ -755,54 +756,6 @@ html, body {
 
 .experts-podcasts {
     margin: 0 10px;
-}
-
-/*.experts-podcasts ul {*/
-    /*display: inline;*/
-    /*list-style-type: none;*/
-    /*margin: 0;*/
-    /*padding: 0;*/
-/*}*/
-
-/*.experts-podcasts li {*/
-    /*display: block;*/
-    /*position: relative;*/
-    /*padding: 10px 0;*/
-    /*border-bottom: 1px solid #afafaf;*/
-/*}*/
-
-/*.experts-podcasts a {*/
-    /*padding-right: 42px;*/
-    /*display: block;*/
-    /*text-decoration: none;*/
-    /*color: #222;*/
-    /*font-weight: 700;*/
-/*}*/
-
-
-/*.experts-podcasts a:after{*/
-    /*display: inline-block;*/
-    /*content: '\f101';*/
-    /*font-family: FontAwesome;*/
-    /*color: #afafaf;*/
-    /*position: absolute;*/
-    /*right: 16px;*/
-    /*top: calc(50% - 14px);*/
-    /*height: auto;*/
-    /*width: auto;*/
-    /*background: none;*/
-    /*opacity: 1;*/
-    /*font-size: 28px;*/
-/*}*/
-
-.experts-podcasts a {
-    color: #222;
-    font-weight: 700;
-}
-
-.experts-podcasts a::after {
-    color: #afafaf;
-    font-weight: 700;
 }
 
 .profile-information {

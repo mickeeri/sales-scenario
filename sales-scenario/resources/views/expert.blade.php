@@ -26,17 +26,23 @@
             @endforeach
             </ul>
             <p>{{ $expert->info }}</p>
+            {{-- TODO: Make website link look nice. --}}
             <p><em><a href=" {{ $expert->website }}">Visit website</a></em></p>
         </div>
     </div>
     <div class="experts-podcasts">
-        <!--Insert photo somewhere here. Should we show tags here also? -->
+
         <h3>Podcasts by {{ $expert->first_name }} {{ $expert->last_name }}</h3>
         <hr/>
         @if(count($expert->podcasts))
         <ul class="explore-list">
         @foreach($expert->podcasts as $podcast)
-            <li><a href="/player/{{ $expert->id }}/{{ $podcast->id }}">{{ $podcast->title }}</a></li>
+            <li>
+                <a href="/player/{{ $expert->id }}/{{ $podcast->id }}">
+                    <span class="title">{{ $podcast->title }}</span><br/>
+                    <span class="podcast-date">{{ $podcast->created_at->format('Y-m-d') }}</span>
+                </a>
+            </li>
         @endforeach
         </ul>
         @endif
