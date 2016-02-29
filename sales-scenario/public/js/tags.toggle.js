@@ -30,7 +30,19 @@ $(function () {
 // Toogle popup sort list
 $('.filter-popup').toggle();
 $(function(){
-    $('#hideshow').on('click', function(event) {
+    $('#hideshow').on('click', function() {
         $('.filter-popup').toggle('show');
     });
+});
+
+// Close when click outside the popup
+$(document).mouseup(function (e)
+{
+    var container = $(".filter-popup");
+
+    if (!container.is(e.target) // if the target of the click isn't the container...
+        && container.has(e.target).length === 0) // ... nor a descendant of the container
+    {
+        container.hide('slow');
+    }
 });
