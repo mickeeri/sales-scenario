@@ -38,12 +38,12 @@
                 @foreach($tags as $tags )
                     <li>
                         <input id="{{ $tags->id }}" type="checkbox" value="{{ $tags->name }}" checked>
-                        <label for="{{ $tags->id }}"><span></span>{{ $tags->name }}</label>
+                        <label for="{{ $tags->id }}"><span></span><p class="tag-text">{{ $tags->name }}</p></label>
                     </li>
                 @endforeach
-                <li>
-                    <input type="checkbox" name="show-all" id="check_all" checked/> Show All
-                    <label for="check_all"><span></span></label>
+                <li class="li-show-all">
+                    <input type="checkbox" name="show-all" id="check_all" checked/>
+                    <label for="check_all"><span></span><p class="tag-text show-all">Show All</p></label>
                 </li>
             </ul>
         </div>
