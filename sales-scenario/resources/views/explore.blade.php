@@ -17,6 +17,17 @@
             // Uncheck checkboxes except the present one
             $(':checkbox').attr('checked', false)[tag].checked = true;
         });
+
+        //$('#filter-tags').toggle();
+
+        //TODO Just to test toogle sort list...
+        $(function(){
+            $('#hideshow').on('click', function(event) {
+                $('.filter-popup').toggle('show');
+            });
+        });
+
+
     </script>
 @endsection
 @endif
@@ -26,23 +37,25 @@
         <div class="alert">
             {{ session('status') }}
         </div>
-        @endif
+    @endif
 
-                <!--Popup list-->
-        <ul id="filter-tags">
-            <li><input type="checkbox" value="Sales Strategy" checked/> Sales Strategy</li>
-            <li><input type="checkbox" value="Sales Tactics" checked/> Sales Tactics</li>
-            <li><input type="checkbox" value="Sales Process" checked/> Sales Process</li>
-            <li><input type="checkbox" value="Big Deals Management" checked/> Big Deals Management</li>
-            <li><input type="checkbox" value="Selling To Small & Medium Businesses" checked/> Selling To Small & MediumBusinesses</li>
-            <li><input type="checkbox" value="Sales Team Coaching" checked/> Sales Team Coaching</li>
-            <li><input type="checkbox" value="Sales Hiring" checked/> Sales Hiring</li>
-            <li><input type="checkbox" value="Social Selling" checked/> Social Selling</li>
-            <li><input type="checkbox" value="Sales KPIs" checked/> Sales KPIs</li>
-            <li><input type="checkbox" value="Old School Sales" checked/> Old School Sales</li>
-            <li><input type="checkbox" value="Management & Business Growth" checked/> Management & Business Growth</li>
-        </ul>
+            <!--Popup list-->
+        <a href="#" class='explore-sort-button'type='button' id='hideshow' value='hide/show'>
+            <img src="/img/sort.btn.png">
+        </a>
 
+        <div class="filter-popup">
+            <ul id="filter-tags">
+                @foreach($tags as $tags )
+                    <li>
+                        <input id="{{ $tags->name }}" type="checkbox" value="{{ $tags->name }}" checked>
+                        <label for="{{ $tags->name }}">{{ $tags->name }}<span></span></label>
+                    </li>
+                @endforeach
+                <li><input type="checkbox" value="Show All" id="check_all" checked/> Show All</li>
+            </ul>
+            <a href="#">Close or Save...</a>
+        </div>
 
         <div id="expert-list">
             <!-- List all the experts by first letter in their last name -->

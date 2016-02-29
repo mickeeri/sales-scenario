@@ -14,4 +14,13 @@ $(function () {
             $('#expert-list .expert:not(' + contain + ')').hide();
         }
     });
+    // Check/uncheck all checkboxes // Toggle doesn't work as expected, that's why if/else
+    $('#check_all').click(function () {
+        $('input:checkbox').prop('checked', this.checked);
+        if($('#check_all').prop('checked')){
+            $('#expert-list .expert').show();
+        } else {
+            $('#expert-list .expert').hide();
+        }
+    });
 });

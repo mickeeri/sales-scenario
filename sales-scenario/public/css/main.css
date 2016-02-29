@@ -648,14 +648,65 @@ html, body {
 }
 
 /************************************** Profile form **************************************/
+.explore-sort-button{
+    float: right;
+    margin: 15px;
+}
+
+.explore-sort-button img{
+    width: 50px;
+}
+
+.filter-popup{
+    background-color: white;
+    box-shadow: #afafaf 0 0 20px;
+    clear: right;
+    float: right;
+    margin-right: 15px;
+    position: relative;
+    width: 300px;
+    z-index: 100;
+
+}
+
+.filter-popup ul {
+    -webkit-padding-start: 10px;
+}
+
 
 #filter-tags li {
-    padding: 0;
     border: 0 !important;
+    list-style-type: none;
+    text-transform: uppercase;
+}
+
+#filter-tags li label:first-child{
+    border: 0 !important;
+    list-style-type: none;
+}
+
+#filter-tags li input[type="checkbox"] {
+    display:none;
+}
+
+#filter-tags input[type="checkbox"] + label span {
+    display:inline-block;
+    float: left;
+    width:19px;
+    height:19px;
+    margin:2px 10px 0 0;
+    vertical-align:middle;
+    background:url(check_radio_sheet.png) left top no-repeat;
+    cursor:pointer;
+}
+
+#filter-tags input[type="checkbox"]:checked + label span {
+    background:url(check_radio_sheet.png) -19px top no-repeat;
 }
 
 #filter-tags li .ui-checkbox {
     margin: 0;
+    padding: 0;
 }
 
 #filter-tags li .ui-checkbox label {
