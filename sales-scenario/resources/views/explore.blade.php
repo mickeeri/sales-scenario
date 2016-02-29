@@ -30,7 +30,7 @@
 
                 <!--Popup list-->
         <a href="#" class='explore-sort-button' type='button' id='hideshow' value='hide/show'>
-            <img src="/img/sort.btn.png">
+            <i class="fa fa-filter white-icon-orange-bg"></i>
         </a>
 
         <div class="filter-popup">
