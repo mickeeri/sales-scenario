@@ -351,6 +351,7 @@ nav ul li a:hover {
 #content {
     height: 100%;
     padding-top: 50px;
+    box-sizing: border-box;
 }
 
 .wrapper {
