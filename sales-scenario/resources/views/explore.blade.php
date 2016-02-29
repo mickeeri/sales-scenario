@@ -1,12 +1,10 @@
 @extends('layouts.app')
 
-        <!-- Only run js if tag value is present -->
-@if ($tag)
-    @section('js')
-        <script>
+@section('js')
+    <script>
+        if ({{ $tag }}) { <!-- Only run js if tag value is present -->
             $(function () {
-                // Get the tag id.
-                var tag = {{ $tag }} -1;
+                var tag = {{ $tag }} -1;  // Get the tag id.
                 // Get the value from input
                 var value = $("ul#filter-tags input:nth(" + tag + ")").val();
                 // Remove all tags except the one with present id
@@ -17,23 +15,21 @@
                 // Uncheck checkboxes except the present one
                 $(':checkbox').attr('checked', false)[tag].checked = true;
             });
-        </script>
-    @endsection
-@endif
-
-@section('js')
+        }
+    </script>
     <script type="text/javascript" src="/js/tags.toggle.js"></script>
 @endsection
+
 
 @section('content')
     @if (session('status'))
         <div class="alert">
             {{ session('status') }}
         </div>
-    @endif
+        @endif
 
-            <!--Popup list-->
-        <a href="#" class='explore-sort-button'type='button' id='hideshow' value='hide/show'>
+                <!--Popup list-->
+        <a href="#" class='explore-sort-button' type='button' id='hideshow' value='hide/show'>
             <img src="/img/sort.btn.png">
         </a>
 

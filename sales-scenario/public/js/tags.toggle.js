@@ -25,11 +25,12 @@ $(function () {
         $("#check_all").prop("checked", false);
     });
 
-    // Toogle popup sort list
-    $('.filter-popup').toggle();
-    $(function(){
-        $('#hideshow').on('click', function(event) {
-            $('.filter-popup').toggle('show');
-        });
+});
+
+// Toogle popup sort list
+$('.filter-popup').toggle();
+$(function(){
+    $('#hideshow').on('click', function(event) {
+        $('.filter-popup').toggle('show');
     });
 });
