@@ -346,6 +346,41 @@ nav ul li a:hover {
     color: #000;
 }
 
+/************************************** Expert show view **************************************/
+
+.experts-podcasts {
+    margin: 0 10px;
+}
+
+.profile-information {
+    margin: 40px 10px 0 10px;
+    min-height: 250px;
+}
+
+.info .expert-tags {
+    color: #afafaf;
+    margin-top: 0;
+    font-size: 16px;
+}
+
+.info h1 {
+    margin-bottom: 10px;
+}
+
+.experts-podcasts h3 {
+    color: #afafaf;
+    font-size: 20px;
+}
+
+.expert-img {
+    float: left;
+    border-radius: 50%;
+    padding-bottom: 0;
+    width: 200px;
+    display: block;
+    margin-right: 40px;
+}
+
 /************************************** Misc **************************************/
 
 #content {
@@ -564,17 +599,16 @@ html, body {
     .unauthorized form {
         width: auto;
     }
-    
 
     /* Expert show page */
     .profile-information {
         text-align: center;
-        margin-bottom: 50px !important;
+        margin-bottom: 50px;
     }
 
     .expert-img {
-        margin: 20px auto !important;
-        float: none !important;
+        margin: 20px auto;
+        float: none;
     }
     /******/
 }
@@ -751,38 +785,14 @@ html, body {
     padding-left: 10px;
 }
 
+/*@media screen and (max-width: 768px) {*/
+    /*.profile-information {*/
+        /*text-align: center;*/
+        /*margin-bottom: 50px;*/
+    /*}*/
 
-/************************************** Expert show view **************************************/
-
-.experts-podcasts {
-    margin: 0 10px;
-}
-
-.profile-information {
-    margin: 40px 10px 0 10px;
-    min-height: 250px;
-}
-
-.info .expert-tags {
-    color: #afafaf;
-    margin-top: 0;
-    font-size: 16px;
-}
-
-.info h1 {
-    margin-bottom: 10px;
-}
-
-.experts-podcasts h3 {
-    color: #afafaf;
-    font-size: 20px;
-}
-
-.expert-img {
-    float: left;
-    border-radius: 50%;
-    padding-bottom: 0;
-    width: 200px;
-    display: block;
-    margin-right: 40px;
-}
+    /*.expert-img {*/
+        /*margin: 20px auto;*/
+        /*float: none;*/
+    /*}*/
+/*}*/
