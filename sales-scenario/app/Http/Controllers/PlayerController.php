@@ -31,6 +31,7 @@ class PlayerController extends Controller
             'imgSrc' => $author->photo,
             'expertFirst' => $author->first_name,
             'expertLast' => $author->last_name,
+            'expertInfo' => $author->info,
             'podcastTitle' => $podcast->title,
             'podcastType' => $ext,
             'podcastPath' => $path,

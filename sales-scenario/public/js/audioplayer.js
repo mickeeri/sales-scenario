@@ -24,4 +24,35 @@ $(document).ready(function(){
          {
             cssSelectorAncestor: "#cp_container_1"
         });
+
+
+    /**
+     * Toggle expert info
+     */
+    $('.podcast-author' ).click(function() {
+        $('#expert_info').show();
+
+
+    });
+
+    if(!$('#expert_info').css('display') == 'none')
+    {
+        $(body).click(function() {
+            $('#expert_info').hide();
+        });
+    }
+
+
+    /*$(document).click(function(e) {
+        var inside = $('#expert_info');
+
+        if(!inside.is(e.target) && inside.has(e.target).length === 0)
+        {
+            $('#expert_info').hide();
+            inside.unbind('click', document);
+        }
+
+
+    });*/
+
 });

@@ -28,6 +28,10 @@
             <p class="description">
                 <span class="podcast-title">{{$player['podcastTitle']}}</span>
                 <span class="podcast-author">By {{ $player['expertFirst'] }} {{ $player['expertLast'] }}</span>
+                <div id="expert_info" style="display: none">
+                    <h4>About the expert:</h4>
+                    <p>{{$player['expertInfo']}}</p>
+                </div>
             </p>
         </div>
 
