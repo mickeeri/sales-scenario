@@ -13,7 +13,7 @@ $(function () {
     // Check/uncheck all checkboxes // Toggle doesn't work as expected, that's why if/else
     $('#check_all').click(function () {
         $('input:checkbox').prop('checked', this.checked);
-        if($('#check_all').prop('checked')){
+        if ($('#check_all').prop('checked')) {
             $('#expert-list .expert').show();
         } else {
             $('#expert-list .expert').hide();
@@ -21,23 +21,25 @@ $(function () {
     });
 
     // Remove check from show all when click on another checkbox
-    $("input[name!=show-all]").click(function() {
+    $("input[name!=show-all]").click(function () {
         $("#check_all").prop("checked", false);
     });
 
 });
 
 // Toogle popup sort list
-$('.filter-popup').toggle();
-$(function(){
-    $('#hideshow').on('click', function() {
-        $('.filter-popup').toggle('show');
+$(function () {
+    $('#hideshow').click(function () {
+        if ($('.filter-popup').css('display') == 'none') {
+            $('.filter-popup').show('slow');
+        } else {
+            $('.filter-popup').hide('slow');
+        }
     });
 });
 
 // Close when click outside the popup
-$(document).mouseup(function (e)
-{
+$(document).mouseup(function (e) {
     var container = $(".filter-popup");
 
     if (!container.is(e.target) // if the target of the click isn't the container...
