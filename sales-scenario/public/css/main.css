@@ -163,7 +163,6 @@ button:hover, .button:hover, input[type=submit]:hover {
     border-radius: 50%;
     display: block;
     margin: 0 auto;
-    padding-bottom: 10px;
     width: 45%;
 }
 .slider-button{
