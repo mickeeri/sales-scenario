@@ -198,12 +198,17 @@ button:hover, .button:hover, input[type=submit]:hover {
     -webkit-padding-start: 0;
 }
 
+.explore-list > li:first-of-type {
+    border-top: 1px solid #afafaf;
+}
+
 .explore-list > li{
     display: block;
     position: relative;
     padding: 10px 0 10px 20px;
     border-bottom: 1px solid #afafaf;
 }
+
 .explore-list > li > a{
     padding-right: 42px;
     display: block;
