@@ -1,5 +1,5 @@
 <div class="slider-item slider-content-wrapper">
-    <img class="float-left slider-img" src="/expert_photo/blank-profile-picture.png" alt="Profile image of {{ $podcast->expert->first_name}} {{  $podcast->expert->last_name }}"/>
+    @include('partials.expert_img', array('src' =>$podcast->expert->photo, 'class'=> 'float-left slider-img', 'first' =>$podcast->expert->first_name, 'last' =>$podcast->expert->last_name))
     <div class="slider-info">
         <p class="upper">{{ $podcast->title }}</p>
         <p class="upper smaller margin-left">By {{ $podcast->expert->first_name }} {{ $podcast->expert->last_name }}</p>
