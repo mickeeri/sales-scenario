@@ -32,38 +32,6 @@ h2{
     margin: 0 auto;
 }
 
-/***************************Toggable expertinfo (player view)****************************/
-#expert_info {
-    width: 200px;
-    box-shadow: #000 0 0 20px;
-    background-color: #fff;
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    padding: 10px;
-    z-index: 3;
-    margin-left: -100px;
-    margin-top: -200px;
-    height: 400px;
-
-}
-#expert_info h4 {
-    text-transform: uppercase;
-}
-
-.podcast-author.active::after{
-    content: '';
-    position: fixed;
-    top: 50px;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background-color: rgba(0,0,0,0.8);
-    z-index: 2;
-}
-
-
-
 /**************************************Desktop view**************************************/
 
 .upper {
@@ -378,11 +346,47 @@ nav ul li a:hover {
     color: #000;
 }
 
+/************************************** Expert show view **************************************/
+
+.experts-podcasts {
+    margin: 0 10px;
+}
+
+.profile-information {
+    margin: 40px 10px 0 10px;
+    min-height: 250px;
+}
+
+.info .expert-tags {
+    color: #afafaf;
+    margin-top: 0;
+    font-size: 16px;
+}
+
+.info h1 {
+    margin-bottom: 10px;
+}
+
+.experts-podcasts h3 {
+    color: #afafaf;
+    font-size: 20px;
+}
+
+.expert-img {
+    float: left;
+    border-radius: 50%;
+    padding-bottom: 0;
+    width: 200px;
+    display: block;
+    margin-right: 40px;
+}
+
 /************************************** Misc **************************************/
 
 #content {
     height: 100%;
     padding-top: 50px;
+    box-sizing: border-box;
 }
 
 .wrapper {
@@ -596,17 +600,17 @@ html, body {
         width: auto;
     }
 
-    /*expert info popup in player view*/
-    #expert_info {
-        width: auto;
-        top: 90px;
-        left: 15%;
-        bottom: 15%;
-        right: 15%;
-        margin-left: auto;
-        margin-top: auto;
-        height: auto;
+    /* Expert show page */
+    .profile-information {
+        text-align: center;
+        margin-bottom: 50px;
     }
+
+    .expert-img {
+        margin: 20px auto;
+        float: none;
+    }
+    /******/
 }
 
 /************************************** Flash Messages **************************************/
