@@ -32,6 +32,36 @@ h2{
     margin: 0 auto;
 }
 
+/***************************Toggable expertinfo (player view)****************************/
+#expert_info {
+    width: 200px;
+    box-shadow: #000 0 0 20px;
+    background-color: #fff;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    padding: 10px;
+    z-index: 3;
+    margin-left: -100px;
+    margin-top: -200px;
+    height: 400px;
+
+}
+#expert_info h4 {
+    text-transform: uppercase;
+}
+
+.podcast-author.active::after{
+    content: '';
+    position: fixed;
+    top: 50px;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0,0,0,0.8);
+    z-index: 2;
+}
+
 /**************************************Desktop view**************************************/
 
 .upper {
@@ -611,6 +641,18 @@ html, body {
         float: none;
     }
     /******/
+
+    /*Expert info popup in player view*/
+    #expert_info {
+        width: auto;
+        top: 90px;
+        left: 15%;
+        bottom: 15%;
+        right: 15%;
+        margin-left: auto;
+        margin-top: auto;
+        height: auto;
+    }
 }
 
 /************************************** Flash Messages **************************************/
