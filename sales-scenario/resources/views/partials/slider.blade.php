@@ -13,7 +13,7 @@
         $('.slider').slick({
             accessibility:true,
             autoplay: false,
-            autoplaySpeed: 2000,
+            autoplaySpeed: 5000,
             dots: true,
             mobileFirst: true
 
