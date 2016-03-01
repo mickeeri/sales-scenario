@@ -19,11 +19,7 @@
 
     <div id="player-content">
         <div class="slide">
-            @if (!empty($player['imgSrc']))
-                <img class="profile-img" src="/expert_photo/{{ $player['imgSrc']}}" alt="Profile image of {{ $player['expertFirst'] }} {{ $player['expertLast'] }}"/>
-            @else
-                <img class="profile-img" src="/expert_photo/blank-profile-picture.png" alt="Profile image not available"/>
-            @endif
+            @include('partials.expert_img', array('src' =>$player['imgSrc'], 'class'=> 'profile-img', 'first' =>$player['expertFirst'], 'last' =>$player['expertLast']))
 
             <p class="description">
                 <span class="podcast-title">{{$player['podcastTitle']}}</span>

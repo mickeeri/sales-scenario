@@ -12,11 +12,7 @@
     @endif
     <div class="profile-information">
         <div class="image-div">
-        @if($expert->photo)
-            <img class="expert-img" src="/expert_photo/{{ $expert->photo }}" alt="Profile picture of {{ $expert->first_name }} {{ $expert->last_name }}"/>
-        @else
-            <img class="expert-img" src="/expert_photo/blank-profile-picture.png" alt="Profile picture of {{ $expert->first_name }} {{ $expert->last_name }}"/>
-        @endif
+            @include('partials.expert_img', array('src' =>$expert->photo, 'class' =>'expert-img', 'first' =>$expert->first_name, 'last' =>$expert->last_name))
         </div>
         <div class="info">
             <h1>{{ $expert->first_name }} {{ $expert->last_name }} </h1>
