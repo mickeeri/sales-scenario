@@ -195,13 +195,13 @@ button:hover, .button:hover, input[type=submit]:hover {
 {
     list-style-type: none;
     margin: 0;
-    padding: 0 10px;
+    -webkit-padding-start: 0;
 }
 
 .explore-list > li{
     display: block;
     position: relative;
-    padding: 10px 0;
+    padding: 10px 0 10px 20px;
     border-bottom: 1px solid #afafaf;
 }
 .explore-list > li > a{
