@@ -21,3 +21,7 @@
     });
 </script>
 @endsection
+
+<div class="slider">
+    @each('partials/podcast_listing', $podcasts, 'podcast')
+</div>
