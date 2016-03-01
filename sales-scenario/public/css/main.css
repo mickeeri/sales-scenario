@@ -171,6 +171,26 @@ button:hover, .button:hover, input[type=submit]:hover {
     border: #709d25;
     padding: 5px 50px;
 }
+
+.slick-dots li{
+    margin: 0;
+}
+
+.slick-dots li button{
+    padding: 0;
+}
+
+.slick-dots li button:before{
+    color: white;
+    font-size: 8px;
+    opacity: 1;
+}
+
+.slick-dots li.slick-active button:before{
+    color: #e96d01;
+    opacity: 1;
+}
+
 .explore-list,
 .explore-list ul
 {
