@@ -1,11 +1,10 @@
 @extends('layouts.app')
 
-
-
 @section('content')
     <div id="slider-wrapper">
         <h2 class="center upper">What's new</h2>
         @include('partials.slider')
+
     </div>
 
     <h2 class="center">Most Contributing</h2>

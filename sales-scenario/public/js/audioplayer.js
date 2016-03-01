@@ -1,8 +1,9 @@
 /**
- * Sales Scenarios audio player
+ * Scripts for player view
  */
 
 $(document).ready(function(){
+
     /*
      * Instance CirclePlayer inside jQuery doc ready
      *
@@ -24,4 +25,14 @@ $(document).ready(function(){
          {
             cssSelectorAncestor: "#cp_container_1"
         });
+
+
+    /**
+     * Toggle expert info
+     */
+    $('.podcast-author' ).click(function() {
+        $('#expert_info').toggle();
+        $(this).toggleClass('active');
+    });
+
 });

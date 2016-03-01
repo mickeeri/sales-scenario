@@ -5,23 +5,42 @@
 @endsection
 
 @section('content')
-        @if (session('status'))
-                <div class="alert">
-                        {{ session('status') }}
-                </div>
-        @endif
-        <div class="profile-information">
-                <h1>{{ $expert->first_name }} {{ $expert->last_name }} </h1>
-                <p>{{ $expert->info }}</p>
-                <p><em><a href=" {{ $expert->website }}"> {{ $expert->website }}</a></em></p>
-                <img src="/expert_photo/{{ $expert->photo }}" alt="Profile picture of {{ $expert->first_name }} {{ $expert->last_name }}"/>
+    @if (session('status'))
+        <div class="alert">
+            {{ session('status') }}
         </div>
-        <!--Insert photo somewhere here. Should we show tags here also? -->
+    @endif
+    <div class="profile-information">
+        <div class="image-div">
+            @include('partials.expert_img', array('src' =>$expert->photo, 'class' =>'expert-img', 'first' =>$expert->first_name, 'last' =>$expert->last_name))
+        </div>
+        <div class="info">
+            <h1>{{ $expert->first_name }} {{ $expert->last_name }} </h1>
+            <ul class="expert-tags">
+            @foreach($expert->tags as $tag)
+                <li>{{ $tag->name }}</li>
+            @endforeach
+            </ul>
+            <p>{{ $expert->info }}</p>
+            {{-- TODO: Make website link look nice. --}}
+            <p><em><a href=" {{ $expert->website }}">Visit website</a></em></p>
+        </div>
+    </div>
+    <div class="experts-podcasts">
+
+        <h3>Podcasts by {{ $expert->first_name }} {{ $expert->last_name }}</h3>
+        <hr/>
         @if(count($expert->podcasts))
-                <ul>
-                @foreach($expert->podcasts as $podcast)
-                    <li><a href="/player/{{ $expert->id }}/{{ $podcast->id }}">{{ $podcast->title }}</a></li>
-                @endforeach
-                </ul>
+        <ul class="explore-list">
+        @foreach($expert->podcasts as $podcast)
+            <li>
+                <a href="/player/{{ $expert->id }}/{{ $podcast->id }}">
+                    <span class="title">{{ $podcast->title }}</span><br/>
+                    <span class="podcast-date">{{ $podcast->created_at->format('Y-m-d') }}</span>
+                </a>
+            </li>
+        @endforeach
+        </ul>
         @endif
+    </div>
 @endsection
