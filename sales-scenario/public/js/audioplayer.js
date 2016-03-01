@@ -1,8 +1,9 @@
 /**
- * Sales Scenarios audio player
+ * Scripts for player view
  */
 
 $(document).ready(function(){
+
     /*
      * Instance CirclePlayer inside jQuery doc ready
      *
@@ -31,28 +32,15 @@ $(document).ready(function(){
      */
     $('.podcast-author' ).click(function() {
         $('#expert_info').show();
-
-
     });
 
-    if(!$('#expert_info').css('display') == 'none')
-    {
-        $(body).click(function() {
-            $('#expert_info').hide();
-        });
-    }
-
-
-    /*$(document).click(function(e) {
-        var inside = $('#expert_info');
-
-        if(!inside.is(e.target) && inside.has(e.target).length === 0)
+    $(document).mouseup(function (e) {
+        var container = $("#expert_info");
+        if (!container.is(e.target) && container.has(e.target).length === 0)
         {
-            $('#expert_info').hide();
-            inside.unbind('click', document);
+            container.hide('slow');
+            container.unbind('click', document);
         }
-
-
-    });*/
+    });
 
 });
