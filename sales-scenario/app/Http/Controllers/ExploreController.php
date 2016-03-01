@@ -42,9 +42,13 @@ class ExploreController extends Controller
     public function Expert($id)
     {
         $expert = \App\Expert::find($id);
+
         if(!$expert){
             return redirect('explore')->with('status', "The sales expert you are looking for can't be found.");
         }
+
+        $expert->podcasts = $expert->podcasts->sortByDesc('id');
+
         return view('expert')->with(compact('expert'));
     }
 
