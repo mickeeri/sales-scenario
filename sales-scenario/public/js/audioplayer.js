@@ -31,16 +31,8 @@ $(document).ready(function(){
      * Toggle expert info
      */
     $('.podcast-author' ).click(function() {
-        $('#expert_info').show();
-    });
-
-    $(document).mouseup(function (e) {
-        var container = $("#expert_info");
-        if (!container.is(e.target) && container.has(e.target).length === 0)
-        {
-            container.hide('slow');
-            container.unbind('click', document);
-        }
+        $('#expert_info').toggle();
+        $(this).toggleClass('active');
     });
 
 });
