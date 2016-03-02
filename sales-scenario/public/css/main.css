@@ -27,10 +27,21 @@ h2{
     text-decoration: none;
 
 }
+.player-gray-area{
+    height: 100%;
+}
 
 /*the player itself*/
 .cp-container {
     margin: 0 auto;
+}
+#player-content{
+    background-color: black;
+    color: white;
+    width: 300px;
+    height: 100%;
+    float: left;
+
 }
 
 /***************************Toggable expertinfo (player view)****************************/
@@ -411,15 +422,7 @@ nav ul li a:hover {
     display: block;
     margin-right: 40px;
 }
-/************************************** Player view **************************************/
-#player-content{
-    background-color: black;
-    color: white;
-    width: 300px;
-    height: 100%;
-    float: left;
 
-}
 /************************************** Misc **************************************/
 
 #content {
@@ -504,15 +507,6 @@ html, body {
     .description {
         width: 45%;
         float: left;
-    }
-
-    .podcast-title, .podcast-author {
-    }
-
-    #player-wrapper {
-        position: absolute;
-        bottom: 50px;
-        left: calc(50% - 100px);
     }
 
     /**
@@ -668,9 +662,19 @@ html, body {
         margin-top: auto;
         height: auto;
     }
+    /*Player*/
     #player-content{
     width: 100%;
      }
+    #player-wrapper {
+        position: absolute;
+        bottom: 50px;
+        left: calc(50% - 100px);
+    }
+    .player-gray-area{
+        background-color: #efefef;
+        color: black;
+    }
 }
 
 /************************************** Flash Messages **************************************/
