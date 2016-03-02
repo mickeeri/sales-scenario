@@ -44,9 +44,6 @@ h2{
 #player-content a{
     color: #b1b3b4;
 }
-.ui360{
-    padding-top: 10%;
-}
 
 /***************************Toggable expertinfo (player view)****************************/
 #expert_info {
@@ -510,9 +507,11 @@ html, body {
 
     .description {
         padding-top: 20px;
-        padding-bottom: 20px;
         width: 45%;
         float: left;
+    }
+    .description p.center{
+        margin: 0;
     }
 
     /**
@@ -671,6 +670,7 @@ html, body {
     /*Player*/
     #player-content{
      width: 100%;
+        height: 100%;
 
      }
     #player-content p{
