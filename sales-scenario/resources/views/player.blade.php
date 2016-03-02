@@ -6,13 +6,6 @@
 @endsection
 
 @section('js')
-        <!-- JPlayer -->
-    <script type="text/javascript" src="/js/jquery.transform2d.js"></script>
-    <script type="text/javascript" src="/js/jquery.grab.js"></script>
-    <script type="text/javascript" src="/js/mod.csstransforms.min.js"></script>
-    <script type="text/javascript" src="/js/jquery.jplayer.min.js"></script>
-    <script type="text/javascript" src="/js/circle.player.js"></script>
-    <script type="text/javascript" src="/js/audioplayer.js"></script>
 
     <!-- Apache-licensed animation library -->
     <script type="text/javascript" src="/vendor/soundmanager/script/berniecode-animator.js"></script>
@@ -24,10 +17,12 @@
         threeSixtyPlayer.config.playRingColor = '#e95d0f';
 
         soundManager.setup({
-// path to directory containing SM2 SWF
+    // path to directory containing SM2 SWF
             url: '/vendor/soundmanager/swf/'
         });
     </script>
+
+
 @endsection
 
 @section('content')

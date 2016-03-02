@@ -41,7 +41,7 @@ h2{
     top: 50%;
     left: 50%;
     padding: 10px;
-    z-index: 3;
+    z-index: 11;
     margin-left: -100px;
     margin-top: -200px;
     height: 400px;
@@ -59,7 +59,7 @@ h2{
     right: 0;
     bottom: 0;
     background-color: rgba(0,0,0,0.8);
-    z-index: 2;
+    z-index: 10;
 }
 
 /**************************************Desktop view**************************************/
