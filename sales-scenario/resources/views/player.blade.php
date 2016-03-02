@@ -46,7 +46,7 @@
         <div class="ui360">
             <a href="{{ $player["podcastFile"] }}">{{$player['podcastTitle']}}</a>
         </div>
-        <p class="center margin-above">10m 25s</p>
+        <p class="center podcast-time-text">10m 25s</p>
         </div>
     </div>
 

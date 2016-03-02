@@ -688,10 +688,13 @@ html, body {
         background-color: #efefef;
         color: black;
     }
-    .margin-above{
+    .podcast-time-text {
         margin-top: 50px;
         display: block;
         font-weight: 600;
+    }
+    #player-content p.podcast-time-text{
+        color: black;
     }
     .player-gray-area{
         height: 70%;
