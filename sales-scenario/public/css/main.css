@@ -511,7 +511,7 @@ html, body {
         float: left;
     }
     .description p.center{
-        margin: 0;
+        margin: 0 0 0 15px;
     }
 
     /**
