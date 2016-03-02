@@ -33,6 +33,7 @@ class PlayerController extends Controller
             'expertLast' => $author->last_name,
             'expertInfo' => $author->info,
             'podcastTitle' => $podcast->title,
+            'podcastFile' => '/audio/podcasts/' . $podcast->filename,
             'podcastType' => $ext,
             'podcastPath' => $path,
         ];

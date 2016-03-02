@@ -1,18 +1,33 @@
 @extends('layouts.app')
 
 @section('css')
-    <!-- Style for circle player -->
-    <link type="text/css" href="/css/circle.player.css" rel="stylesheet" />
+    <link rel="stylesheet" type="text/css" href="/vendor/soundmanager/css/360player.css" />
+    <link rel="stylesheet" type="text/css" href="/vendor/soundmanager/css/flashblock.css" />
 @endsection
 
 @section('js')
-    <!-- JPlayer -->
+        <!-- JPlayer -->
     <script type="text/javascript" src="/js/jquery.transform2d.js"></script>
     <script type="text/javascript" src="/js/jquery.grab.js"></script>
     <script type="text/javascript" src="/js/mod.csstransforms.min.js"></script>
     <script type="text/javascript" src="/js/jquery.jplayer.min.js"></script>
     <script type="text/javascript" src="/js/circle.player.js"></script>
     <script type="text/javascript" src="/js/audioplayer.js"></script>
+
+    <!-- Apache-licensed animation library -->
+    <script type="text/javascript" src="/vendor/soundmanager/script/berniecode-animator.js"></script>
+
+    <!-- the core stuff -->
+    <script type="text/javascript" src="/vendor/soundmanager/script/soundmanager2.js"></script>
+    <script type="text/javascript" src="/vendor/soundmanager/script/360player.js"></script>
+    <script type="text/javascript">
+        threeSixtyPlayer.config.playRingColor = '#e95d0f';
+
+        soundManager.setup({
+// path to directory containing SM2 SWF
+            url: '/vendor/soundmanager/swf/'
+        });
+    </script>
 @endsection
 
 @section('content')
@@ -21,36 +36,20 @@
         <div class="slide">
             @include('partials.expert_img', array('src' =>$player['imgSrc'], 'class'=> 'profile-img', 'first' =>$player['expertFirst'], 'last' =>$player['expertLast']))
 
-            <p class="description">
+            <div class="description">
                 <span class="podcast-title">{{$player['podcastTitle']}}</span>
                 <a class="podcast-author" href="#">By {{ $player['expertFirst'] }} {{ $player['expertLast'] }}</a>
                 <div id="expert_info" style="display: none">
                     <h4>About {{ $player['expertFirst'] }} {{ $player['expertLast'] }}</h4>
                     <p>{{$player['expertInfo']}}</p>
                 </div>
-            </p>
-        </div>
-
-        <!-- The jPlayer div must not be hidden. Keep it at the root of the body element to avoid any such problems. -->
-        <div id="jquery_jplayer_1" class="cp-jplayer"></div>
-        <!-- The container for the interface can go where you want to display it. Show and hide it as you need. -->
-        <div id="player-wrapper">
-            <div id="cp_container_1" class="cp-container" data-type="{{$player['podcastType']}}" data-path="{{$player['podcastPath']}}">
-                <div class="cp-buffer-holder"> <!-- .cp-gt50 only needed when buffer is > than 50% -->
-                    <div class="cp-buffer-1"></div>
-                    <div class="cp-buffer-2"></div>
-                </div>
-                <div class="cp-progress-holder"> <!-- .cp-gt50 only needed when progress is > than 50% -->
-                    <div class="cp-progress-1"></div>
-                    <div class="cp-progress-2"></div>
-                </div>
-                <div class="cp-circle-control"></div>
-                <ul class="cp-controls">
-                    <li><a class="cp-play" tabindex="1">play</a></li>
-                    <li><a class="cp-pause" style="display:none;" tabindex="1">pause</a></li> <!-- Needs the inline style here, or jQuery.show() uses display:inline instead of display:block -->
-                </ul>
             </div>
         </div>
+        <div class="clear"></div>
+        <div class="ui360">
+            <a href="{{ $player["podcastFile"] }}">{{$player['podcastTitle']}}</a>
+        </div>
+
     </div>
 
 

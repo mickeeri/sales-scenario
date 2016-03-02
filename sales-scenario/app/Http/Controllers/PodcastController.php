@@ -38,11 +38,8 @@ class PodcastController extends CrudController{
 
 		parent::edit($entity);
 
-		Podcast::deleted(function($podCast) {
-			header('Location: /panel/Podcast/all');
-			die();
-		});
 
+		$this->loadEventHandlers();
 
         // Simple code of  edit part , List of all fields here : http://laravelpanel.com/docs/master/crud-fields
 		$this->edit = \DataEdit::source(new Podcast);
@@ -53,7 +50,7 @@ class PodcastController extends CrudController{
 
 		$this->edit->add('expert','Expert','select')->options($this->getExpertsList());
 
-		$this->edit->add('filename', 'Podcast (m4a, mp3)', 'file')->rule('audio')->move(storage_path().'/app/podcasts/temp');
+		$this->edit->add('filename', 'Podcast (m4a, mp3)', 'file')->rule('audio')->move(public_path().'/audio/podcasts/temp');
 
         return $this->returnEditView();
     }
@@ -70,5 +67,63 @@ class PodcastController extends CrudController{
 		}
 
 		return $experts;
+	}
+
+	private function loadEventHandlers()
+	{
+		Podcast::saving(function($podCast){
+			if (isset($podCast->filename) && is_null($podCast->filename) ||
+					empty($podCast->filename)) {
+				return false;
+			}
+
+			return true;
+		});
+
+		Podcast::saved(function($podCast){
+			$tempLocation = Podcast::podcastLocation().'temp/';
+			$tempFileName = $podCast->filename;
+
+			if (file_exists($tempLocation.$tempFileName)) {
+				$extension = pathinfo($tempLocation.$tempFileName, PATHINFO_EXTENSION);
+
+				if (!empty($extension)) { // Make sure file has extension.
+					$finalFileName = $podCast->id.'.'.$extension;
+
+					if (file_exists(Podcast::podcastLocation().$finalFileName)) { // If file exists, delete it first.
+						unlink(Podcast::podcastLocation().$finalFileName);
+					}
+
+					rename($tempLocation.$tempFileName, Podcast::podcastLocation().$finalFileName);
+					$podCast->filename = $finalFileName;
+					$podCast->save();
+				}
+			}
+		});
+
+		Podcast::deleting(function($podCast) {
+			// before delete
+			if (!empty($podCast->filename) && file_exists(Podcast::podcastLocation().$podCast->filename)) {
+				unlink(Podcast::podcastLocation().$podCast->filename);
+			}
+		});
+
+		Podcast::deleted(function($podCast) {
+			header('Location: /panel/Podcast/all');
+			die();
+		});
+
+		\Validator::extend('audio', function($attribute, $value, $parameters)
+		{
+			$allowed = array('audio/mpeg');
+			$mime = new \App\Libraries\MimeReader($value->getRealPath());
+
+			// Make sure file type has extension .m4a and not mp4.
+			if ($mime->get_type() == 'video/mp4' && preg_match('/^.*\.(m4a)$/', $value->getClientOriginalName())) {
+				return true;
+			}
+
+			return in_array($mime->get_type(), $allowed);
+		});
 	}
 }
