@@ -355,10 +355,10 @@ nav ul li a:hover {
 .profile-information {
     margin: 40px 10px 0 10px;
     min-height: 250px;
+    color: #b1b3b4;
 }
 
 .info .expert-tags {
-    color: #afafaf;
     margin-top: 0;
     font-size: 16px;
 }
@@ -368,7 +368,7 @@ nav ul li a:hover {
 }
 
 .experts-podcasts h3 {
-    color: #afafaf;
+    color: #b1b3b4;
     font-size: 20px;
 }
 
@@ -379,6 +379,13 @@ nav ul li a:hover {
     width: 200px;
     display: block;
     margin-right: 40px;
+}
+
+.expert-website {
+    color: #b1b3b4;
+    text-transform: uppercase;
+    font-weight: bold;
+    font-size: smaller;
 }
 
 /************************************** Misc **************************************/

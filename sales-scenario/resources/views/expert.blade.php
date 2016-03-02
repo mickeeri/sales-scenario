@@ -26,8 +26,7 @@
             @endforeach
             </ul>
             <p>{{ $expert->info }}</p>
-            {{-- TODO: Make website link look nice. --}}
-            <p><em><a href=" {{ $expert->website }}">Visit website</a></em></p>
+            <a class="expert-website" href=" {{ $expert->website }}">Visit website</a>
         </div>
     </div>
     <div class="experts-podcasts">
