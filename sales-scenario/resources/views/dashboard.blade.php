@@ -1,25 +1,10 @@
 @extends('layouts.app')
-@section('css')
-        <!-- Styles for slider-->
-<link rel="stylesheet" type="text/css" href="/slick/slick.css"/>
-<link rel="stylesheet" type="text/css" href="/slick/slick-theme.css"/>
-@endsection
+
 @section('content')
     <div id="slider-wrapper">
         <h2 class="center upper">What's new</h2>
-        <div class="slider">
-            @foreach($podcasts as $podcast)
-                <div class="slider-item slider-content-wrapper">
-                    @include('partials.expert_img', array('src' =>$podcast->expert->photo, 'class'=> 'float-left slider-img', 'first' =>$podcast->expert->first_name, 'last' =>$podcast->expert->last_name))
+        @include('partials.slider')
 
-                    <div class="slider-info">
-                        <p class="upper">{{ $podcast->title }}</p>
-                        <p class="upper smaller margin-left">By {{ $podcast->expert->first_name }} {{ $podcast->expert->last_name }}</p>
-                        <a class="slider-button button upper" href="/player/{{ $podcast->expert->id }}/{{ $podcast->id }}"> Play</a>
-                    </div>
-                </div>
-            @endforeach
-        </div>
     </div>
 
     <h2 class="center">Most Contributing</h2>
@@ -38,21 +23,5 @@
     </ul>
 @endsection
 
-@section('js')
-        <!-- Script for slider-->
-<script type="text/javascript" src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
-<script type="text/javascript" src="/slick/slick.min.js"></script>
-<script>
-    $(document).ready(function(){
-        $('.slider').slick({
-            accessibility:true,
-            autoplay: false,
-            autoplaySpeed: 2000,
-            dots: true,
-            mobileFirst: true
 
-        });
-    });
-</script>
-@endsection
 

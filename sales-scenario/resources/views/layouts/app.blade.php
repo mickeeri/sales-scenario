@@ -12,9 +12,10 @@
 
     <!-- Styles -->
     <link type="text/css" href="/css/normalize.css" rel="stylesheet" />
+    @yield('css')
     <link type="text/css" href="/css/main.css" rel="stylesheet" />
 
-    @yield('css')
+
     <title>Sales Scenario</title>
 </head>
 <body

@@ -173,9 +173,6 @@ button:hover, .button:hover, input[type=submit]:hover {
 }
 
 /************************************** Dashboard **************************************/
-.slider{
-
-}
 
 #slider-wrapper{
     background-color: black;
@@ -193,7 +190,6 @@ button:hover, .button:hover, input[type=submit]:hover {
     border-radius: 50%;
     display: block;
     margin: 0 auto;
-    padding-bottom: 10px;
     width: 45%;
 }
 .slider-button{
@@ -201,20 +197,45 @@ button:hover, .button:hover, input[type=submit]:hover {
     border: #709d25;
     padding: 5px 50px;
 }
+
+.slick-dots li{
+    margin: 0;
+}
+
+.slick-dots li button{
+    padding: 0;
+}
+
+.slick-dots li button:before{
+    color: white;
+    font-size: 8px;
+    opacity: 1;
+}
+
+.slick-dots li.slick-active button:before{
+    color: #e96d01;
+    opacity: 1;
+}
+
 .explore-list,
 .explore-list ul
 {
     list-style-type: none;
     margin: 0;
-    padding: 0;
+    -webkit-padding-start: 0;
+}
+
+.explore-list > li:first-of-type {
+    border-top: 1px solid #afafaf;
 }
 
 .explore-list > li{
     display: block;
     position: relative;
-    padding: 10px 0;
+    padding: 10px 0 10px 20px;
     border-bottom: 1px solid #afafaf;
 }
+
 .explore-list > li > a{
     padding-right: 42px;
     display: block;
