@@ -28,7 +28,6 @@
 @section('content')
 
     <div id="player-content">
-        <div class="slide">
             @include('partials.expert_img', array('src' =>$player['imgSrc'], 'class'=> 'profile-img', 'first' =>$player['expertFirst'], 'last' =>$player['expertLast']))
 
             <div class="description">
@@ -39,7 +38,6 @@
                     <p>{{$player['expertInfo']}}</p>
                 </div>
             </div>
-        </div>
         <div class="clear"></div>
         <div class="ui360">
             <a href="{{ $player["podcastFile"] }}">{{$player['podcastTitle']}}</a>

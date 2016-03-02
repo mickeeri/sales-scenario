@@ -24,6 +24,7 @@ h2{
     display: block;
     width: 70%;
     margin: 0 auto;
+    text-decoration: none;
 
 }
 
@@ -667,6 +668,9 @@ html, body {
         margin-top: auto;
         height: auto;
     }
+    #player-content{
+    width: 100%;
+     }
 }
 
 /************************************** Flash Messages **************************************/
