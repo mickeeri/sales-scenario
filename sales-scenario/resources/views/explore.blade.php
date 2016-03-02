@@ -1,60 +1,51 @@
 @extends('layouts.app')
 
-        <!-- Only run js if tag value is present -->
-@if ($tag)
 @section('js')
     <script>
-        $(function () {
-            // Get the tag id.
-            var tag = {{ $tag }} -1;
-            // Get the value from input
-            var value = $("ul#filter-tags input:nth(" + tag + ")").val();
-            // Remove all tags except the one with present id
-            contain = $('#filter-tags').map(function () {
-                return ':contains("' + value + '")';
-            }).get();
-            $('#expert-list .expert:not(' + contain + ')').hide();
-            // Uncheck checkboxes except the present one
-            $(':checkbox').attr('checked', false)[tag].checked = true;
-        });
-
-        //$('#filter-tags').toggle();
-
-        //TODO Just to test toogle sort list...
-        $(function(){
-            $('#hideshow').on('click', function(event) {
-                $('.filter-popup').toggle('show');
+        if ({{ $tag }}) { <!-- Only run js if tag value is present -->
+            $(function () {
+                var tag = {{ $tag }} -1;  // Get the tag id.
+                // Get the value from input
+                var value = $("ul#filter-tags input:nth(" + tag + ")").val();
+                // Remove all tags except the one with present id
+                contain = $('#filter-tags').map(function () {
+                    return ':contains("' + value + '")';
+                }).get();
+                $('#expert-list .expert:not(' + contain + ')').hide();
+                // Uncheck checkboxes except the present one
+                $(':checkbox').attr('checked', false)[tag].checked = true;
             });
-        });
-
-
+        }
     </script>
+    <script type="text/javascript" src="/js/tags.toggle.js"></script>
 @endsection
-@endif
+
 
 @section('content')
     @if (session('status'))
         <div class="alert">
             {{ session('status') }}
         </div>
-    @endif
+        @endif
 
-            <!--Popup list-->
-        <a href="#" class='explore-sort-button'type='button' id='hideshow' value='hide/show'>
-            <img src="/img/sort.btn.png">
+                <!--Popup list-->
+        <a href="#" class='explore-sort-button' type='button' id='hideshow' value='hide/show'>
+            <i class="fa fa-filter white-icon-orange-bg"></i>
         </a>
 
         <div class="filter-popup">
             <ul id="filter-tags">
                 @foreach($tags as $tags )
                     <li>
-                        <input id="{{ $tags->name }}" type="checkbox" value="{{ $tags->name }}" checked>
-                        <label for="{{ $tags->name }}">{{ $tags->name }}<span></span></label>
+                        <input id="{{ $tags->id }}" type="checkbox" value="{{ $tags->name }}" checked>
+                        <label for="{{ $tags->id }}"><span></span><p class="tag-text">{{ $tags->name }}</p></label>
                     </li>
                 @endforeach
-                <li><input type="checkbox" value="Show All" id="check_all" checked/> Show All</li>
+                <li class="li-show-all">
+                    <input type="checkbox" name="show-all" id="check_all" checked/>
+                    <label for="check_all"><span></span><p class="tag-text show-all">Show All</p></label>
+                </li>
             </ul>
-            <a href="#">Close or Save...</a>
         </div>
 
         <div id="expert-list">

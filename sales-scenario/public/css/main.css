@@ -448,6 +448,16 @@ html, body {
 .podcast-author {
     font-size: smaller;
 }
+.white-icon-orange-bg {
+    color: white;
+    font-size: 24px;
+    text-align: center;
+    background-color: #e96d01;
+    border-radius: 50px;
+    padding: 10px;
+    width: 25px;
+    height: 25px;
+}
 
 /**************************************Mobile view**************************************/
 @media screen and (max-width: 768px) {
@@ -748,15 +758,19 @@ html, body {
 }
 
 .filter-popup{
+    display: none;
     background-color: white;
     box-shadow: #afafaf 0 0 20px;
     clear: right;
     float: right;
+    font-size: 14px;
+    line-height: 16px;
     margin-right: 15px;
+    padding: 10px;
     position: relative;
     width: 300px;
     z-index: 100;
-
+    text-indent: 0px;
 }
 
 .filter-popup ul {
@@ -766,26 +780,24 @@ html, body {
 
 #filter-tags li {
     border: 0 !important;
+    left: 30px;
     list-style-type: none;
+    position: inherit;
     text-transform: uppercase;
-}
-
-#filter-tags li label:first-child{
-    border: 0 !important;
-    list-style-type: none;
 }
 
 #filter-tags li input[type="checkbox"] {
     display:none;
+    float: left;
 }
 
 #filter-tags input[type="checkbox"] + label span {
-    display:inline-block;
+    display: inline-block;
     float: left;
     width:19px;
     height:19px;
-    margin:2px 10px 0 0;
-    vertical-align:middle;
+    margin: 5px 5px 0 0;
+    /*vertical-align:middle;*/
     background:url(check_radio_sheet.png) left top no-repeat;
     cursor:pointer;
 }
@@ -793,6 +805,19 @@ html, body {
 #filter-tags input[type="checkbox"]:checked + label span {
     background:url(check_radio_sheet.png) -19px top no-repeat;
 }
+
+#filter-tags p {
+    display: block;
+    font-weight: 700;
+    line-height: 25px;
+    margin-left: 30px;
+}
+
+#filter-tags .li-show-all{
+    font-style: italic;
+    margin-top: 30px;
+}
+
 
 #filter-tags li .ui-checkbox {
     margin: 0;
