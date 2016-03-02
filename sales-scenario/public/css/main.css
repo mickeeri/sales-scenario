@@ -18,17 +18,13 @@ h2{
 
 .podcast-title, .podcast-author {
     text-transform: uppercase;
-    text-align: center;
-    color: #b1b3b4;
+    color: #ffffff;
     font-weight: bold;
     display: block;
     width: 70%;
     margin: 0 auto;
     text-decoration: none;
 
-}
-.player-gray-area{
-    height: 100%;
 }
 
 /*the player itself*/
@@ -41,7 +37,15 @@ h2{
     width: 300px;
     height: 100%;
     float: left;
-
+}
+#player-content p {
+    color: #b1b3b4;
+}
+#player-content a{
+    color: #b1b3b4;
+}
+.ui360{
+    padding-top: 10%;
 }
 
 /***************************Toggable expertinfo (player view)****************************/
@@ -505,6 +509,8 @@ html, body {
     }
 
     .description {
+        padding-top: 20px;
+        padding-bottom: 20px;
         width: 45%;
         float: left;
     }
@@ -664,8 +670,15 @@ html, body {
     }
     /*Player*/
     #player-content{
-    width: 100%;
+     width: 100%;
+
      }
+    #player-content p{
+        color: white;
+    }
+    #player-content a{
+        color: white;
+    }
     #player-wrapper {
         position: absolute;
         bottom: 50px;
@@ -674,6 +687,20 @@ html, body {
     .player-gray-area{
         background-color: #efefef;
         color: black;
+    }
+    .margin-above{
+        margin-top: 50px;
+        display: block;
+        font-weight: 600;
+    }
+    .player-gray-area{
+        height: 70%;
+    }
+    .player-info-area{
+        height: 30%;
+    }
+    .player-info-area p{
+        text-align: left;
     }
 }
 
