@@ -4,9 +4,7 @@
     <div id="slider-wrapper">
         <h2 class="center upper">What's new</h2>
         @include('partials.slider')
-
     </div>
-
     <h2 class="center">Most Contributing</h2>
 
     <ul class="expert-list explore-list">
@@ -21,6 +19,7 @@
             <li><a href="/explore/{{ $tag->id }}"><span>{{ $tag->name }}</span></a></li>
         @endforeach
     </ul>
+
 @endsection
 
 

@@ -5,11 +5,6 @@
 @endsection
 
 @section('content')
-    @if (session('status'))
-        <div class="alert">
-            {{ session('status') }}
-        </div>
-    @endif
     <div class="profile-information">
         <div class="image-div">
             @include('partials.expert_img', array('src' =>$expert->photo, 'class' =>'expert-img', 'first' =>$expert->first_name, 'last' =>$expert->last_name))
@@ -25,21 +20,22 @@
             <a class="expert-website" href=" {{ $expert->website }}">Visit website</a>
         </div>
     </div>
-    <div class="experts-podcasts">
+        <div class="experts-podcasts">
+            <div class="wrapper">
+                <h3>Podcasts by {{ $expert->first_name }} {{ $expert->last_name }}</h3>
+            </div>
+            @if(count($expert->podcasts))
+            <ul class="explore-list">
+            @foreach($expert->podcasts as $podcast)
+                <li>
+                    <a href="/player/{{ $expert->id }}/{{ $podcast->id }}">
+                        <span class="title">{{ $podcast->title }}</span><br/>
+                        <span class="podcast-date">{{ $podcast->created_at->format('Y-m-d') }}</span>
+                    </a>
+                </li>
+            @endforeach
+            </ul>
+            @endif
 
-        <h3>Podcasts by {{ $expert->first_name }} {{ $expert->last_name }}</h3>
-        <hr/>
-        @if(count($expert->podcasts))
-        <ul class="explore-list">
-        @foreach($expert->podcasts as $podcast)
-            <li>
-                <a href="/player/{{ $expert->id }}/{{ $podcast->id }}">
-                    <span class="title">{{ $podcast->title }}</span><br/>
-                    <span class="podcast-date">{{ $podcast->created_at->format('Y-m-d') }}</span>
-                </a>
-            </li>
-        @endforeach
-        </ul>
-        @endif
     </div>
 @endsection

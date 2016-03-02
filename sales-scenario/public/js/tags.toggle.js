@@ -29,7 +29,8 @@ $(function () {
 
 // Toogle popup sort list
 $(function () {
-    $('#hideshow').click(function () {
+    $('#hideshow').click(function (e) {
+        e.preventDefault();
         if ($('.filter-popup').css('display') == 'none') {
             $('.filter-popup').show('slow');
         } else {
