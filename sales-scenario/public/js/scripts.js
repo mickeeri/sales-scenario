@@ -15,7 +15,8 @@ $(document).ready(function() {
     setTimeout(function(){
         if(typeof threeSixtyPlayer != 'undefined'){
             var formatTime = function(seconds){
-                return (Math.floor(seconds/60)) + 'm ' + Math.floor(seconds%60) + 's';
+                var minutes = Math.floor(seconds/60) > 0 ? Math.floor(seconds/60) + 'm ' : '';
+                return minutes + Math.floor(seconds%60) + 's';
             };
             $('.sm2-timing').bind("DOMSubtreeModified",function(){
                 var element = $(this);

@@ -32,7 +32,7 @@ h2{
     margin: 0 auto;
 }
 #player-content{
-    background-color: black;
+    background-color: #fff;
     color: white;
     width: 300px;
     height: 100%;
@@ -245,6 +245,7 @@ button:hover, .button:hover, input[type=submit]:hover {
 {
     list-style-type: none;
     margin: 0;
+    padding: 0;
     -webkit-padding-start: 0;
 }
 
@@ -739,7 +740,6 @@ html, body {
         left: calc(50% - 100px);
     }
     .player-gray-area{
-        background-color: #efefef;
         color: black;
     }
     .podcast-time-text {
@@ -748,13 +748,15 @@ html, body {
         font-weight: 600;
     }
     #player-content p.podcast-time-text{
-        color: black;
+        color: #707070;
     }
     .player-gray-area{
         height: 70%;
     }
     .player-info-area{
         height: 30%;
+        background-color: #000;
+        overflow: auto;
     }
     .player-info-area p{
         text-align: left;
