@@ -1,12 +1,12 @@
 // Checkbox toggle expert tags in explorer page
 $(function () {
-    $('#filter-tags input[type="checkbox"]').click(function () {
-        $('#expert-list .expert').show();
-        if ($('#filter-tags :checked').length > 0) {
-            contain = $('#filter-tags :checked').map(function () {
+    $('#filter_tags input[type="checkbox"]').click(function () {
+        $('#expert_list .expert').show();
+        if ($('#filter_tags :checked').length > 0) {
+            contain = $('#filter_tags :checked').map(function () {
                 return ':contains("' + this.value + '")';
             }).get().join(',');
-            $('#expert-list .expert:not(' + contain + ')').hide();
+            $('#expert_list .expert:not(' + contain + ')').hide();
         }
     });
 
@@ -14,9 +14,9 @@ $(function () {
     $('#check_all').click(function () {
         $('input:checkbox').prop('checked', this.checked);
         if ($('#check_all').prop('checked')) {
-            $('#expert-list .expert').show();
+            $('#expert_list .expert').show();
         } else {
-            $('#expert-list .expert').hide();
+            $('#expert_list .expert').hide();
         }
     });
 
@@ -29,12 +29,11 @@ $(function () {
 
 // Toogle popup sort list
 $(function () {
-    $('#hideshow').click(function (e) {
-        e.preventDefault();
+    $('#hideshow').click(function () {
         if ($('.filter-popup').css('display') == 'none') {
-            $('.filter-popup').show('slow');
+            $('.filter-popup').show();
         } else {
-            $('.filter-popup').hide('slow');
+            $('.filter-popup').hide();
         }
     });
 });
@@ -46,6 +45,6 @@ $(document).mouseup(function (e) {
     if (!container.is(e.target) // if the target of the click isn't the container...
         && container.has(e.target).length === 0) // ... nor a descendant of the container
     {
-        container.hide('slow');
+        container.hide();
     }
 });

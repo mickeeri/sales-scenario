@@ -40,7 +40,7 @@
                     @endforeach
                     <li class="li-show-all">
                         <label>
-                            <input type="checkbox" name="show-all" checked/>
+                            <input type="checkbox" id="check_all" name="show-all" checked/>
                             <span></span>
                             <p class="tag-text show-all">Show All</p>
                         </label>

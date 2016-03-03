@@ -26,7 +26,7 @@
 @endsection
 
 @section('content')
-    <div class="wrapper">
+    <div class="wrapper no-padding">
         <div id="player-content">
             <div class="player-info-area">
                 @include('partials.expert_img', array('src' =>$player['imgSrc'], 'class'=> 'profile-img', 'first' =>$player['expertFirst'], 'last' =>$player['expertLast']))
@@ -46,7 +46,7 @@
             <div class="ui360">
                 <a href="{{ $player["podcastFile"] }}">{{$player['podcastTitle']}}</a>
             </div>
-            <p class="center podcast-time-text">10m 25s</p>
+            <p class="center podcast-time-text"></p>
             </div>
         </div>
     </div>

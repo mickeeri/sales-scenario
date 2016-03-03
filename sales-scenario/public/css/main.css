@@ -514,7 +514,8 @@ html, body {
 
 /**************************************Mobile view**************************************/
 @media screen and (max-width: 940px) {
-    #explore_filter{
+    #explore_filter,
+    .filter-popup{
         right: 0 !important;
     }
 }
@@ -855,7 +856,7 @@ html, body {
     overflow: auto;
     padding: 10px;
     position: fixed;
-    right: 20px;
+    right: calc(50% - 450px);
     top: 120px;
 
     width: 300px;
