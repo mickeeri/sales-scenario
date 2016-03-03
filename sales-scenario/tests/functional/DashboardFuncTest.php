@@ -40,4 +40,8 @@ class DashboardFuncTest extends TestCase
             ->dontSeeLink("$expert_no_podcasts->firstName $expert_no_podcasts->lastName");
 
     }
+    public function test_expert_without_podcast_not_show(){
+        //Empty database, add only 4 experts with podcasts, 1 without.
+        //Assert the one with podcasts does not show
+    }
 }
