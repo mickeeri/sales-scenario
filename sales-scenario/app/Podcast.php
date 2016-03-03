@@ -29,13 +29,4 @@ class Podcast extends Model
     {
         return $this->belongsTo('App\Expert');
     }
-    
-    public function delete()
-    {
-
-
-
-
-    }
-
 }
