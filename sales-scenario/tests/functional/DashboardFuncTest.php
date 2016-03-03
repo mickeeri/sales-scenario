@@ -25,11 +25,19 @@ class DashboardFuncTest extends TestCase
         }
         return $expert;
     }
-    public function test_if_expert_with_most_podcasts_show(){
+    public function test_expert_with_most_podcasts_show(){
 
         //Since the factory creates expert with max 10 podcasts, this expert must be most contributing
         $expert = $this->create_expert_with_podcasts(12);
         $this->visit('dashboard')
             ->see("$expert->firstName $expert->lastName");
+    }
+    public function test_expert_not_most_contributing_not_show(){
+
+        $expert_no_podcasts = factory(App\Expert::class)->create();
+
+        $this->visit('dashboard')
+            ->dontSeeLink("$expert_no_podcasts->firstName $expert_no_podcasts->lastName");
+
     }
 }
