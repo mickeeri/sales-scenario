@@ -8,6 +8,23 @@ class ExploreTest extends TestCase
 {
     use WithoutMiddleware;
     use DatabaseTransactions;
+    
+    private function getExpertWithPodcast()
+    {
+        //Create an expert with a podcast record
+        $expert = factory(App\Expert::class)->create();
+        $podcast = new App\Podcast;
+        $podcast->title = "Example podcast";
+        $podcast->expert_id = $expert->id;
+        $expert->podcasts->add($podcast);
+        $podcast->filename = "test.mp3";
+        $podcast->save();
+        $podcast->filename = "{$podcast->id}.mp3";
+        $podcast->save();
+
+        return $expert;
+    }
+    
     /**
      * A basic test example.
      *
@@ -35,16 +52,8 @@ class ExploreTest extends TestCase
 
     public function test_expert_with_podcast_does_list()
     {
-        //Create an expert with a podcast record
-        $expert = factory(App\Expert::class)
-            ->create();
-        $podcast = factory(App\Podcast::class)->create();
-        $podcast->expert_id = $expert->id;
-        $expert->podcasts->add($podcast);
-        $podcast->filename = "test.mp3";
-        $podcast->save();
-        $podcast->filename = "{$podcast->id}.mp3";
-        $podcast->save();
+        $expert = $this->getExpertWithPodcast();
+        $podcast = $expert->podcasts[0];
 
         $this->seeInDatabase('podcasts', ['title' => "$podcast->title"]);
 
@@ -57,15 +66,23 @@ class ExploreTest extends TestCase
             ->seeLink("$expert->first_name $expert->last_name")
             ->seeInElement('h2', $letter);
 
+    }
+
+    public function test_expert_view_displays_expert_info_and_podcast()
+    {
+        $expert = $this->getExpertWithPodcast();
+
         //Test response code of expert route
         $response = $this->call('GET', 'expert/' . $expert->id);
         $this->assertEquals(200, $response->status());
 
-        //Navigate to Experts page and see relevant information
+        //Navigate to Experts page and see relevant information and podcast.
         $this->visit('expert/' . $expert->id)
-            ->seeLink($podcast->title)
             ->see("$expert->first_name $expert->last_name")
             ->see($expert->website)
-            ->see($expert->info);
+            ->see($expert->info)
+            ->seeInElement('h3', 'Podcasts by '.$expert->name)
+            ->seeInElement('.title', $expert->podcasts[0]->title)
+            ->seeInElement('.podcast-date', date("Y-m-d"));
     }
 }
