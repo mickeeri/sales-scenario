@@ -202,6 +202,7 @@
 .ui360 .sm2-360btn-default,
 .ui360 .sm2-360ui.sm2_paused .sm2-360btn {
  background-position:50% 50%;
+ border-radius: 100%;
 }
 
 .ui360 .sm2-360btn-default,
@@ -244,7 +245,7 @@
 .ui360 .sm2-360ui.sm2_dragging .sm2-timing,
 .ui360 .sm2-360ui.sm2_dragging .sm2-360btn:hover + .sm2-timing {
  /* paused + dragging */
- visibility:visible;
+ visibility:hidden;
 }
 /* don't let pause button show on hover when dragging (or paused and dragging) */
 

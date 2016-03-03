@@ -15,7 +15,6 @@
     @yield('css')
     <link type="text/css" href="/css/main.css" rel="stylesheet" />
 
-
     <title>Sales Scenario</title>
 </head>
 <body
@@ -24,33 +23,39 @@
     @endunless
     >
 
-
     @if (Auth::check())
-
-
-    <div id="header" class="orange-nav">        <!-- temporary for orange at top -->
-        <div id="menu_open"></div>
-        <nav class="wrapper">
-            <ul id="top">
-                <li><a href="{{ url('/dashboard') }}">Dashboard</a></li>
-                <li><a href="{{ url('/explore') }}">Explore</a></li>
-            </ul>
-            <ul id="bottom">
-                <li><a href="{{ url('/profile') }}">Profile Settings</a></li>
-                <li><a href="{{ url('/logout') }}">Logout</a></li>
-            </ul>
-        </nav>
-    </div>
-
+        <div id="header" class="orange-nav">
+            <div id="menu_open"></div>
+            @include('unauthorized.logo')
+            <nav class="wrapper">
+                <ul id="top">
+                    <li><a href="{{ url('/dashboard') }}">Dashboard</a></li>
+                    <li><a href="{{ url('/explore') }}">Explore</a></li>
+                </ul>
+                <ul id="bottom">
+                    <li><a href="{{ url('/profile') }}">Profile Settings</a></li>
+                    <li><a href="{{ url('/logout') }}">Logout</a></li>
+                </ul>
+            </nav>
+        </div>
     @endif
 
-    <div class="wrapper" id="content">
-    @yield('content')
+    <div id="content">
+        @if (session('status'))
+            <div class="flash-message">
+                <div class="message success">
+                    <a href="" class="flash-close">x</a>
+                    {{ session('status') }}
+                </div>
+            </div>
+        @endif
+        @yield('content')
     </div>
+    <div id="footer"></div>
     <!-- JavaScripts -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
     <script src="/js/scripts.js"></script>
-        @yield('js')
+    @yield('js')
     {{-- <script src="{{ elixir('js/app.js') }}"></script> --}}
 
 </body>

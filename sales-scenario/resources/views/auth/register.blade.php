@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-
+    <div class="wrapper">
         <form method="POST" action="{{ url('/register') }}">
             {!! csrf_field() !!}
 
@@ -52,5 +52,5 @@
             </div>
             <a href="{{ url('/login') }}" class="small">Back to login page</a>
         </form>
-
+    </div>
 @endsection
