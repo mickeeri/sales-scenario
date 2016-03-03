@@ -3,12 +3,6 @@
 <!-- Main Content -->
 @section('content')
     <div class="wrapper">
-        @if (session('status'))
-            <div class="alert alert-success">
-                {{ session('status') }}
-            </div>
-        @endif
-
         <form method="POST" action="{{ url('/password/email') }}">
             {!! csrf_field() !!}
 

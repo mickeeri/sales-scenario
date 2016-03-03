@@ -26,6 +26,7 @@
     @if (Auth::check())
         <div id="header" class="orange-nav">
             <div id="menu_open"></div>
+            @include('unauthorized.logo')
             <nav class="wrapper">
                 <ul id="top">
                     <li><a href="{{ url('/dashboard') }}">Dashboard</a></li>
@@ -41,12 +42,16 @@
 
     <div id="content">
         @if (session('status'))
-            <div class="alert">
-                {{ session('status') }}
+            <div class="flash-message">
+                <div class="message success">
+                    <a href="" class="flash-close">x</a>
+                    {{ session('status') }}
+                </div>
             </div>
         @endif
         @yield('content')
     </div>
+    <div id="footer"></div>
     <!-- JavaScripts -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
     <script src="/js/scripts.js"></script>

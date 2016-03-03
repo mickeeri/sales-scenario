@@ -1,13 +1,13 @@
 @extends('layouts.app')
 
 @section('content')
-    <div id="slider-wrapper">
+    <div id="slider_wrapper">
         <h2 class="center upper">What's new</h2>
         @include('partials.slider')
     </div>
     <h2 class="center">Most Contributing</h2>
 
-    <ul class="expert-list explore-list">
+    <ul class="explore-list">
         @each('partials.expert_listing', $experts, 'expert')
     </ul>
     <a href="/explore" class="read-more">View more</a>

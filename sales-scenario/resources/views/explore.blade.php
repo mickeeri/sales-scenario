@@ -1,34 +1,13 @@
 @extends('layouts.app')
 
-@section('js')
-    <script>
-        if ({{ $tag }}) { <!-- Only run js if tag value is present -->
-            $(function () {
-                var tag = {{ $tag }} -1;  // Get the tag id.
-                // Get the value from input
-                var value = $("ul#filter-tags input:nth(" + tag + ")").val();
-                // Remove all tags except the one with present id
-                contain = $('#filter-tags').map(function () {
-                    return ':contains("' + value + '")';
-                }).get();
-                $('#expert-list .expert:not(' + contain + ')').hide();
-                // Uncheck checkboxes except the present one
-                $(':checkbox').attr('checked', false)[tag].checked = true;
-            });
-        }
-    </script>
-    <script type="text/javascript" src="/js/tags.toggle.js"></script>
-@endsection
-
-
 @section('content')
     <div class="wrapper no-padding">
         <div id="explore_filter">
             <a href="#" class='explore-sort-button' type='button' id='hideshow' value='hide/show'>
                 <i class="fa fa-filter white-icon-orange-bg"></i>
             </a>
-            <div class="filter-popup">
-                <ul id="filter-tags">
+            <div class="filter-popup" data-selected="{{ $tag }}">
+                <ul id="filter_tags">
                     @foreach($tags as $tags )
                         <li>
                             <label>

@@ -27,14 +27,14 @@
 
 @section('content')
     <div class="wrapper no-padding">
-        <div id="player-content">
+        <div id="player_content">
             <div class="player-info-area">
                 @include('partials.expert_img', array('src' =>$player['imgSrc'], 'class'=> 'profile-img', 'first' =>$player['expertFirst'], 'last' =>$player['expertLast']))
     
                 <div class="description">
                     <p class="podcast-title center">{{$player['podcastTitle']}}</p>
                     <p class="center"><a class="podcast-author" href="#">By {{ $player['expertFirst'] }} {{ $player['expertLast'] }}</a></p>
-                    <div id="expert_info" style="display: none">
+                    <div id="expert_info">
                         <h4>About {{ $player['expertFirst'] }} {{ $player['expertLast'] }}</h4>
                         <p>{{$player['expertInfo']}}</p>
                     </div>

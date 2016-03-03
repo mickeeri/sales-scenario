@@ -5,6 +5,8 @@
         <form method="POST" action="{{ url('/password/reset') }}">
             {!! csrf_field() !!}
 
+            @include('unauthorized.logo')
+
             <input type="hidden" name="token" value="{{ $token }}">
 
             <div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}">
@@ -41,7 +43,7 @@
             </div>
 
             <div class="form-group">
-                <button type="submit">Reset Password</button>
+                <button type="submit" class="button full-width upper top-space">Reset Password</button>
             </div>
         </form>
     </div>
