@@ -28,25 +28,26 @@
 @section('content')
     <div class="wrapper">
         <div id="player-content">
-            <div class="slide">
+            <div class="player-info-area">
                 @include('partials.expert_img', array('src' =>$player['imgSrc'], 'class'=> 'profile-img', 'first' =>$player['expertFirst'], 'last' =>$player['expertLast']))
-
+    
                 <div class="description">
-                    <span class="podcast-title">{{$player['podcastTitle']}}</span>
-                    <a class="podcast-author" href="#">By {{ $player['expertFirst'] }} {{ $player['expertLast'] }}</a>
+                    <p class="podcast-title center">{{$player['podcastTitle']}}</p>
+                    <p class="center"><a class="podcast-author" href="#">By {{ $player['expertFirst'] }} {{ $player['expertLast'] }}</a></p>
                     <div id="expert_info" style="display: none">
                         <h4>About {{ $player['expertFirst'] }} {{ $player['expertLast'] }}</h4>
                         <p>{{$player['expertInfo']}}</p>
                     </div>
                 </div>
-            </div>
+                </div>
             <div class="clear"></div>
+    
+            <div class="player-gray-area">
             <div class="ui360">
                 <a href="{{ $player["podcastFile"] }}">{{$player['podcastTitle']}}</a>
             </div>
-
+            <p class="center podcast-time-text">10m 25s</p>
+            </div>
         </div>
     </div>
-
-
 @endsection
