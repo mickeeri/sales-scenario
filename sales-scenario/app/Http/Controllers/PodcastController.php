@@ -12,7 +12,8 @@ use Illuminate\Http\Request;
 
 class PodcastController extends CrudController{
 
-    public function all($entity){
+    public function all($entity)
+	{
         parent::all($entity); 
 
 		$this->filter = \DataFilter::source(Podcast::with('expert'));
@@ -25,31 +26,22 @@ class PodcastController extends CrudController{
 		$this->grid = \DataGrid::source($this->filter);
 		$this->grid->add('title', 'Title');
 		$this->grid->add('expert.full_name', 'Expert');
-
-
 		$this->grid->add('created_at', 'Created');
 		$this->addStylesToGrid();
 
         return $this->returnView();
     }
     
-    public function  edit($entity){
-        
-
+    public function  edit($entity)
+	{
 		parent::edit($entity);
 
-
 		$this->loadEventHandlers();
-
-        // Simple code of  edit part , List of all fields here : http://laravelpanel.com/docs/master/crud-fields
+		
 		$this->edit = \DataEdit::source(new Podcast);
-
 		$this->edit->label('Edit Podcast');
-
 		$this->edit->add('title', 'Title', 'text')->rule('required');
-
 		$this->edit->add('expert','Expert','select')->options($this->getExpertsList());
-
 		$this->edit->add('filename', 'Podcast (m4a, mp3)', 'file')->rule('audio')->move(public_path().'/audio/podcasts/temp');
 
         return $this->returnEditView();
@@ -71,44 +63,43 @@ class PodcastController extends CrudController{
 
 	private function loadEventHandlers()
 	{
-		Podcast::saving(function($podCast){
-			if (isset($podCast->filename) && is_null($podCast->filename) ||
-					empty($podCast->filename)) {
+		Podcast::saving(function($podcast){
+			if (isset($podcast->filename) && is_null($podcast->filename) ||
+					empty($podcast->filename)) {
 				return false;
 			}
-
 			return true;
 		});
 
-		Podcast::saved(function($podCast){
+		Podcast::saved(function($podcast){
 			$tempLocation = Podcast::podcastLocation().'temp/';
-			$tempFileName = $podCast->filename;
+			$tempFileName = $podcast->filename;
 
 			if (file_exists($tempLocation.$tempFileName)) {
 				$extension = pathinfo($tempLocation.$tempFileName, PATHINFO_EXTENSION);
 
 				if (!empty($extension)) { // Make sure file has extension.
-					$finalFileName = $podCast->id.'.'.$extension;
+					$finalFileName = $podcast->id.'.'.$extension;
 
 					if (file_exists(Podcast::podcastLocation().$finalFileName)) { // If file exists, delete it first.
 						unlink(Podcast::podcastLocation().$finalFileName);
 					}
 
 					rename($tempLocation.$tempFileName, Podcast::podcastLocation().$finalFileName);
-					$podCast->filename = $finalFileName;
-					$podCast->save();
+					$podcast->filename = $finalFileName;
+					$podcast->save();
 				}
 			}
 		});
 
-		Podcast::deleting(function($podCast) {
+		Podcast::deleting(function($podcast) {
 			// before delete
-			if (!empty($podCast->filename) && file_exists(Podcast::podcastLocation().$podCast->filename)) {
-				unlink(Podcast::podcastLocation().$podCast->filename);
+			if (!empty($podcast->filename) && file_exists(Podcast::podcastLocation().$podcast->filename)) {
+				unlink(Podcast::podcastLocation().$podcast->filename);
 			}
 		});
 
-		Podcast::deleted(function($podCast) {
+		Podcast::deleted(function($podcast) {
 			header('Location: /panel/Podcast/all');
 			die();
 		});

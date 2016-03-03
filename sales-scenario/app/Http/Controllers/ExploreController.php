@@ -35,11 +35,9 @@ class ExploreController extends Controller
         $tags = \App\Tag::all();
 
         return view('explore')->with(compact('list', 'tag', 'tags'));
-
-
     }
 
-    public function Expert($id)
+    public function expert($id)
     {
         $expert = \App\Expert::find($id);
 

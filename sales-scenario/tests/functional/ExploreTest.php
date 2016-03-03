@@ -11,7 +11,6 @@ class ExploreTest extends TestCase
     
     private function getExpertWithPodcast()
     {
-        //Create an expert with a podcast record
         $expert = factory(App\Expert::class)->create();
         $podcast = new App\Podcast;
         $podcast->title = "Example podcast";
@@ -24,12 +23,7 @@ class ExploreTest extends TestCase
 
         return $expert;
     }
-    
-    /**
-     * A basic test example.
-     *
-     * @return void
-     */
+
     public function test_explore_returns_correrct_url()
     {
         $this->visit('explore')
@@ -65,14 +59,13 @@ class ExploreTest extends TestCase
             ->seePageIs('/explore')
             ->seeLink("$expert->first_name $expert->last_name")
             ->seeInElement('h2', $letter);
-
     }
 
     public function test_expert_view_displays_expert_info_and_podcast()
     {
         $expert = $this->getExpertWithPodcast();
 
-        //Test response code of expert route
+        //Test response code
         $response = $this->call('GET', 'expert/' . $expert->id);
         $this->assertEquals(200, $response->status());
 

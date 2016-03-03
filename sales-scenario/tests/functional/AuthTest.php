@@ -34,7 +34,6 @@ class AuthTest extends TestCase
             ->dontSeeInDatabase('users', [$check => $fields[$check]]);
     }
     /** @test */
-
     public function test_if_new_user_can_register()
     {
         $faker = Faker\Factory::create();
@@ -49,42 +48,36 @@ class AuthTest extends TestCase
     }
 
     /** @test */
-
     public function test_if_new_user_can_register_without_name()
     {
         $this->attemptRegistration('The username field is required.', 'username');
     }
 
     /** @test */
-
     public function test_if_new_user_can_register_without_email()
     {
         $this->attemptRegistration('The email field is required.', 'email', 'username');
     }
 
     /** @test */
-
     public function test_if_new_user_can_register_without_password()
     {
         $this->attemptRegistration('The password field is required.', 'password');
     }
 
     /** @test */
-
     public function test_if_new_user_can_register_without_password_confirmation()
     {
         $this->attemptRegistration('The password confirmation does not match.', 'password_confirmation');
     }
 
     /** @test */
-
     public function can_user_login()
     {
         $this->login()
             ->visit('login')
             ->see('Logout');
     }
-
 
     private function attemptLogin($fields, $message)
     {
@@ -99,21 +92,18 @@ class AuthTest extends TestCase
     }
 
     /** @test */
-
     public function user_can_not_login_without_password()
     {
         $this->attemptLogin(['email' => "invalid@invalid.se", 'password' => ""], 'The password field is required.');
     }
 
     /** @test */
-
     public function user_can_not_login_without_email()
     {
         $this->attemptLogin(['email' => "", 'password' => "passed"], 'The email field is required.');
     }
 
     /** @test */
-
     public function email_is_sent_when_forgot_password()
     {
         $user = factory(App\User::class)->create();
@@ -121,14 +111,9 @@ class AuthTest extends TestCase
         $fields = ['email' => $user->email];
         try {
             $this->visit('password/reset');
-            $time = date("Y-m-d H:i:s");
             $this->submitForm('Send Password Reset Link', $fields);
-        }catch(Exception $e){
-
-        }
-        finally{
-            //Kan ge fail om exekveringstiden �r f�r l�ng!! Ska tas tillbaka n�r mail �r uppsatt
-            $this->seeInDatabase('password_resets', ['email' => $user->email /*, 'created_at' => $time*/]);
+        }catch(Exception $e){}finally{
+            $this->seeInDatabase('password_resets', ['email' => $user->email]);
         }
     }
 }

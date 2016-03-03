@@ -19,23 +19,13 @@
             </div>
         @endif
 
-
         <div class="update-form" id="profile_form">
             {{ Form::open(array('url' => 'users/'.$user->id, 'method' => 'PUT')) }}
-
-            <!-- email input -->
-            {{ Form::email('email',$user->email, ['placeholder'=> 'Email']) }}
-
-            <!-- password inputs -->
-            {{ Form::password('password', ['placeholder'=> 'New Password']) }}
-
-            {{ Form::password('password_confirmation', ['placeholder'=> 'Confirm Password']) }}
-
-            {{ Form::password('current_password', ['placeholder'=> 'Current password']) }}
-
-            <!-- submit buttons -->
-            {{ Form::submit('Update', array('class'=>'update-btn')) }}
-
+                {{ Form::email('email',$user->email, ['placeholder'=> 'Email']) }}
+                {{ Form::password('password', ['placeholder'=> 'New Password']) }}
+                {{ Form::password('password_confirmation', ['placeholder'=> 'Confirm Password']) }}
+                {{ Form::password('current_password', ['placeholder'=> 'Current password']) }}
+                {{ Form::submit('Update', array('class'=>'update-btn')) }}
             {{ Form::close() }}
         </div>
     </div>

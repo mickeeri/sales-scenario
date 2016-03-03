@@ -23,7 +23,6 @@ class CreatePodcastsTable extends Migration
                 ->references('id')
                 ->on('experts')
                 ->onDelete('cascade');
-
         });
     }
 

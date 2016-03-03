@@ -22,24 +22,23 @@
             </div>
         </div>
     </div>
-        <div class="experts-podcasts">
-            <div class="wrapper">
-                <h3>Podcasts by {{ $expert->first_name }} {{ $expert->last_name }}</h3>
+    <div class="experts-podcasts">
+        <div class="wrapper">
+            <h3>Podcasts by {{ $expert->first_name }} {{ $expert->last_name }}</h3>
+        </div>
+        @if(count($expert->podcasts))
+            <div class="wrapper no-padding">
+                <ul class="explore-list">
+                @foreach($expert->podcasts as $podcast)
+                    <li>
+                        <a href="/player/{{ $expert->id }}/{{ $podcast->id }}">
+                            <span class="title">{{ $podcast->title }}</span><br/>
+                            <span class="podcast-date">{{ $podcast->created_at->format('Y-m-d') }}</span>
+                        </a>
+                    </li>
+                @endforeach
+                </ul>
             </div>
-            @if(count($expert->podcasts))
-                <div class="wrapper no-padding">
-                    <ul class="explore-list">
-                    @foreach($expert->podcasts as $podcast)
-                        <li>
-                            <a href="/player/{{ $expert->id }}/{{ $podcast->id }}">
-                                <span class="title">{{ $podcast->title }}</span><br/>
-                                <span class="podcast-date">{{ $podcast->created_at->format('Y-m-d') }}</span>
-                            </a>
-                        </li>
-                    @endforeach
-                    </ul>
-                </div>
-            @endif
-
+        @endif
     </div>
 @endsection
