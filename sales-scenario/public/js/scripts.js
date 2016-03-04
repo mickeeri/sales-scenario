@@ -97,7 +97,7 @@ $(document).ready(function() {
         contain = $('#filter_tags').map(function () {
             return ':contains("' + value + '")';
         }).get();
-        $('#expert-list .expert:not(' + contain + ')').hide();
+        $('#expert_list .expert:not(' + contain + ')').hide();
         // Uncheck checkboxes except the present one
         $(':checkbox').attr('checked', false)[preSelectedTag].checked = true;
     }
