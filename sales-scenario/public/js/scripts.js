@@ -38,7 +38,9 @@ $(document).ready(function() {
             });
         }
     },200);
+
     var allExperts = $('#expert_list').find('.expert');
+
     // Checkbox toggle expert tags in explorer page
     $('#filter_tags input[type="checkbox"]').click(function () {
         allExperts.show();
@@ -80,9 +82,7 @@ $(document).ready(function() {
     $(document).mouseup(function (e) {
         var container = filterPopup;
 
-        if (!container.is(e.target) // if the target of the click isn't the container...
-            && container.has(e.target).length === 0) // ... nor a descendant of the container
-        {
+        if (!container.is(e.target) && container.has(e.target).length === 0){
             container.hide();
         }
     });
@@ -90,7 +90,6 @@ $(document).ready(function() {
     var preSelectedTag = filterPopup.data('selected');
 
     if (preSelectedTag) {
-
         preSelectedTag = preSelectedTag -1;  // Get the tag id.
         // Get the value from input
         var value = $("ul#filter_tags input:nth(" + preSelectedTag + ")").val();
@@ -101,8 +100,6 @@ $(document).ready(function() {
         $('#expert-list .expert:not(' + contain + ')').hide();
         // Uncheck checkboxes except the present one
         $(':checkbox').attr('checked', false)[preSelectedTag].checked = true;
-
     }
-
 });
 

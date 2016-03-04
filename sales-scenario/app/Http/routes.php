@@ -1,84 +1,41 @@
 <?php
 
-
-
-/*
-|--------------------------------------------------------------------------
-| Routes File
-|--------------------------------------------------------------------------
-|
-| Here is where you will register all of the routes in an application.
-| It's a breeze. Simply tell Laravel the URIs it should respond to
-| and give it the controller to call when that URI is requested.
-|
-*/
-
-/**
- * Startsida efter innlogning
- */
-
 Route::get('/', function () {
     return Redirect('/dashboard');
 });
 
 /*
 |--------------------------------------------------------------------------
-| Application Routes
+| Application routes that does NOT require authentication
 |--------------------------------------------------------------------------
-|
-| This route group applies the "web" middleware group to every route
-| it contains. The "web" middleware group is defined in your HTTP
-| kernel and includes session state, CSRF protection, and more.
 |
 */
 
 Route::group(['middleware' => 'web'], function () {
 
     Route::auth();
-
-    /**
-     * Hämta ljudfil.
-     * Mime = audio/x-m4a
-     */
-    Route::get('audio/{id}', function($id) {
-
-        // Check if logged in.
-        if (!Auth::check()) {
-            App::abort(401, 'Not authenticated');
-        }
-
-        $podcast = \App\Podcast::find($id);
-        $file=storage_path().'/app/podcasts/'.$podcast->filename;
-        return Response::download($file);
-    });
 });
 
+/*
+|--------------------------------------------------------------------------
+| Application routes that REQUIRES authentication
+|--------------------------------------------------------------------------
+|
+*/
+
 Route::group(['middleware' => ['web','auth']], function(){
-    Route::get('/dashboard', 'DashboardController@Index');
 
+    Route::get('/dashboard', 'DashboardController@index');
 
-    /**
-     * När man klickar på explore
-     */
     Route::get('explore', 'ExploreController@index');
     Route::get('explore/{id}', 'ExploreController@index');
 
-    /**
-     * När man klickar på experten namn i listan
-     */
-    Route::get('expert/{id}', 'ExploreController@Expert');
+    Route::get('expert/{id}', 'ExploreController@expert');
 
-    /**
-     * Bloggradion.
-     */
-    Route::get('player/{expert}/{track}', 'PlayerController@Index');
+    Route::get('player/{expert}/{track}', 'PlayerController@index');
 
-    /**
-     * Users profile.
-     */
     Route::get('profile', 'ProfileController@index');
     Route::put('users/{id}', 'ProfileController@update');
-
 });
 
 

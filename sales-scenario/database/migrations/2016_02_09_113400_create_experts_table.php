@@ -25,7 +25,6 @@ class CreateExpertsTable extends Migration
                 ->references('id')
                 ->on('users')
                 ->onDelete('cascade');
-
         });
     }
 

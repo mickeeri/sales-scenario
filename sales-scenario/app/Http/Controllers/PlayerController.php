@@ -11,9 +11,9 @@ use App\Http\Controllers\Controller;
 
 class PlayerController extends Controller
 {
-    public function Index($expert, $track) {
-
-        $author = Expert::find($expert);    //TODO: Change to slug???
+    public function index($expert, $track)
+    {
+        $author = Expert::find($expert);
         $podcast = Podcast::find($track);
 
         if($author && (!$podcast || $podcast->expert_id != $author->id)) {
@@ -22,24 +22,7 @@ class PlayerController extends Controller
             return redirect('explore')->with('status', "The sales expert you are looking for can't be found.");
         }
 
-        $path = '/audio/' . $podcast->id;
-        //Get the ext of the file
-        $ext = pathinfo($podcast->filename);
-        $ext = $ext['extension'];
-
-        $player = [
-            'imgSrc' => $author->photo,
-            'expertFirst' => $author->first_name,
-            'expertLast' => $author->last_name,
-            'expertInfo' => $author->info,
-            'podcastTitle' => $podcast->title,
-            'podcastFile' => '/audio/podcasts/' . $podcast->filename,
-            'podcastType' => $ext,
-            'podcastPath' => $path,
-        ];
-
-        return view('player')->with(compact('player'));
-
+        return view('player')->with(compact('author', 'podcast'));
     }
 
 }

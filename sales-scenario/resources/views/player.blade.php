@@ -29,14 +29,14 @@
     <div class="wrapper no-padding">
         <div id="player_content">
             <div class="player-info-area">
-                @include('partials.expert_img', array('src' =>$player['imgSrc'], 'class'=> 'profile-img', 'first' =>$player['expertFirst'], 'last' =>$player['expertLast']))
+                @include('partials.expert_img', ['src' => $author->photo, 'class'=> 'profile-img', 'first' => $author->first_name, 'last' => $author->last_name])
     
                 <div class="description">
-                    <p class="podcast-title center">{{$player['podcastTitle']}}</p>
-                    <p class="center"><a class="podcast-author" href="#">By {{ $player['expertFirst'] }} {{ $player['expertLast'] }}</a></p>
+                    <p class="podcast-title center">{{ $podcast->title }}</p>
+                    <p class="center"><a class="podcast-author" href="#">By {{ $author->first_name }} {{ $author->last_name }}</a></p>
                     <div id="expert_info">
-                        <h4>About {{ $player['expertFirst'] }} {{ $player['expertLast'] }}</h4>
-                        <p>{{$player['expertInfo']}}</p>
+                        <h4>About {{ $author->first_name }} {{ $author->last_name }}</h4>
+                        <p>{{ $author->info }}</p>
                     </div>
                 </div>
                 </div>
@@ -44,7 +44,7 @@
     
             <div class="player-gray-area">
             <div class="ui360">
-                <a href="{{ $player["podcastFile"] }}">{{$player['podcastTitle']}}</a>
+                <a href="/audio/podcasts/{{ $podcast->filename }}">{{ $podcast->title }}</a>
             </div>
             <p class="center podcast-time-text"></p>
             </div>

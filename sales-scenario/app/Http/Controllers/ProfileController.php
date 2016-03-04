@@ -14,9 +14,6 @@ use Session;
 
 class ProfileController extends Controller
 {
-    /**
-     * Send authenticated users credentials to the view
-     */
     public function index()
     {
         $user = Auth::user();
@@ -40,9 +37,8 @@ class ProfileController extends Controller
             'current_password' => 'required'
         ]);
 
-        # Hash and validate current password with the present
-        if (!Hash::check($request->current_password, $user->password))
-        {
+        //Hash and validate current password with the present
+        if (!Hash::check($request->current_password, $user->password)){
             return Redirect::back()->withErrors('Current password is wrong');
         }
 
@@ -53,5 +49,4 @@ class ProfileController extends Controller
 
         return redirect()->back();
     }
-
 }
