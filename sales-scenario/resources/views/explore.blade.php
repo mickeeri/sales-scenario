@@ -6,6 +6,12 @@
             <a href="#" class='explore-sort-button' type='button' id='hideshow' value='hide/show'>
                 <i class="fa fa-filter white-icon-orange-bg"></i>
             </a>
+
+            <!-- Hyperlinks -->
+            @foreach($list as $letter => $experts)
+                <a href="#{{ $letter }}">{{ $letter }}</a>
+            @endforeach
+
             <div class="filter-popup" data-selected="{{ $tag }}">
                 <ul id="filter_tags">
                     @foreach($tags as $tags )
@@ -30,7 +36,7 @@
         <div id="expert_list">
             <!-- List all the experts by first letter in their last name -->
             @foreach($list as $letter => $experts)
-                <h2>{{ $letter }}</h2>
+                <h2 id="{{ $letter }}">{{ $letter }}</h2>
                 <ul class="explore-list">
                     @each('partials.expert_listing', $experts, 'expert')
                 </ul>
