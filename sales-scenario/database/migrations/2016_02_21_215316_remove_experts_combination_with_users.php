@@ -25,12 +25,6 @@ class RemoveExpertsCombinationWithUsers extends Migration
     */
     public function down()
     {
-        //TODO Not sure about down here! //Andréas
-        Schema::table('experts', function (Blueprint $table) {
-            $table->foreign('user_id')
-                ->references('id')
-                ->on('users')
-                ->onDelete('cascade');
-        });
+
     }
 }
