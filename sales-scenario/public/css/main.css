@@ -9,9 +9,14 @@ body {
     font-family: 'Open Sans', sans-serif;
 }
 
+h1,
+h2,
+h3{
+    font-weight: 300;
+}
+
 h2{
     text-transform: uppercase;
-    font-weight: 700;
 }
 
 /*********************************
@@ -504,7 +509,6 @@ nav ul li a:hover {
     width: 70%;
     margin: 0 auto;
     text-decoration: none;
-
 }
 
 #player_content{
