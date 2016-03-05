@@ -21,18 +21,27 @@ $(document).ready(function() {
     //Update timer on player view
     setTimeout(function(){
         if(typeof threeSixtyPlayer != 'undefined'){
-            var formatTime = function(seconds){
-                var minutes = Math.floor(seconds/60) > 0 ? Math.floor(seconds/60) + 'm ' : '';
-                return minutes + Math.floor(seconds%60) + 's';
+            var formatTime = function(totalSeconds){
+                var minutes = Math.floor(totalSeconds/60) > 0 ? Math.floor(totalSeconds/60) : "0";
+                var seconds = Math.floor(totalSeconds%60);
+
+                return formatNumbers(minutes) + ':' + formatNumbers(seconds);
             };
+
+            var formatNumbers = function(number){
+                if(number < 10) {
+                    number = "0" + number;}
+                return number;
+            };
+
             $('.sm2-timing').bind("DOMSubtreeModified",function(){
                 var element = $(this);
-                var seconds = parseInt(element.html());
+                var totalSeconds = parseInt(element.html());
                 var duration = 0;
                 if(typeof threeSixtyPlayer.sounds[0] != 'undefined'){
                     duration = threeSixtyPlayer.sounds[0]._get_html5_duration()/1000;
                 }
-                var time = formatTime(seconds) + ' / ' + formatTime(duration);
+                var time = formatTime(totalSeconds) + ' / ' + formatTime(duration);
                 $('.podcast-time-text').html(time);
                 console.log();
             });
