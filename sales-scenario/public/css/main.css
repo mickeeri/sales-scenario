@@ -85,7 +85,6 @@ h2{
     height: 15px;
 }
 
-
 /**************************************Helpers**************************************/
 
 .upper {
@@ -105,7 +104,6 @@ button, .button, input[type=submit] {
     text-decoration: none;
     transition: color 0.2s, background-color 0.2s;
     -webkit-transition: color 0.2s, background-color 0.2s;
-
 }
 
 button:hover, .button:hover, input[type=submit]:hover {
@@ -171,8 +169,6 @@ button:hover, .button:hover, input[type=submit]:hover {
 .margin-left{
     margin-left: 15px;
 }
-
-
 
 .help-block{
     color: rgba(0,0,0,0.5);
