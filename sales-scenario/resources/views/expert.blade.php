@@ -18,7 +18,9 @@
                 @endforeach
                 </ul>
                 <p>{{ $expert->info }}</p>
-                <a class="expert-website" href=" {{ $expert->website }}">Visit website</a>
+                @if ($expert->website)
+                    <a class="expert-website" href=" {{ $expert->website }}">Visit website</a>
+                @endif
             </div>
         </div>
     </div>
