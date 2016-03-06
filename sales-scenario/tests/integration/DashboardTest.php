@@ -6,7 +6,7 @@ use Illuminate\Foundation\Testing\DatabaseTransactions;
 
 class DashboardTest extends TestCase
 {
-    public function testExample()
+    public function test_headings_and_links_in_dashboard_view()
     {
         $user = \App\User::find(1);
 
@@ -14,7 +14,7 @@ class DashboardTest extends TestCase
             ->visit('dashboard')
             ->see('Most Contributing')
             ->see('Explore Topics')
-            ->seeLink('View more', '/explore')
+            ->seeLink('View more')
             ->seeLink('Play');
     }
 }
