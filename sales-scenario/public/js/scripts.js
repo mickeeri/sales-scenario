@@ -1,5 +1,13 @@
 $(document).ready(function() {
 
+    //Hyperlinks in explore view for expert-list
+    $('.a-letter').click(function(){
+        $('html, body').animate({
+            scrollTop: $( $.attr(this, 'href') ).offset().top - 130
+        }, 500);
+        return false;
+    });
+
     //User is on mobile and views/hides the menu
     $('#menu_open').click(function(e){
         $('body').toggleClass('active');
