@@ -86,21 +86,22 @@ class AuthTest extends TestCase
             ->seePageIs('/login')->see($message);
     }
 
-    public function invalid_user_can_not_user_login()
+    /** @test */
+    public function invalid_user_can_not_login()
     {
-        $this->attemptLogin(['email' => "invalid@invalid.se", 'password' => "passed"], 'These credentials do not match our records.');
+        $this->attemptLogin(['username' => "invalidUsername", 'password' => "passed"], 'These credentials do not match our records.');
     }
 
     /** @test */
     public function user_can_not_login_without_password()
     {
-        $this->attemptLogin(['email' => "invalid@invalid.se", 'password' => ""], 'The password field is required.');
+        $this->attemptLogin(['username' => "invalidUsername", 'password' => ""], 'The password field is required.');
     }
 
     /** @test */
-    public function user_can_not_login_without_email()
+    public function user_can_not_login_without_username()
     {
-        $this->attemptLogin(['email' => "", 'password' => "passed"], 'The email field is required.');
+        $this->attemptLogin(['username' => "", 'password' => "passed"], 'The username field is required.');
     }
 
     /** @test */
