@@ -2,10 +2,13 @@
 
 namespace App;
 
+use App\Traits\Sluggify;
 use Illuminate\Database\Eloquent\Model;
 
 class Podcast extends Model
 {
+    use Sluggify;
+    
     public static function podcastLocation()
     {
         return public_path().'/audio/podcasts/';
@@ -23,5 +26,10 @@ class Podcast extends Model
     public function expert()
     {
         return $this->belongsTo('App\Expert');
+    }
+    
+    public function toSlug()
+    {
+        return $this->title;
     }
 }

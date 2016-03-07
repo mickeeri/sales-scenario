@@ -13,8 +13,8 @@ class PlayerController extends Controller
 {
     public function index($expert, $track)
     {
-        $author = Expert::find($expert);
-        $podcast = Podcast::find($track);
+        $author = Expert::findBySlugOrId($expert);
+        $podcast = Podcast::findBySlugOrId($track);
 
         if($author && (!$podcast || $podcast->expert_id != $author->id)) {
             return redirect('expert/'.$expert)->with('status', "The podcast you are looking for can't be found.");

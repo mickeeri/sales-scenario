@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Podcast;
+use App\Tag;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
@@ -11,8 +12,15 @@ use Illuminate\Support\Facades\View;
 
 class ExploreController extends Controller
 {
-    public function index($tag = 0)
+    public function index($tag = null)
     {
+        if ($tag == null) {
+            $tag = 0;
+        } else {
+            $tag = Tag::findBySlugOrIdOrFail($tag);
+            $tag = $tag->id;
+        }
+
         $list = array();
         $letters = range('A', 'Z');
 
@@ -39,15 +47,15 @@ class ExploreController extends Controller
 
     public function expert($id)
     {
-        $expert = \App\Expert::find($id);
+        try {
+            $expert = \App\Expert::findBySlugOrFail($id);
 
-        if(!$expert){
+            $expert->podcasts = $expert->podcasts->sortByDesc('id');
+
+            return view('expert')->with(compact('expert'));
+
+        } catch (\Exception $e) {
             return redirect('explore')->with('status', "The sales expert you are looking for can't be found.");
         }
-
-        $expert->podcasts = $expert->podcasts->sortByDesc('id');
-
-        return view('expert')->with(compact('expert'));
     }
-
 }
