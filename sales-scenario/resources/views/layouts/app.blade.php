@@ -15,6 +15,17 @@
     @yield('css')
     <link type="text/css" href="/css/main.css" rel="stylesheet" />
 
+    <!-- Icons -->
+    <link rel="icon" href="img/icons/favicon-16.png" sizes="16X16">
+    <link rel="icon" href="img/icons/favicon-32.png" sizes="32x32">
+    <link href="img/icons/icon57.png" rel="apple-touch-icon" />
+    <link href="img/icons/icon76.png" rel="apple-touch-icon" sizes="76x76" />
+    <link href="img/icons/icon120.png" rel="apple-touch-icon" sizes="120x120" />
+    <link href="img/icons/icon152.png" rel="apple-touch-icon" sizes="152x152" />
+    <link href="img/icons/icon180.png" rel="apple-touch-icon" sizes="180x180" />
+    <link href="img/icons/icon192.png" rel="icon" sizes="192x192" />
+    <link href="img/icons/icon128.png" rel="icon" sizes="128x128" />
+
     <title>Sales Scenario</title>
 </head>
 <body
