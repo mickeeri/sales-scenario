@@ -19,8 +19,8 @@ class Tag extends Model
     /**
      * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany
      */
-    public function experts()
+    /*public function tags()
     {
         return $this->belongsToMany('App\Expert')->withTimestamps();
-    }
+    }*/
 }
