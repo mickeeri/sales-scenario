@@ -2,7 +2,7 @@
 
 @section('content')
     <div class="wrapper">
-        <h1>Profile settings</h1>
+        <h1>Profile settings for {{ $user->username }}</h1>
 
         <!-- error message -->
         @if($errors->any())
