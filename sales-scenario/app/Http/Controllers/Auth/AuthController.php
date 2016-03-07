@@ -31,6 +31,11 @@ class AuthController extends Controller
     protected $redirectTo = '/dashboard';
 
     /**
+     * Overrides email login to username
+     *
+     */
+    protected $username = 'username';
+    /**
      * Create a new authentication controller instance.
      *
      * @return void

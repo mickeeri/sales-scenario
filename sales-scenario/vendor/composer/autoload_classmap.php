@@ -2372,7 +2372,6 @@ return array(
     'Psy\\VarDumper\\Presenter' => $vendorDir . '/psy/psysh/src/Psy/VarDumper/Presenter.php',
     'Psy\\VarDumper\\PresenterAware' => $vendorDir . '/psy/psysh/src/Psy/VarDumper/PresenterAware.php',
     'RecursiveCallbackFilterIterator' => $vendorDir . '/studio-42/elfinder/php/elFinderVolumeLocalFileSystem.class.php',
-    'RemoveExpertsCombinationWithUsers' => $baseDir . '/database/migrations/2016_02_21_215316_remove_experts_combination_with_users.php',
     'S3SoapClient' => $vendorDir . '/studio-42/elfinder/php/elFinderVolumeS3.class.php',
     'SebastianBergmann\\Comparator\\ArrayComparator' => $vendorDir . '/sebastian/comparator/src/ArrayComparator.php',
     'SebastianBergmann\\Comparator\\Comparator' => $vendorDir . '/sebastian/comparator/src/Comparator.php',
