@@ -35,7 +35,7 @@
                     <li>
                         <a href="/player/{{ $expert->id }}/{{ $podcast->id }}">
                             <span class="title">{{ $podcast->title }}</span><br/>
-                            <span class="podcast-date">{{ $podcast->created_at->format('Y-m-d') }}</span>
+                            <span class="podcast-date">{{ $podcast->created_at->format('m/d/y') }}</span>
                         </a>
                     </li>
                 @endforeach
