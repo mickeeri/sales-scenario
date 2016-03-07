@@ -51,7 +51,19 @@
         @endif
         @yield('content')
     </div>
-    <div id="footer"></div>
+    <div id="footer">
+        <!-- Share button -->
+        <script type="text/javascript" src="http://w.sharethis.com/button/buttons.js"></script>
+        <script type="text/javascript">stLight.options({publisher: "ef03e930-4dbc-4350-9821-9f8878cdd1f3", doNotHash: false, doNotCopy: false, hashAddressBar: false});</script>
+        <div class="share-buttons" style="float:right; margin: -8px 10px 0 0;">
+            <span class='st_twitter_large' displayText='Tweet'></span>
+            <span class='st_linkedin_large' displayText='LinkedIn'></span>
+            <span class='st_facebook_large' displayText='Facebook'></span>
+        </div>
+        <!-- Share button end -->
+    </div>
+        
+    </div>
     <!-- JavaScripts -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
     <script src="/js/scripts.js"></script>
