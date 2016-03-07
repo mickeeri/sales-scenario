@@ -21,10 +21,10 @@
 
         <div class="update-form" id="profile_form">
             {{ Form::open(array('url' => 'users/'.$user->id, 'method' => 'PUT')) }}
-                {{ Form::email('email',$user->email, ['placeholder'=> 'Email']) }}
-                {{ Form::password('password', ['placeholder'=> 'New Password']) }}
-                {{ Form::password('password_confirmation', ['placeholder'=> 'Confirm Password']) }}
-                {{ Form::password('current_password', ['placeholder'=> 'Current password']) }}
+                {{ Form::email('email',$user->email, ['placeholder'=> 'Email', 'required']) }}
+                {{ Form::password('password', ['placeholder'=> 'New Password', 'minlength'=> '6', 'autocomplete' => 'off']) }}
+                {{ Form::password('password_confirmation', ['placeholder'=> 'Confirm Password', 'minlength'=> '6', 'autocomplete' => 'off' ]) }}
+                {{ Form::password('current_password', ['placeholder'=> 'Current password', 'required', 'minlength'=> '6']) }}
                 {{ Form::submit('Update', array('class'=>'update-btn')) }}
             {{ Form::close() }}
         </div>
