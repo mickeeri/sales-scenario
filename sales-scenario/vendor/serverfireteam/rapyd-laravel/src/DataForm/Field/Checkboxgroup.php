@@ -8,7 +8,7 @@ class Checkboxgroup extends Field
     public $multiple = true;
     public $size = null;
     public $description = "";
-    public $separator = "&nbsp;&nbsp;";
+    public $separator = "<br>";
     public $format = "%s";
     public $css_class = "checkbox";
     public $checked_value = 1;
