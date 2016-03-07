@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Auth;
 
 use App\User;
+use Illuminate\Support\Facades\Session;
 use Validator;
 use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\ThrottlesLogins;
@@ -68,6 +69,7 @@ class AuthController extends Controller
      */
     protected function create(array $data)
     {
+        Session::flash('status', 'Welcome! Your user profile has been successfully created.');
         return User::create([
             'username' => $data['username'],
             'email' => $data['email'],
