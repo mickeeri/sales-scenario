@@ -137,7 +137,8 @@ class TagsTableSeeder extends Seeder {
             'Sales Tactics',
             'Sales Team Coaching',
             'Selling To Small & Medium Businesses',
-            'Social Selling'
+            'Social Selling',
+            'Foresight'
         ];
 
         foreach($defaultTagNames as $tagName) {
