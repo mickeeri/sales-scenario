@@ -83,6 +83,7 @@ $(document).ready(function() {
         if (filterPopup.css('display') == 'none') {
             filterPopup.show();
         } else {
+            e.preventDefault();
             filterPopup.hide();
         }
     });
