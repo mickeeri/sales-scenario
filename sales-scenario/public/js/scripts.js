@@ -1,6 +1,6 @@
 $(document).ready(function() {
 
-    //Hyperlinks in explore view for expert-list
+    //Hyperlinks in explore view for experts-list
     $('.a-letter').click(function(){
         $('html, body').animate({
             scrollTop: $( $.attr(this, 'href') ).offset().top - 130

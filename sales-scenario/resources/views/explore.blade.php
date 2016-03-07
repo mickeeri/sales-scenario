@@ -7,7 +7,7 @@
                 <i class="fa fa-filter white-icon-orange-bg"></i>
             </a>
             <div id="explore-white-space"></div>
-            <!-- Hyperlinks -->
+            <!-- Hyperlink -->
             <div id="explore-container-hyperlinks">
                 @foreach($list as $letter => $experts)
                     <a class="a-letter" href="#{{ $letter }}">{{ $letter }}</a>
