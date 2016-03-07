@@ -1,6 +1,6 @@
 $(document).ready(function() {
 
-    //Scroll expert's first letter to top of page, but below header
+    //Hyperlinks in explore view for expert-list
     $('.a-letter').click(function(){
         $('html, body').animate({
             scrollTop: $( $.attr(this, 'href') ).offset().top - 130
