@@ -624,8 +624,9 @@ nav ul li a:hover {
 }
 
 #explore-container-hyperlinks{
-    border: 1px solid #e95d0f;
-    border-radius: 10px 3px 10px 3px;
+    border-bottom: 1px solid #e95d0f;
+    border-top: 1px solid #e95d0f;
+    border-radius: 3px;
     float: right;
     margin-top: 18px;
     margin-right: 5px;
