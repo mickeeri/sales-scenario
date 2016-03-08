@@ -614,6 +614,51 @@ nav ul li a:hover {
 }
 
 /************************************** Explore view **************************************/
+#explore-white-space{
+    background-color: #fff;
+    height: 80px;
+    left: 0;
+    position: fixed;
+    width: 100%;
+    z-index: -1;
+}
+
+#explore-container-hyperlinks{
+    border-bottom: 1px solid #e95d0f;
+    border-top: 1px solid #e95d0f;
+    border-radius: 3px;
+    float: right;
+    margin-top: 18px;
+    margin-right: 5px;
+    padding: 5px 10px 10px 10px;
+    width: auto;
+}
+
+#explore-container-hyperlinks a{
+    color: #afafaf;
+    font-size: 12px;
+}
+
+#explore-container-hyperlinks a:link{
+    text-decoration: none;
+}
+
+#explore-container-hyperlinks a:visited{
+    color: #afafaf;
+}
+
+
+#explore-container-hyperlinks a:hover{
+    font-size: 14px;
+    font-weight: 700;
+    color: #e95d0f;
+}
+
+#explore-container-hyperlinks a:active{
+    color: #000;
+}
+
+
 #explore_filter{
     position: fixed;
     right: calc(50% - 480px);
@@ -715,6 +760,10 @@ nav ul li a:hover {
 
 .expert-tags {
     padding-left: 10px;
+}
+
+#expert_list{
+    margin-top: 100px;
 }
 
 /**********************************End views**************************************/
