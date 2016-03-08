@@ -22,7 +22,19 @@ class PlayerController extends Controller
             return redirect('explore')->with('status', "The sales expert you are looking for can't be found.");
         }
 
+        //Remove old history relationships for this podcast to save db space
+        \Auth::user()->podcasts()->detach($podcast->id);
+        //Log new history i db
+        \Auth::user()->podcasts()->attach($podcast->id);
+
         return view('player')->with(compact('author', 'podcast'));
+    }
+
+    public function history()
+    {
+        $podcasts = \Auth::user()->podcasts()->limit(10)->get();
+
+        return view('history')->with(compact('podcasts'));
     }
 
 }
