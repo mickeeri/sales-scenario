@@ -35,6 +35,6 @@ class User extends Authenticatable
      */
     public function podcasts()
     {
-        return $this->belongsToMany('App\Podcast', 'podcast_user')->withTimestamps()->orderBy('created_at', 'desc');
+        return $this->belongsToMany('App\Podcast', 'podcast_user')->withTimestamps();
     }
 }

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Expert;
 use App\Podcast;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
@@ -30,11 +31,25 @@ class PlayerController extends Controller
         return view('player')->with(compact('author', 'podcast'));
     }
 
-    public function history()
+    public function history($days = 30, $limit = 10)
     {
-        $podcasts = \Auth::user()->podcasts()->limit(10)->get();
+        if(!is_numeric($days) || $days < 1 || $days > 30){
+            return redirect('player/history/30/' . $limit);
+        }
 
-        return view('history')->with(compact('podcasts'));
+        if(!is_numeric($limit) || $limit < 1 || $limit > 100){
+            return redirect('player/history/' . $days . '/10');
+        }
+
+        $carbon = Carbon::now()->subDays($days);
+        $podcasts = \Auth::user()->podcasts()->withPivot('created_at')->where('podcast_user.created_at', '>', $carbon->format('Y-m-d H:i:s'))->get()->sortBy('pivot.created_at')->reverse();
+
+        //Limit podcasts if more than defined number
+        if($podcasts->count() > $limit){
+            $podcasts = $podcasts->splice(0, $limit);
+        }
+
+        return view('history')->with(compact('podcasts', 'days', 'limit'));
     }
 
 }

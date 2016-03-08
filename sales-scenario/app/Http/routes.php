@@ -34,6 +34,7 @@ Route::group(['middleware' => ['web','auth']], function(){
 
     Route::get('player/{expert}/{track}', 'PlayerController@index');
     Route::get('player/history', 'PlayerController@history');
+    Route::get('player/history/{days}/{limit}', 'PlayerController@history');
 
     Route::get('profile', 'ProfileController@index');
     Route::put('users/{id}', 'ProfileController@update');
