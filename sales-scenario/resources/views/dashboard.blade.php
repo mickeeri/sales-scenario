@@ -6,10 +6,21 @@
         @include('partials.slider')
     </div>
     <h2 class="center">Most Contributing</h2>
-    @include('partials.most_contribution_expert')
+
+    <ul class="explore-list">
+        @each('partials.expert_listing', $experts, 'expert')
+    </ul>
     <a href="/explore" class="read-more">View more</a>
 
     <h2 class="center">Explore topics</h2>
-    @include('partials.explore_topics')
+
+    <ul class="tag-list explore-list">
+        @foreach($randomizedTags as $tag)
+            <li><a href="/explore/{{ $tag->slug }}"><span>{{ $tag->name }}</span></a></li>
+        @endforeach
+    </ul>
 
 @endsection
+
+
+
