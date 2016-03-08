@@ -66,16 +66,16 @@ class ExploreTest extends TestCase
         $expert = $this->getExpertWithPodcast();
 
         //Test response code
-        $response = $this->call('GET', 'expert/' . $expert->id);
+        $response = $this->call('GET', 'expert/' . $expert->slug);
         $this->assertEquals(200, $response->status());
 
         //Navigate to Experts page and see relevant information and podcast.
-        $this->visit('expert/' . $expert->id)
+        $this->visit('expert/' . $expert->slug)
             ->see("$expert->first_name $expert->last_name")
             ->see($expert->website)
             ->see($expert->info)
             ->seeInElement('h3', 'Podcasts by '.$expert->name)
             ->seeInElement('.title', $expert->podcasts[0]->title)
-            ->seeInElement('.podcast-date', date("Y-m-d"));
+            ->seeInElement('.podcast-date', date('F d Y'));
     }
 }

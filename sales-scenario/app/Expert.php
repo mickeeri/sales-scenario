@@ -2,12 +2,14 @@
 
 namespace App;
 
+use App\Traits\Sluggify;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Expert extends Model
 {
     use SoftDeletes;
+    use Sluggify;
 
     protected $table = 'experts';
 
@@ -38,5 +40,10 @@ class Expert extends Model
     public function getFullNameAttribute()
     {
         return $this->first_name . ' ' . $this->last_name;
+    }
+
+    public function toSlug()
+    {
+        return $this->full_name;
     }
 }
