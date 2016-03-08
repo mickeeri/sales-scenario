@@ -653,7 +653,7 @@ nav ul li a:hover {
 /************************************** Profile form **************************************/
 
 .update-form input {
-    border: solid 1px #dcdcdc;
+    border: solid 1px #b1b3b4;
     box-sizing: border-box;
     display: block;
     font-size: 18px;
@@ -666,7 +666,7 @@ nav ul li a:hover {
 
 .update-form input:focus,
 .update-form input.focus {
-    border: solid 1px #707070;
+    border: solid 1px #b1b3b4;
     box-shadow: 0 0 5px 1px #969696;
 }
 
