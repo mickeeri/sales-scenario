@@ -18,4 +18,4 @@
 ![Alt](https://github.com/rn222cx/1DV411_Grupp3/blob/master/design/jpg/Proposal_2_player_1.png?raw=true)
 
 ###Applikationens designflöde
-![Alt](https://github.com/rn222cx/1DV411_Grupp3/blob/master/design/pdf/SalesScenario%20Designfl%C3%B6de.pdf)
+[Se länk](https://github.com/rn222cx/1DV411_Grupp3/blob/master/design/pdf/SalesScenario%20Designfl%C3%B6de.pdf)
