@@ -12,8 +12,26 @@ class DashboardController extends Controller
 {
     public function index()
     {
+        //Get x nr of randomized tags
+        $randomizedTags = $this->getRandomizedTags();
+
+        //Get x nr of newest created podcasts
+        $podcasts =  $this->getNewestPodcasts();
+
+        //Get x nr of most contributing experts
+        $experts = $this->getMostContributingExperts();
+
+        //Now we have our models so we can send these to the dashboard view
+        return view('dashboard')->with(compact('experts', 'podcasts', 'randomizedTags'));
+    }
+
+    /**
+     * @param int $toTake
+     */
+    private function getRandomizedTags($toTake = 5)
+    {
         //Get x number of tags by parameter in function random()
-        $tagsToTake = 5;
+        $tagsToTake = $toTake;
         $allTags = Tag::all();
 
         if($allTags->count() < $tagsToTake)
@@ -27,11 +45,30 @@ class DashboardController extends Controller
             $randomizedTags = $allTags->random($tagsToTake);
         }
 
-        //Get x newest created pordcasts
-        $podcasts =  Podcast::orderBy('created_at', 'desc')->take(5)->get();
+        return $randomizedTags;
+    }
+
+    /**
+     * @param int $toTake
+     */
+    private function getNewestPodcasts($toTake = 5)
+    {
+        return Podcast::orderBy('created_at', 'desc')->take($toTake)->get();
+    }
+
+    /**
+     * @param int $toTake
+     */
+    private function getMostContributingExperts($toTake = 5)
+    {
         $experts = Expert::all();
 
-        //Most contributing expert
+        //Prevent error for splice function by setting to Zero if No experts exists.
+        if($experts->count() == 0)
+        {
+            $toTake = 0;
+        }
+
         foreach ($experts as $expert)
         {
             //For each expert we add a field that makes it easier to sort.
@@ -46,9 +83,8 @@ class DashboardController extends Controller
         }
 
         //Now we can use this field to sort out most contributing experts
-        $experts = $experts->sortByDesc('nrOfPodcasts')->splice(0, 5);
+        $experts = $experts->sortByDesc('nrOfPodcasts')->splice(0, $toTake);
 
-        //Now we have our models so we can send these to the dashboard view
-        return view('dashboard')->with(compact('experts', 'podcasts', 'randomizedTags'));
+        return $experts;
     }
 }
