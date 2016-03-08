@@ -76,7 +76,11 @@ class ViewComposerServiceProvider extends ServiceProvider
         $tagsToTake = $toTake;
         $allTags = Tag::all();
 
-        if($allTags->count() < $tagsToTake)
+        if(!$allTags->count())
+        {
+            return $allTags;
+        }
+        else if($allTags->count() < $tagsToTake)
         {
             //We can't take as many as value of $tagsToTake says.
             //But we take what som many we can get instead.
