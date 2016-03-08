@@ -15,6 +15,7 @@
     @yield('css')
     <link type="text/css" href="/css/main.css" rel="stylesheet" />
 
+    <meta name="theme-color" content="#e95d0f">
     <!-- Icons -->
     <link rel="icon" href="img/icons/favicon-16.png" sizes="16X16">
     <link rel="icon" href="img/icons/favicon-32.png" sizes="32x32">
