@@ -25,23 +25,40 @@ class DashboardFuncTest extends TestCase
         }
         return $expert;
     }
+
     public function test_expert_with_most_podcasts_show(){
 
         //Since the factory creates expert with max 10 podcasts, this expert must be most contributing
-        $expert = $this->create_expert_with_podcasts(12);
+
+        $leastContributing = $this->create_expert_with_podcasts(2);
+
+        for ($i = 0; $i < 5; $i++) {
+            $this->create_expert_with_podcasts(5);
+        }
+
+        $mostContributing = $this->create_expert_with_podcasts(7);
+
         $this->visit('dashboard')
-            ->see("$expert->firstName $expert->lastName");
+            ->see("$mostContributing->full_name")
+            ->dontSee("$leastContributing->full_name");
     }
+
     public function test_expert_not_most_contributing_not_show(){
 
         $expert_no_podcasts = factory(App\Expert::class)->create();
 
         $this->visit('dashboard')
-            ->dontSeeLink("$expert_no_podcasts->firstName $expert_no_podcasts->lastName");
+            ->dontSeeLink("$expert_no_podcasts->full_name");
 
     }
+
     public function test_expert_without_podcast_not_show(){
-        //Empty database, add only 4 experts with podcasts, 1 without.
-        //Assert the one with podcasts does not show
+        for ($i = 0; $i < 4; $i++) {
+            $this->create_expert_with_podcasts(1);
+        }
+
+        $expert_no_podcasts = factory(App\Expert::class)->create();
+        $this->visit('dashboard')
+            ->dontSeeLink("$expert_no_podcasts->full_name");
     }
 }

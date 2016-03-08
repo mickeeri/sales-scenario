@@ -9,7 +9,6 @@ class ExploreTest extends TestCase
     use WithoutMiddleware;
     use DatabaseTransactions;
 
-
     public function test_explore_returns_correrct_url()
     {
         $this->visit('explore')
