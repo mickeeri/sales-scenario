@@ -49,5 +49,7 @@
             <p class="center podcast-time-text"></p>
             </div>
         </div>
+        <div id="player_extra_content" class="hide-mobile">
+        </div>
     </div>
 @endsection

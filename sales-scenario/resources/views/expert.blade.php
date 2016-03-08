@@ -26,7 +26,7 @@
     </div>
     <div class="experts-podcasts">
         <div class="wrapper">
-            <h3>Podcasts by {{ $expert->first_name }} {{ $expert->last_name }}</h3>
+            <h2 class="center">Podcasts</h2>
         </div>
         @if(count($expert->podcasts))
             <div class="wrapper no-padding">

@@ -12,12 +12,6 @@
                 @endforeach
             </div>
         @endif
-        <!-- success message -->
-        @if(Session::has('flash_message'))
-            <div class="message success">
-                {{ Session::get('flash_message') }}
-            </div>
-        @endif
 
         <div class="update-form" id="profile_form">
             {{ Form::open(array('url' => 'users/'.$user->id, 'method' => 'PUT')) }}
