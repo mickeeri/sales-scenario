@@ -21,7 +21,7 @@ class DashboardController extends Controller
         //Get x nr of most contributing experts
         $experts = $this->getMostContributingExperts();
 
-        //Now we have our models so we can send these to the dashboard view
+        //Now we have our models, and we can send these to the dashboard view
         return view('dashboard')->with(compact('experts', 'podcasts', 'randomizedTags'));
     }
 
