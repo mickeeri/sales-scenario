@@ -127,6 +127,16 @@ class AuthTest extends TestCase
     }
 
     /** @test */
+    public function test_if_user_can_register_with_special_character_in_password()
+    {
+        $fields = ['username' => 'BenDover', 'email' => 'newMail@mail.se', 'password' => '!0293()("#¤)\"\åööÛïü', 'password_confirmation' =>'!0293()("#¤)\"\åööÛïü'];
+        $this->visit('register')
+            ->submitForm('Register', $fields)
+            ->seePageIs('dashboard')->see('Welcome! Your user profile has been successfully created')
+            ->seeInDatabase('users', ['username' => 'BenDover']);
+    }
+
+    /** @test */
     public function email_is_sent_when_forgot_password()
     {
         $user = factory(App\User::class)->create();
