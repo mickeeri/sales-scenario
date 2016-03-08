@@ -626,6 +626,16 @@ nav ul li a:hover {
     margin: 15px;
 }
 
+.explore-sort-button.active:before{
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    content: '';
+    display: block;
+}
+
 .explore-sort-button img{
     width: 50px;
 }
