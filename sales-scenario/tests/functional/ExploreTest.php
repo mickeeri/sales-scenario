@@ -8,21 +8,7 @@ class ExploreTest extends TestCase
 {
     use WithoutMiddleware;
     use DatabaseTransactions;
-    
-    private function getExpertWithPodcast()
-    {
-        $expert = factory(App\Expert::class)->create();
-        $podcast = new App\Podcast;
-        $podcast->title = "Example podcast";
-        $podcast->expert_id = $expert->id;
-        $expert->podcasts->add($podcast);
-        $podcast->filename = "test.mp3";
-        $podcast->save();
-        $podcast->filename = "{$podcast->id}.mp3";
-        $podcast->save();
 
-        return $expert;
-    }
 
     public function test_explore_returns_correrct_url()
     {

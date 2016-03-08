@@ -8,10 +8,9 @@ class DashboardTest extends TestCase
 {
     public function test_headings_and_links_in_dashboard_view()
     {
-        $user = \App\User::find(1);
+        $this->login();
 
-        $this->actingAs($user)
-            ->visit('dashboard')
+        $this->visit('dashboard')
             ->see('Most Contributing')
             ->see('Explore Topics')
             ->seeLink('View more')
