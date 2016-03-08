@@ -13,7 +13,20 @@ class DashboardController extends Controller
     public function index()
     {
         //Get x number of tags by parameter in function random()
-        $tags = Tag::all()->random(5);
+        $tagsToTake = 5;
+        $allTags = Tag::all();
+
+        if($allTags->count() < $tagsToTake)
+        {
+            //We can't take as many as value of $tagsToTake says.
+            //But we take what som many we can get instead.
+            $randomizedTags = $allTags->random($allTags->count());
+        }
+        else
+        {
+            $randomizedTags = $allTags->random($tagsToTake);
+        }
+
         //Get x newest created pordcasts
         $podcasts =  Podcast::orderBy('created_at', 'desc')->take(5)->get();
         $experts = Expert::all();
@@ -36,6 +49,6 @@ class DashboardController extends Controller
         $experts = $experts->sortByDesc('nrOfPodcasts')->splice(0, 5);
 
         //Now we have our models so we can send these to the dashboard view
-        return view('dashboard')->with(compact('experts', 'podcasts', 'tags'));
+        return view('dashboard')->with(compact('experts', 'podcasts', 'randomizedTags'));
     }
 }

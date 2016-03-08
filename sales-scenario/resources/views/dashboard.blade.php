@@ -15,7 +15,7 @@
     <h2 class="center">Explore topics</h2>
 
     <ul class="tag-list explore-list">
-        @foreach($tags as $tag)
+        @foreach($randomizedTags as $tag)
             <li><a href="/explore/{{ $tag->slug }}"><span>{{ $tag->name }}</span></a></li>
         @endforeach
     </ul>
