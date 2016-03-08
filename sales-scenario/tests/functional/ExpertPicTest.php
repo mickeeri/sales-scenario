@@ -16,10 +16,10 @@ class ExpertPicTest extends TestCase
     private function expert_img_is_showing($expert, $podcast, $imgUrl)
     {
         //check img in expert-view
-        $this->visit('expert/' . $expert->id)
+        $this->visit('expert/' . $expert->slug)
             ->see($imgUrl)
             //check  img in player view
-            ->visit('/player/'.$expert->id.'/'.$podcast->id)
+            ->visit('/player/'.$expert->slug.'/'.$podcast->slug)
             ->see($imgUrl);
     }
 
