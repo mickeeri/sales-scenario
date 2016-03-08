@@ -120,7 +120,7 @@ button:hover, .button:hover, input[type=submit]:hover {
     text-transform: uppercase;
     text-align: center;
     display: block;
-    color: #afafaf;
+    color: #b1b3b4;
     text-decoration: none;
     font-weight: 700;
 }
@@ -425,7 +425,7 @@ nav ul li a:hover {
 }
 
 .slick-dots li.slick-active button:before{
-    color: #e96d01;
+    color: #e95d0f;
     opacity: 1;
 }
  #expert_list h2{
@@ -471,13 +471,13 @@ nav ul li a:hover {
 }
 
 .explore-list a{
-    color: #afafaf;
+    color: #b1b3b4;
     text-decoration: none;
 }
 
 .explore-list a .title,
 .tag-list a span{
-    color: #222;
+    color: #000;
     font-weight: 700;
 }
 
@@ -553,6 +553,60 @@ nav ul li a:hover {
     z-index: 10;
 }
 
+/************************************** Player history view **************************************/
+
+.history-filter ul{
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    max-width: 50%;
+    width: 50%;
+    display: inline-block;
+    vertical-align: top;
+}
+
+.history-filter ul li:first-child{
+    color: rgba(0,0,0,0.8);
+    font-size: 18px;
+    font-weight: 700;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+}
+
+.history-filter a{
+    text-decoration: none;
+    text-transform: uppercase;
+    color: #afafaf;
+    font-weight: 700;
+    padding: 5px 20px;
+    display: block;
+    position: relative;
+}
+
+.history-filter a.current{
+    text-decoration: none;
+    color: rgba(0,0,0,0.8);
+}
+
+
+.history-filter a::before{
+    content: '';
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width:19px;
+    height:19px;
+    margin: 5px 5px 0 0;
+    background:url(check_radio_sheet.png) left top no-repeat;
+}
+
+.history-filter a.current::before{
+    background:url(check_radio_sheet.png) -19px top no-repeat;
+}
+
+/************************************** End Player history**************************************/
+
 /************************************** Expert show view **************************************/
 
 .profile-information {
@@ -596,7 +650,7 @@ nav ul li a:hover {
 /************************************** Profile form **************************************/
 
 .update-form input {
-    border: solid 1px #dcdcdc;
+    border: solid 1px #b1b3b4;
     box-sizing: border-box;
     display: block;
     font-size: 18px;
@@ -610,7 +664,7 @@ nav ul li a:hover {
 .update-form input:focus,
 .update-form input.focus {
     border: solid 1px #707070;
-    box-shadow: 0 0 5px 1px #969696;
+    box-shadow: 0 0 5px 1px #b1b3b4;
 }
 
 /************************************** Explore view **************************************/
@@ -635,7 +689,7 @@ nav ul li a:hover {
 }
 
 #explore-container-hyperlinks a{
-    color: #afafaf;
+    color: #b1b3b4;
     font-size: 12px;
 }
 
@@ -677,7 +731,7 @@ nav ul li a:hover {
     color: white;
     font-size: 24px;
     text-align: center;
-    background-color: #e96d01;
+    background-color: #e95d0f;
     border-radius: 50px;
     padding: 10px;
     width: 25px;
@@ -747,12 +801,12 @@ nav ul li a:hover {
 }
 
 .tags {
-    color: #A5A3A2;
+    color: #b1b3b4;
     font-size: small;
 }
 
 .letter {
-    color: #A5A3A2;
+    color: #b1b3b4;
     font-weight: bold;
 }
 
@@ -937,7 +991,7 @@ nav ul li a:hover {
     }
 
     #slider_wrapper {
-        border-bottom: 10px solid #e96d01;
+        border-bottom: 10px solid #e95d0f;
         box-shadow: 0 0 10px 5px #969696;
         padding: 10px;
     }
@@ -1008,7 +1062,7 @@ nav ul li a:hover {
     }
 
     #player_content p.podcast-time-text{
-        color: #707070;
+        color: #b1b3b4;
     }
 
     .player-gray-area{

@@ -37,11 +37,14 @@
     @if (Auth::check())
         <div id="header" class="orange-nav">
             <div id="menu_open"></div>
-            @include('unauthorized.logo')
+            <a href="/" id="logo">
+                <img src="/img/logo_small.png"/>
+            </a>
             <nav class="wrapper">
                 <ul id="top">
                     <li><a href="{{ url('/dashboard') }}">Dashboard</a></li>
                     <li><a href="{{ url('/explore') }}">Explore</a></li>
+                    <li><a href="{{ url('/player/history') }}">History</a></li>
                 </ul>
                 <ul id="bottom">
                     <li><a href="{{ url('/profile') }}">Profile Settings</a></li>
