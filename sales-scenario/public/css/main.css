@@ -701,9 +701,7 @@ nav ul li a:hover {
     color: #afafaf;
 }
 
-
 #explore-container-hyperlinks a:hover{
-    font-size: 14px;
     font-weight: 700;
     color: #e95d0f;
 }
@@ -723,6 +721,16 @@ nav ul li a:hover {
 .explore-sort-button{
     float: right;
     margin: 15px;
+}
+
+.explore-sort-button.active:before{
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    content: '';
+    display: block;
 }
 
 .explore-sort-button img{

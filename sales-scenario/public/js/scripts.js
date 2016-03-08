@@ -87,21 +87,10 @@ $(document).ready(function() {
 
     // Toogle popup sort list
     var filterPopup = $('.filter-popup');
-    $('#hideshow').click(function () {
-        if (filterPopup.css('display') == 'none') {
-            filterPopup.show();
-        } else {
-            filterPopup.hide();
-        }
-    });
-
-    // Close when click outside the popup
-    $(document).mouseup(function (e) {
-        var container = filterPopup;
-
-        if (!container.is(e.target) && container.has(e.target).length === 0){
-            container.hide();
-        }
+    $('#hideshow').click(function (e) {
+        e.preventDefault();
+        filterPopup.toggle();
+        $(this).toggleClass("active");
     });
 
     var preSelectedTag = filterPopup.data('selected');
