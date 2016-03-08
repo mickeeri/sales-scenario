@@ -105,6 +105,28 @@ class AuthTest extends TestCase
     }
 
     /** @test */
+    public function test_if_user_can_register_with_existing_email()
+    {
+        factory(App\User::class)->create(['email' => 'newMail@mail.se']);
+        $fields = ['username' => 'noName', 'email' => 'newMail@mail.se', 'password' => 'password', 'password_confirmation' =>'password'];
+        $this->visit('register')
+            ->submitForm('Register', $fields)
+            ->see('The email has already been taken')
+            ->seeInDatabase('users', ['email' => 'newMail@mail.se']);
+    }
+
+    /** @test */
+    public function test_if_user_can_register_with_existing_username()
+    {
+        factory(App\User::class)->create(['username' => 'BenDover']);
+        $fields = ['username' => 'BenDover', 'email' => 'newMail@mail.se', 'password' => 'password', 'password_confirmation' =>'password'];
+        $this->visit('register')
+            ->submitForm('Register', $fields)
+            ->see('The username has already been taken')
+            ->seeInDatabase('users', ['username' => 'BenDover']);
+    }
+
+    /** @test */
     public function email_is_sent_when_forgot_password()
     {
         $user = factory(App\User::class)->create();
