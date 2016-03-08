@@ -36,7 +36,7 @@ class DashboardFuncTest extends TestCase
             $this->create_expert_with_podcasts(5);
         }
 
-        $mostContributing = $this->create_expert_with_podcasts(7);
+        $mostContributing = $this->create_expert_with_podcasts(8);
 
         $this->visit('dashboard')
             ->see("$mostContributing->full_name")
@@ -50,6 +50,24 @@ class DashboardFuncTest extends TestCase
         $this->visit('dashboard')
             ->dontSeeLink("$expert_no_podcasts->full_name");
 
+    }
+
+    public function test_5_tags_always_show(){
+        $tags = [];
+        for ($i = 0; $i < 5; $i++) {
+            $tags[] = \App\Tag::create([
+                'name' => "Tag name " . $i
+            ]);
+        }
+
+        //Tags are randomized, so lets make sure we see the 5 tags after a refresh
+        for ($i = 0; $i < 2; $i++) {
+            $this->visit("dashboard");
+
+            foreach ($tags as $tag) {
+                $this->seeLink($tag->name);
+            }
+        }
     }
 
     public function test_expert_without_podcast_not_show(){
