@@ -49,5 +49,13 @@
             <p class="center podcast-time-text"></p>
             </div>
         </div>
+        <div id="player_extra_content">
+            <h2 class="center">Most Contributing</h2>
+            @include('partials.most_contribution_expert')
+            <a href="/explore" class="read-more">View more</a>
+
+            <h2 class="center">Explore topics</h2>
+            @include('partials.explore_topics')
+        </div>
     </div>
 @endsection
