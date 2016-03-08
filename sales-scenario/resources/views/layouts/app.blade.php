@@ -42,6 +42,7 @@
                 <ul id="top">
                     <li><a href="{{ url('/dashboard') }}">Dashboard</a></li>
                     <li><a href="{{ url('/explore') }}">Explore</a></li>
+                    <li><a href="{{ url('/player/history') }}">History</a></li>
                 </ul>
                 <ul id="bottom">
                     <li><a href="{{ url('/profile') }}">Profile Settings</a></li>

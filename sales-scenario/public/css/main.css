@@ -553,6 +553,60 @@ nav ul li a:hover {
     z-index: 10;
 }
 
+/************************************** Player history view **************************************/
+
+.history-filter ul{
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    max-width: 50%;
+    width: 50%;
+    display: inline-block;
+    vertical-align: top;
+}
+
+.history-filter ul li:first-child{
+    color: rgba(0,0,0,0.8);
+    font-size: 18px;
+    font-weight: 700;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+}
+
+.history-filter a{
+    text-decoration: none;
+    text-transform: uppercase;
+    color: #afafaf;
+    font-weight: 700;
+    padding: 5px 20px;
+    display: block;
+    position: relative;
+}
+
+.history-filter a.current{
+    text-decoration: none;
+    color: rgba(0,0,0,0.8);
+}
+
+
+.history-filter a::before{
+    content: '';
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width:19px;
+    height:19px;
+    margin: 5px 5px 0 0;
+    background:url(check_radio_sheet.png) left top no-repeat;
+}
+
+.history-filter a.current::before{
+    background:url(check_radio_sheet.png) -19px top no-repeat;
+}
+
+/************************************** End Player history**************************************/
+
 /************************************** Expert show view **************************************/
 
 .profile-information {
