@@ -515,6 +515,10 @@ nav ul li a:hover {
     float: left;
 }
 
+#player_extra_content{
+    margin-left: 330px;
+}
+
 #player_content p,
 #player_content a{
     color: #b1b3b4;
@@ -1053,6 +1057,10 @@ nav ul li a:hover {
     #player_content{
         width: 100%;
         height: 100%;
+    }
+
+    #player_extra_content{
+        display: none;
     }
 
     #player_wrapper {
