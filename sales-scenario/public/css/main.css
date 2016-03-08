@@ -76,7 +76,7 @@ h2{
     padding: 5px;
     text-decoration: none;
     font-weight: bold;
-    background-color: #54525b;
+    background-color: #54525b;          //TODO
     color: white;
     border-radius: 100%;
     line-height: 10px;
@@ -120,7 +120,7 @@ button:hover, .button:hover, input[type=submit]:hover {
     text-transform: uppercase;
     text-align: center;
     display: block;
-    color: #afafaf;
+    color: #b1b3b4;
     text-decoration: none;
     font-weight: 700;
 }
@@ -425,7 +425,7 @@ nav ul li a:hover {
 }
 
 .slick-dots li.slick-active button:before{
-    color: #e96d01;
+    color: #e95d0f;
     opacity: 1;
 }
  #expert_list h2{
@@ -471,13 +471,13 @@ nav ul li a:hover {
 }
 
 .explore-list a{
-    color: #afafaf;
+    color: #b1b3b4;
     text-decoration: none;
 }
 
 .explore-list a .title,
 .tag-list a span{
-    color: #222;
+    color: #000;
     font-weight: 700;
 }
 
@@ -596,7 +596,7 @@ nav ul li a:hover {
 /************************************** Profile form **************************************/
 
 .update-form input {
-    border: solid 1px #dcdcdc;
+    border: solid 1px #b1b3b4;
     box-sizing: border-box;
     display: block;
     font-size: 18px;
@@ -609,8 +609,8 @@ nav ul li a:hover {
 
 .update-form input:focus,
 .update-form input.focus {
-    border: solid 1px #707070;
-    box-shadow: 0 0 5px 1px #969696;
+    border: solid 1px #707070;              //TODO
+    box-shadow: 0 0 5px 1px #b1b3b4;
 }
 
 /************************************** Explore view **************************************/
@@ -635,7 +635,7 @@ nav ul li a:hover {
 }
 
 #explore-container-hyperlinks a{
-    color: #afafaf;
+    color: #b1b3b4;
     font-size: 12px;
 }
 
@@ -679,7 +679,7 @@ nav ul li a:hover {
     color: white;
     font-size: 24px;
     text-align: center;
-    background-color: #e96d01;
+    background-color: #e95d0f;
     border-radius: 50px;
     padding: 10px;
     width: 25px;
@@ -749,12 +749,12 @@ nav ul li a:hover {
 }
 
 .tags {
-    color: #A5A3A2;
+    color: #b1b3b4;
     font-size: small;
 }
 
 .letter {
-    color: #A5A3A2;
+    color: #b1b3b4;
     font-weight: bold;
 }
 
@@ -939,7 +939,7 @@ nav ul li a:hover {
     }
 
     #slider_wrapper {
-        border-bottom: 10px solid #e96d01;
+        border-bottom: 10px solid #e95d0f;
         box-shadow: 0 0 10px 5px #969696;
         padding: 10px;
     }
@@ -1010,7 +1010,7 @@ nav ul li a:hover {
     }
 
     #player_content p.podcast-time-text{
-        color: #707070;
+        color: #b1b3b4;
     }
 
     .player-gray-area{
