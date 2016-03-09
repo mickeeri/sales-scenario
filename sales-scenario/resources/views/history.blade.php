@@ -2,7 +2,7 @@
 
 @section('content')
     <div class="wrapper">
-        <h1>Player history</h1>
+        <h1>History</h1>
         <div id="explore_filter">
             <a href="#" class='explore-sort-button' type='button' id='hideshow' value='hide/show'>
                 <i class="fa fa-filter white-icon-orange-bg"></i>

@@ -37,13 +37,12 @@
             </div>
 
             <div class="form-group children-block float-right">
-
-                <button type="submit" class="upper">Sign in</button>
-
+                <a href="{{ url('/register') }}" class="small" id="register_link">Register</a>
                 <a href="{{ url('/password/reset') }}" class="small">Forgot Your Password?</a>
             </div>
             <div class="clear"></div>
-            <a href="{{ url('/register') }}" class="full-width button upper top-space" id="register_button">Register</a>
+            <button type="submit" class="full-width button upper top-space">Sign in</button>
+
 
         </form>
     </div>

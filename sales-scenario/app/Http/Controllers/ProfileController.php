@@ -45,7 +45,7 @@ class ProfileController extends Controller
         $input = $request->all();
         $user->fill($input)->save();
 
-        Session::flash('flash_message', 'User successfully updated');
+        Session::flash('status', 'User successfully updated');
 
         return redirect()->back();
     }

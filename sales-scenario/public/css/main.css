@@ -9,16 +9,16 @@ body {
     font-family: 'Open Sans', sans-serif;
 }
 
+h1 {
+    text-align: center;
+}
+
 h1,
 h2,
 h3{
+    text-transform: uppercase;
     font-weight: 300;
 }
-
-h2{
-    text-transform: uppercase;
-}
-
 /*********************************
         Flash messages
 */
@@ -44,6 +44,8 @@ h2{
     width: 300px;
     max-width: 80%;
     transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%); /* IE 9 */
+    -webkit-transform: translate(-50%, -50%); /* Chrome, Safari, Opera */
     padding: 15px;
     text-align: center;
 }
@@ -176,6 +178,19 @@ button:hover, .button:hover, input[type=submit]:hover {
     margin-bottom: 20px;
 }
 
+.full-height{
+    height: 100%;
+}
+
+.go-back-link{
+    font-size: 13px;
+    display: block;
+    color: #b1b3b4;
+    text-decoration: none;
+    margin-top: 20px;
+    margin-left: 20px;
+}
+
 /**
 *
 *   Placeholders
@@ -261,18 +276,26 @@ button:hover, .button:hover, input[type=submit]:hover {
     font-size: 22px;
 }
 
+.unauthorized #register_link {
+    margin-bottom: 10px;
+}
+
 .unauthorized #remember_me input {
-    left: 0;
-    position: absolute;
-    top: 3px;
+    vertical-align: middle;
+    display: inline-block;
 }
 
 .unauthorized #remember_me{
     position: relative;
+    height: 39px;
+    display: block;
+    padding: 10px 0;
+    box-sizing: border-box;
 }
 
 .unauthorized #remember_me span{
-    margin-left: 15px;
+    vertical-align: middle;
+    margin-left: 7px;
 }
 
 /************************************** Misc **************************************/
@@ -292,6 +315,7 @@ html, body {
     max-width: 940px;
     margin: 0 auto;
     position: relative;
+    overflow: auto;
 }
 
 /* Partials on multiple pages */
@@ -301,7 +325,7 @@ html, body {
     margin: 0 auto;
     display: block;
     border-radius: 50%;
-    padding-bottom: 10px;
+    margin-bottom: 10px;
 }
 
 .podcast-author {
@@ -318,6 +342,10 @@ html, body {
     left: 0;
     right: 0;
     z-index: 500;
+}
+
+#header .wrapper{
+    overflow: inherit;
 }
 
 #header #logo {
@@ -372,7 +400,7 @@ nav ul li:last-child a {
 
 nav ul li.current a,
 nav ul li a:hover {
-    color: #000;
+    color: rgba(0,0,0,0.6);
 }
 
 /************************************** Footer **************************************/
@@ -398,16 +426,50 @@ nav ul li a:hover {
 }
 .slider-content-wrapper{
 }
-.slider-img{
+
+.profile-image{
     border-radius: 50%;
-    display: block;
-    margin: 0 0 0 3px;
-    width: 45%;
+    width: 150px;
+    height: 150px;
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
 }
+
+.slider-profile-image{
+    float: left;
+    margin-left: calc(50% - 250px);
+}
+
 .slider-button{
     background-color: #709d25;
     border: #709d25;
     padding: 5px 50px;
+}
+
+.slick-slider {
+    max-width: 940px;
+    width: 100%;
+    margin: 0 auto 30px;
+    max-height: 300px;
+}
+
+
+.slick-arrow{
+    width: 50px;
+    height: 50px;
+}
+
+.slick-next {
+    right: 30px;
+}
+
+.slick-prev {
+    left: 30px;
+}
+
+.slick-prev:before, .slick-next:before {
+    font-size: 50px;
 }
 
 .slick-dots li{
@@ -508,20 +570,31 @@ nav ul li a:hover {
 }
 
 #player_content{
-    background-color: #fff;
-    color: white;
-    width: 300px;
-    height: 100%;
     float: left;
+    overflow: auto;
+    color: #000;
+    width: 300px;
+    padding-top: 50px;
+    box-sizing: border-box;
 }
 
 #player_extra_content{
-    margin-left: 330px;
+    float: left;
+    overflow: auto;
+    margin-left: 50px;
+}
+
+#player_content .profile-image{
+    margin-bottom: 30px;
 }
 
 #player_content p,
 #player_content a{
     color: #b1b3b4;
+}
+
+#player_content .podcast-author{
+    text-decoration: underline;
 }
 
 /******* Expert info popup (player view)*******/
@@ -562,9 +635,9 @@ nav ul li a:hover {
 .history-filter ul{
     list-style-type: none;
     margin: 0;
-    padding: 0;
-    max-width: 50%;
-    width: 50%;
+    padding: 20px 0;
+    max-width: 45%;
+    width: 45%;
     display: inline-block;
     vertical-align: top;
 }
@@ -576,13 +649,16 @@ nav ul li a:hover {
     margin-bottom: 20px;
     text-transform: uppercase;
 }
-
+.history-filter ul:first-of-type li{
+    padding-left: 20px;
+}
 .history-filter a{
     text-decoration: none;
     text-transform: uppercase;
     color: #afafaf;
     font-weight: 700;
-    padding: 5px 20px;
+    padding: 5px 30px;
+    line-height: 25px;
     display: block;
     position: relative;
 }
@@ -597,7 +673,7 @@ nav ul li a:hover {
     content: '';
     display: block;
     position: absolute;
-    top: 0;
+    top: 4px;
     left: 0;
     width:19px;
     height:19px;
@@ -637,9 +713,9 @@ nav ul li a:hover {
 
 .expert-img {
     float: left;
-    border-radius: 50%;
     padding-bottom: 0;
     width: 200px;
+    height: 200px;
     display: block;
     margin-right: 40px;
 }
@@ -667,7 +743,7 @@ nav ul li a:hover {
 
 .update-form input:focus,
 .update-form input.focus {
-    border: solid 1px #707070;
+    border: solid 1px #b1b3b4;
     box-shadow: 0 0 5px 1px #b1b3b4;
 }
 
@@ -842,26 +918,73 @@ nav ul li a:hover {
 
 /*************************************************** Tablet ***********************************************************/
 
-@media screen and (max-width: 940px) {
+@media screen and (max-width: 942px) {
+
+
+
     #explore_filter,
     .filter-popup{
         right: 0 !important;
+    }
+
+    .wrapper {
+        width: 80%;
+        padding: 0 10px;
+        box-sizing: border-box;
+        position: static;
+    }
+
+    .wrapper.no-padding{
+        padding: 0;
+    }
+
+    .wrapper.no-ipad-padding{
+        width: 100%;
+    }
+
+    nav.wrapper{
+        overflow: inherit;
+    }
+
+    #player_content{
+        top: 50px;
+        height: calc(100vh - 90px);
+        width: 250px;
+
+    }
+
+    #player_extra_content {
+        float: left;
+        overflow: auto;
+        margin-left: 0;
+        max-width: calc(100% - 310px);
+        margin-top: 50px;
+
+    }
+
+    #header ul#top {
+        left: 15px;
+    }
+
+    #header ul#bottom {
+        right: 15px;
     }
 }
 
 /*************************************************** Mobile ***********************************************************/
 
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 760px) {
 
-    .wrapper {
-        width: auto;
-        overflow: auto;
-        padding: 0 10px;
-        box-sizing: border-box;
+    .hide-mobile{
+        display: none !important;
     }
 
-    .wrapper.no-padding{
-        padding: 0;
+    .wrapper,
+    .wrapper.no-ipad-padding{
+        width: auto;
+        padding: 0 10px;
+        box-sizing: border-box;
+        position: relative;
     }
 
     /***********************
@@ -950,7 +1073,7 @@ nav ul li a:hover {
         margin: 0;
         padding: 0 15px;
         box-sizing: border-box;
-        width: 100%;
+        width: calc(100% - 15px);
     }
 
     #header nav ul#top {
@@ -1010,6 +1133,17 @@ nav ul li a:hover {
         margin-bottom: 15px !important;
     }
 
+    .profile-image{
+        width: 40vw;
+        height: 40vw;
+        max-width: 150px;
+        max-height: 150px;
+    }
+
+    .slider-profile-image{
+        margin-left: calc(50% - 45vw);
+    }
+
     #slider_wrapper {
         border-bottom: 10px solid #e95d0f;
         box-shadow: 0 0 10px 5px #969696;
@@ -1028,7 +1162,7 @@ nav ul li a:hover {
     .profile-img {
         display: block;
         width: 130px;
-        max-height: 130px;
+        height: 130px;
         float: left;
         margin: 12px 0 12px 20px;
         border-radius: 65px;
@@ -1062,7 +1196,16 @@ nav ul li a:hover {
 
     #player_content{
         width: 100%;
-        height: 100%;
+        top: auto;
+        height: auto;
+        padding-top: 0;
+        box-sizing: border-box;
+        background-color: inherit;
+        position: static;
+    }
+
+    #player_content .profile-image{
+        margin-bottom: 30px;
     }
 
     #player_extra_content{

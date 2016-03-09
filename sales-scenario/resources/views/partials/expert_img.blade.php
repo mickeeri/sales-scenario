@@ -1,5 +1,5 @@
 @if (!empty($src))
-    <img class="{{ $class }}" src="/expert_photo/{{ $src}}" alt="Profile image of {{ $first }} {{ $last }}"/>
+    <div class="profile-image {{ $class }}" style="background-image: url('/expert_photo/{{ $src }}');"></div>
 @else
-    <img class="{{ $class }}" src="/expert_photo/blank-profile-picture.png" alt="Profile image not available"/>
+    <div class="profile-image {{ $class }}" style="background-image: url('/expert_photo/blank-profile-picture.png');"></div>
 @endif

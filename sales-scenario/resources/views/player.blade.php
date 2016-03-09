@@ -26,7 +26,7 @@
 @endsection
 
 @section('content')
-    <div class="wrapper no-padding">
+    <div class="wrapper no-padding no-ipad-padding">
         <div id="player_content">
             <div class="player-info-area">
                 @include('partials.expert_img', ['src' => $author->photo, 'class'=> 'profile-img', 'first' => $author->first_name, 'last' => $author->last_name])
@@ -49,13 +49,14 @@
             <p class="center podcast-time-text"></p>
             </div>
         </div>
-        <div id="player_extra_content">
+        <div id="player_extra_content" class="hide-mobile">
             <h2 class="center">Most Contributing</h2>
             @include('partials.most_contribution_expert')
             <a href="/explore" class="read-more">View more</a>
 
             <h2 class="center">Explore topics</h2>
             @include('partials.explore_topics')
+            <a href="{{ url('/expert/' . $author->slug) }}" class="small go-back-link">Back to expert</a>
         </div>
     </div>
 @endsection
