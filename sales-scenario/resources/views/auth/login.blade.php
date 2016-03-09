@@ -8,7 +8,7 @@
             @include('unauthorized.logo')
 
             <div class="form-group{{ $errors->has('username') ? ' has-error' : '' }}">
-                <input id="input_email" type="text" name="username" minlength="2" placeholder="Username" value="{{ old('username') }}">
+                <input id="input_email" type="text" name="username" minlength="2" maxlength="25" placeholder="Username" value="{{ old('username') }}">
 
                 @if ($errors->has('username'))
                     <span class="help-block">
