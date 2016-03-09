@@ -123,7 +123,7 @@ class AuthTest extends TestCase
         $this->visit('register')
             ->submitForm('Register', $fields)
             ->see('The username has already been taken')
-            ->seeInDatabase('users', ['username' => 'BenDover']);
+            ->seeInDatabase('users', ['username' => 'noName']);
     }
 
     /** @test */
@@ -133,7 +133,7 @@ class AuthTest extends TestCase
         $this->visit('register')
             ->submitForm('Register', $fields)
             ->seePageIs('dashboard')->see('Welcome! Your user profile has been successfully created')
-            ->seeInDatabase('users', ['username' => 'BenDover']);
+            ->seeInDatabase('users', ['username' => 'noName']);
     }
 
     /** @test */
