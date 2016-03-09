@@ -105,6 +105,38 @@ class AuthTest extends TestCase
     }
 
     /** @test */
+    public function test_if_user_can_register_with_existing_email()
+    {
+        factory(App\User::class)->create(['email' => 'newMail@mail.se']);
+        $fields = ['username' => 'noName', 'email' => 'newMail@mail.se', 'password' => 'password', 'password_confirmation' =>'password'];
+        $this->visit('register')
+            ->submitForm('Register', $fields)
+            ->see('The email has already been taken')
+            ->seeInDatabase('users', ['email' => 'newMail@mail.se']);
+    }
+
+    /** @test */
+    public function test_if_user_can_register_with_existing_username()
+    {
+        factory(App\User::class)->create(['username' => 'BenDover']);
+        $fields = ['username' => 'noName', 'email' => 'newMail@mail.se', 'password' => 'password', 'password_confirmation' =>'password'];
+        $this->visit('register')
+            ->submitForm('Register', $fields)
+            ->see('The username has already been taken')
+            ->seeInDatabase('users', ['username' => 'noName']);
+    }
+
+    /** @test */
+    public function test_if_user_can_register_with_special_character_in_password()
+    {
+        $fields = ['username' => 'noName', 'email' => 'newMail@mail.se', 'password' => '!0293()("#¤)\"\åööÛïü', 'password_confirmation' =>'!0293()("#¤)\"\åööÛïü'];
+        $this->visit('register')
+            ->submitForm('Register', $fields)
+            ->seePageIs('dashboard')->see('Welcome! Your user profile has been successfully created')
+            ->seeInDatabase('users', ['username' => 'noName']);
+    }
+
+    /** @test */
     public function email_is_sent_when_forgot_password()
     {
         $user = factory(App\User::class)->create();
