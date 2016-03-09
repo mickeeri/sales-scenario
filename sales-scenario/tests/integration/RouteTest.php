@@ -17,7 +17,7 @@ class RouteTest extends TestCase
         return $this;
     }
 
-    public function test_get_dasboard_return_200()
+    public function test_get_dashboard_return_200()
     {
         $this->routeTestUrl('dashboard');
     }
