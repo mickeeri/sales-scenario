@@ -66,24 +66,25 @@
         @endif
         @yield('content')
     </div>
+
+
     <div id="footer">
         <!-- Share button -->
-        <script type="text/javascript" src="http://w.sharethis.com/button/buttons.js"></script>
-        <script type="text/javascript">stLight.options({publisher: "ef03e930-4dbc-4350-9821-9f8878cdd1f3", doNotHash: false, doNotCopy: false, hashAddressBar: false});</script>
-        <div class="share-buttons" style="float:right; margin: -8px 10px 0 0;">
-            <span class='st_twitter_large' displayText='Tweet'></span>
-            <span class='st_linkedin_large' displayText='LinkedIn'></span>
-            <span class='st_facebook_large' displayText='Facebook'></span>
+        <div class="share-buttons-wrapper">
+            <div class="share-buttons a2a_kit a2a_kit_size_32 a2a_default_style">
+                <a class="share-button a2a_button_twitter" ></a>
+                <a class="share-button a2a_button_linkedin"></a>
+                <a class="share-button a2a_button_facebook"></a>
+            </div>
         </div>
         <!-- Share button end -->
     </div>
-        
-    </div>
+
     <!-- JavaScripts -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
     <script src="/js/scripts.js"></script>
+    <script async src="/js/addtoany.share.button.js"></script> <!-- Share button js -->
     @yield('js')
-    {{-- <script src="{{ elixir('js/app.js') }}"></script> --}}
 
 </body>
 </html>
