@@ -568,6 +568,10 @@ nav ul li a:hover {
     margin-bottom: 30px;
 }
 
+#player_extra_content{
+    margin-left: 330px;
+}
+
 #player_content p,
 #player_content a{
     color: #b1b3b4;
@@ -778,6 +782,16 @@ nav ul li a:hover {
 .explore-sort-button{
     float: right;
     margin: 15px;
+}
+
+.explore-sort-button.active:before{
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    content: '';
+    display: block;
 }
 
 .explore-sort-button img{
@@ -1149,6 +1163,10 @@ nav ul li a:hover {
 
     #player_content .profile-image{
         margin-bottom: 30px;
+    }
+
+    #player_extra_content{
+        display: none;
     }
 
     #player_wrapper {
