@@ -32,6 +32,8 @@ class HistoryTest extends TestCase
 
     public function test_invalid_arguments()
     {
+        $this->login();
+
         $values = [
             35 => 200,
             'sef' => 'sef',
