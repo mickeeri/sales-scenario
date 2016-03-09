@@ -2,6 +2,8 @@
 
 class TestCase extends Illuminate\Foundation\Testing\TestCase
 {
+    use \Illuminate\Foundation\Testing\DatabaseMigrations;
+
     /**
      * The base URL to use while testing the application.
      *
@@ -33,5 +35,36 @@ class TestCase extends Illuminate\Foundation\Testing\TestCase
     {
         $user = factory(Serverfireteam\Panel\Admin::class)->create();
         return $this->actingAs($user);
+    }
+
+    protected function getExpertWithPodcast()
+    {
+        $expert = factory(App\Expert::class)->create();
+        $podcast = new App\Podcast;
+        $podcast->title = "Example podcast";
+        $podcast->expert_id = $expert->id;
+        $expert->podcasts->add($podcast);
+        $podcast->filename = "test.mp3";
+        $podcast->save();
+        $podcast->filename = "{$podcast->id}.mp3";
+        $podcast->save();
+
+        return $expert;
+    }
+
+    protected function getExpertWithPodcastAndImage()
+    {
+        $expert = $this->getExpertWithPodcast();
+        $expert->photo = "{$expert->id}.png";
+        $expert->save();
+        copy(__DIR__ . '/example.png', public_path() . '/expert_photo/' . $expert->photo);
+        return $expert;
+    }
+
+    protected function removeImage($expert)
+    {
+        if(is_file(public_path() . '/expert_photo/' . $expert->photo)){
+            unlink(public_path() . '/expert_photo/' . $expert->photo);
+        }
     }
 }
