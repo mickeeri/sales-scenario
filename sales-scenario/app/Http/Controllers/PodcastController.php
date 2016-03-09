@@ -36,13 +36,14 @@ class PodcastController extends CrudController{
 	{
 		parent::edit($entity);
 
-		$this->loadEventHandlers();
-		
 		$this->edit = \DataEdit::source(new Podcast);
+
+		$this->loadEventHandlers();
+
 		$this->edit->label('Edit Podcast');
 		$this->edit->add('title', 'Title', 'text')->rule('required');
 		$this->edit->add('expert','Expert','select')->options($this->getExpertsList());
-		$this->edit->add('filename', 'Podcast (m4a, mp3)', 'file')->rule('audio')->move(public_path().'/audio/podcasts/temp');
+		$this->edit->add('filename', 'Podcast (m4a, mp3)', 'file')->rule('audio|max:500000')->move(public_path().'/audio/podcasts/temp');
 
         return $this->returnEditView();
     }

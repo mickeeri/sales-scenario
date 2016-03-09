@@ -29,4 +29,12 @@ class User extends Authenticatable
     protected $dates = [
         'deleted_at'
     ];
+
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function podcasts()
+    {
+        return $this->belongsToMany('App\Podcast', 'podcast_user')->withTimestamps();
+    }
 }

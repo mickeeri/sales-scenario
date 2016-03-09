@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class AddPhotoToExpertsTable extends Migration
+class AddHistoryPivotTable extends Migration
 {
     /**
      * Run the migrations.
@@ -12,8 +12,11 @@ class AddPhotoToExpertsTable extends Migration
      */
     public function up()
     {
-        Schema::table('experts', function (Blueprint $table) {
-            $table->string('photo')->after('website');
+        Schema::create('podcast_user', function (Blueprint $table) {
+            $table->increments('id');
+            $table->integer('podcast_id');
+            $table->integer('user_id');
+            $table->timestamps();
         });
     }
 
@@ -24,8 +27,6 @@ class AddPhotoToExpertsTable extends Migration
      */
     public function down()
     {
-        Schema::table('experts', function (Blueprint $table) {
-            $table->dropColumn('photo');
-        });
+        Schema::drop('podcast_user');
     }
 }

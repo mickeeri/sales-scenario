@@ -16,10 +16,10 @@ class ExpertPicTest extends TestCase
     private function expert_img_is_showing($expert, $podcast, $imgUrl)
     {
         //check img in expert-view
-        $this->visit('expert/' . $expert->id)
+        $this->visit('expert/' . $expert->slug)
             ->see($imgUrl)
             //check  img in player view
-            ->visit('/player/'.$expert->id.'/'.$podcast->id)
+            ->visit('/player/'.$expert->slug.'/'.$podcast->slug)
             ->see($imgUrl);
     }
 
@@ -29,11 +29,13 @@ class ExpertPicTest extends TestCase
      */
     public function test_expert_img_is_showing()
     {
-        $expert = \App\Expert::whereNotNull('photo')->first();              //Get the 1st expert with photo in db
-        $podcast = \App\Podcast::where('expert_id', $expert->id)->first();  //Get 1 podcast from the expert
+        $this->login();
+        $expert = $this->getExpertWithPodcastAndImage();
+        $podcast = $expert->podcasts[0];
         $imgUrl = $expert->photo;
 
         $this->expert_img_is_showing($expert, $podcast, $imgUrl);
+        $this->removeImage($expert);
     }
 
     /**
@@ -42,11 +44,13 @@ class ExpertPicTest extends TestCase
      */
     public function test_expert_img_is_dummy()
     {
-        $expert = \App\Expert::where('photo', '')->first();                 //Get the 1st expert WITHOUT photo in db
-        $podcast = \App\Podcast::where('expert_id', $expert->id)->first();  //Get 1 podcast from the expert
+        $this->login();
+        $expert = $this->getExpertWithPodcast();
+        $podcast = $expert->podcasts[0];
         $imgUrl = 'expert_photo/blank-profile-picture.png';
 
         $this->expert_img_is_showing($expert, $podcast, $imgUrl);
+        $this->removeImage($expert);
     }
 
 

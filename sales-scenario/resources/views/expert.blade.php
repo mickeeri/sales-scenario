@@ -18,7 +18,9 @@
                 @endforeach
                 </ul>
                 <p>{{ $expert->info }}</p>
-                <a class="expert-website" href=" {{ $expert->website }}">Visit website</a>
+                @if ($expert->website)
+                    <a class="expert-website" href=" {{ $expert->website }}">Visit website</a>
+                @endif
             </div>
         </div>
     </div>
@@ -31,9 +33,9 @@
                 <ul class="explore-list">
                 @foreach($expert->podcasts as $podcast)
                     <li>
-                        <a href="/player/{{ $expert->id }}/{{ $podcast->id }}">
+                        <a href="/player/{{ $expert->slug }}/{{ $podcast->slug }}">
                             <span class="title">{{ $podcast->title }}</span><br/>
-                            <span class="podcast-date">{{ $podcast->created_at->format('Y-m-d') }}</span>
+                            <span class="podcast-date">{{ $podcast->created_at->format('F d Y') }}</span>
                         </a>
                     </li>
                 @endforeach

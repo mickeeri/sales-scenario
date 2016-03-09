@@ -8,7 +8,7 @@ class Checkboxgroup extends Field
     public $multiple = true;
     public $size = null;
     public $description = "";
-    public $separator = "&nbsp;&nbsp;";
+    public $separator = "<br>";
     public $format = "%s";
     public $css_class = "checkbox";
     public $checked_value = 1;
@@ -60,7 +60,7 @@ class Checkboxgroup extends Field
                     $this->checked = in_array($val, $this->values);
 
                     //echo ((int)$this->checked)."<br />";
-                    $output .= sprintf($this->format, Form::checkbox($this->name.'[]', $val, $this->checked) . $label) . $this->separator;
+                    $output .= '<label>' . sprintf($this->format, Form::checkbox($this->name.'[]', $val, $this->checked) . $label) . '</label>' . $this->separator;
                 }
                 $output .= $this->extra_output;
 

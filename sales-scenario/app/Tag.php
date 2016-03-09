@@ -2,15 +2,21 @@
 
 namespace App;
 
+use App\Traits\Sluggify;
 use Illuminate\Database\Eloquent\Model;
 
 class Tag extends Model
 {
-    /**
-     * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany
-     */
-    public function experts()
+    use Sluggify;
+
+    protected $table = 'tags';
+
+    protected $fillable = [
+        'name'
+    ];
+
+    public function toSlug()
     {
-        return $this->belongsToMany('App\Expert')->withTimestamps();
+        return $this->name;
     }
 }

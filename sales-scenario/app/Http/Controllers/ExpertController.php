@@ -35,18 +35,29 @@ class ExpertController extends CrudController{
         return $this->returnView();
     }
 
+    /**
+     * @param string $entity
+     * @return \Illuminate\View\View
+     * @throws \Exception
+     */
     public function  edit($entity){
 
         $this->edit = \DataEdit::source(new Expert());
+
+        $sorted_list = \App\Tag::lists("name", "id")->all();
+
+        asort($sorted_list);
 
         //Drop down from users table.
         $this->edit->label('Edit Expert');
         $this->edit->add('first_name', 'First name', 'text')->rule('required');
         $this->edit->add('last_name', 'Last name', 'text')->rule('required');
-        $this->edit->add('website', 'Website', 'text')->rule('url|required')->placeholder('http://');;
+        $this->edit->add('website', 'Website', 'text')->rule('url')->placeholder('http://');;
         $this->edit->add('info', 'Info', 'textarea')->rule('required');
         $this->edit->add('photo', 'Photo', 'image')->rule('image|required')->move('expert_photo')->preview(180,180);
-        $this->edit->add('tags', 'Categories', 'checkboxgroup')->options(\App\Tag::lists("name", "id")->all());
+        $this->edit->add('tags', 'Categories', 'checkboxgroup')->options($sorted_list);
+
+
 
         return $this->returnEditView();
     }
