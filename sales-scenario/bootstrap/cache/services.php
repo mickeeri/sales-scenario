@@ -26,7 +26,8 @@
     22 => 'App\\Providers\\AuthServiceProvider',
     23 => 'App\\Providers\\EventServiceProvider',
     24 => 'App\\Providers\\RouteServiceProvider',
-    25 => 'Serverfireteam\\Panel\\PanelServiceProvider',
+    25 => 'App\\Providers\\ViewComposerServiceProvider',
+    26 => 'Serverfireteam\\Panel\\PanelServiceProvider',
   ),
   'eager' => 
   array (
@@ -43,7 +44,8 @@
     10 => 'App\\Providers\\AuthServiceProvider',
     11 => 'App\\Providers\\EventServiceProvider',
     12 => 'App\\Providers\\RouteServiceProvider',
-    13 => 'Serverfireteam\\Panel\\PanelServiceProvider',
+    13 => 'App\\Providers\\ViewComposerServiceProvider',
+    14 => 'Serverfireteam\\Panel\\PanelServiceProvider',
   ),
   'deferred' => 
   array (
