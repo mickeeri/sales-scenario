@@ -19,7 +19,7 @@ class AuthTest extends TestCase
     private function getRegistrationUserFields()
     {
         $faker = Faker\Factory::create();
-        return ['username' => $faker->name, 'email' => $faker->email, 'password' => $faker->password, 'password_confirmation' =>$faker->password];
+        return ['username' => $faker->firstName, 'email' => $faker->email, 'password' => $faker->password, 'password_confirmation' =>$faker->password];
     }
 
     private function attemptRegistration($message, $empty, $check = 'email')
@@ -37,7 +37,7 @@ class AuthTest extends TestCase
     public function test_if_new_user_can_register()
     {
         $faker = Faker\Factory::create();
-        $name = $faker->name;
+        $name = $faker->firstName;
         $password = $faker->password;
         $fields = ['username' => $name, 'email' => $faker->email, 'password' => $password, 'password_confirmation' =>$password];
         $this->visit('register')
