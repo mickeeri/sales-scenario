@@ -403,6 +403,41 @@ nav ul li a:hover {
     color: rgba(0,0,0,0.6);
 }
 
+/********************************** Share buttons **************************************/
+
+/** push down effect **/
+.share-button {
+    display: inline-block;
+    vertical-align: middle;
+    -webkit-transform: translateZ(0);
+    transform: translateZ(0);
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+    -moz-osx-font-smoothing: grayscale;
+    -webkit-transition-duration: 0.3s;
+    transition-duration: 0.3s;
+    -webkit-transition-property: transform;
+    transition-property: transform;
+    -webkit-transition-timing-function: ease-out;
+    transition-timing-function: ease-out;
+}
+.share-button:hover {
+    -webkit-transform: translateY(8px);
+    transform: translateY(8px);
+}
+
+.share-buttons{
+    float:right;
+    margin-top: -10px;
+}
+
+.share-buttons-wrapper{
+    width: 100%;
+    max-width: 940px;
+    margin: 0 auto;
+    position: relative;
+}
+
 /************************************** Footer **************************************/
 
 #footer{
@@ -581,6 +616,7 @@ nav ul li a:hover {
 #player_extra_content{
     float: left;
     overflow: auto;
+    max-width: calc(100% - 310px);
     margin-left: 50px;
 }
 
@@ -957,7 +993,7 @@ nav ul li a:hover {
         float: left;
         overflow: auto;
         margin-left: 0;
-        max-width: calc(100% - 310px);
+
         margin-top: 50px;
 
     }
@@ -1266,37 +1302,3 @@ nav ul li a:hover {
     }
 }
 
-/********************************** Share buttons **************************************/
-
-/** push down effect **/
-.share-button {
-    display: inline-block;
-    vertical-align: middle;
-    -webkit-transform: translateZ(0);
-    transform: translateZ(0);
-    -webkit-backface-visibility: hidden;
-    backface-visibility: hidden;
-    -moz-osx-font-smoothing: grayscale;
-    -webkit-transition-duration: 0.3s;
-    transition-duration: 0.3s;
-    -webkit-transition-property: transform;
-    transition-property: transform;
-    -webkit-transition-timing-function: ease-out;
-    transition-timing-function: ease-out;
-}
-.share-button:hover {
-    -webkit-transform: translateY(8px);
-    transform: translateY(8px);
-}
-
-.share-buttons{
-    float:right;
-    margin-top: -10px;
-}
-
-.share-buttons-wrapper{
-    width: 100%;
-    max-width: 940px;
-    margin: 0 auto;
-    position: relative;
-}
