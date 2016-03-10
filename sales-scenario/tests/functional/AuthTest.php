@@ -118,12 +118,12 @@ class AuthTest extends TestCase
     /** @test */
     public function test_if_user_can_register_with_existing_username()
     {
-        factory(App\User::class)->create(['username' => 'BenDover']);
-        $fields = ['username' => 'noName', 'email' => 'newMail@mail.se', 'password' => 'password', 'password_confirmation' =>'password'];
+        factory(App\User::class)->create(['username' => 'ExampleUser']);
+        $fields = ['username' => 'ExampleUser', 'email' => 'newMail@mail.se', 'password' => 'password', 'password_confirmation' =>'password'];
         $this->visit('register')
             ->submitForm('Register', $fields)
             ->see('The username has already been taken')
-            ->seeInDatabase('users', ['username' => 'noName']);
+            ->seeInDatabase('users', ['username' => 'ExampleUser']);
     }
 
     /** @test */

@@ -59,7 +59,7 @@ class ExploreTest extends TestCase
             ->see("$expert->first_name $expert->last_name")
             ->see($expert->website)
             ->see($expert->info)
-            ->seeInElement('h3', 'Podcasts by '.$expert->name)
+            ->seeInElement('h2', 'PODCASTS')
             ->seeInElement('.title', $expert->podcasts[0]->title)
             ->seeInElement('.podcast-date', date('F d Y'));
     }
