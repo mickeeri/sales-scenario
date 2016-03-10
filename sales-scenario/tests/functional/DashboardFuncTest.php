@@ -19,7 +19,7 @@ class DashboardFuncTest extends TestCase
             $this->createExpertWithMultiplePodcasts(5);
         }
 
-        $mostContributing = $this->createExpertWithMultiplePodcasts(8);
+        $mostContributing = $this->createExpertWithMultiplePodcasts(11);
 
         $this->visit('dashboard')
             ->see("$mostContributing->full_name")

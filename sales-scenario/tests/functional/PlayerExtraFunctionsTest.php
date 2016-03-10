@@ -28,7 +28,7 @@ class PartialViewListsTest extends TestCase
             $this->createExpertWithMultiplePodcasts(5);
         }
 
-        $mostContributing = $this->createExpertWithMultiplePodcasts(8);
+        $mostContributing = $this->createExpertWithMultiplePodcasts(11);
 
         $this->visit($this->getURL())
             ->see("$mostContributing->full_name")
