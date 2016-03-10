@@ -52,6 +52,23 @@ class TestCase extends Illuminate\Foundation\Testing\TestCase
         return $expert;
     }
 
+    protected function createExpertWithMultiplePodcasts($numberOfPodcasts){
+
+        $expert = factory(App\Expert::class)->create();
+
+        for ($i = 0; $i <= $numberOfPodcasts; $i++) {
+            $podcast = new App\Podcast;
+            $podcast->title = "Example podcast";
+            $podcast->expert_id = $expert->id;
+            $expert->podcasts->add($podcast);
+            $podcast->filename = "test.mp3";
+            $podcast->save();
+            $podcast->filename = "{$podcast->id}.mp3";
+            $podcast->save();
+        }
+        return $expert;
+    }
+
     protected function getExpertWithPodcastAndImage()
     {
         $expert = $this->getExpertWithPodcast();
