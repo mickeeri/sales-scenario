@@ -66,12 +66,25 @@
         @endif
         @yield('content')
     </div>
-    <div id="footer"></div>
+
+
+    <div id="footer">
+        <!-- Share button -->
+        <div class="share-buttons-wrapper">
+            <div class="share-buttons a2a_kit a2a_kit_size_32 a2a_default_style">
+                <a class="share-button a2a_button_twitter" ></a>
+                <a class="share-button a2a_button_linkedin"></a>
+                <a class="share-button a2a_button_facebook"></a>
+            </div>
+        </div>
+        <!-- Share button end -->
+    </div>
+
     <!-- JavaScripts -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
     <script src="/js/scripts.js"></script>
+    <script async src="/js/addtoany.share.button.js"></script> <!-- Share button js -->
     @yield('js')
-    {{-- <script src="{{ elixir('js/app.js') }}"></script> --}}
 
 </body>
 </html>
