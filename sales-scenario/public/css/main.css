@@ -874,7 +874,7 @@ nav ul li a:hover {
     display: none;
     background-color: white;
     box-shadow: #afafaf 0 0 20px;
-    font-size: 14px;
+    font-size: 12px;
     line-height: 16px;
     max-height: calc(100% - 150px);
     max-width: calc(100% - 80px);
@@ -883,7 +883,7 @@ nav ul li a:hover {
     position: fixed;
     right: calc(50% - 450px);
     top: 120px;
-    width: 300px;
+    width: 220px;
     z-index: 100;
     text-indent: 0;
 }
