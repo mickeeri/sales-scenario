@@ -61,7 +61,7 @@ $(document).ready(function() {
     // Checkbox toggle expert tags in explorer page
     $('#filter_tags input[type="checkbox"]').click(function () {
         allExperts.show();
-        if ($('#filter_tags :checked').length > 0) {
+        if ($('#filter_tags :checked').length >= 0) {
             contain = $('#filter_tags :checked').map(function () {
                 return ':contains("' + this.value + '")';
             }).get().join(',');
