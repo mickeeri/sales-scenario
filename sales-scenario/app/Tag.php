@@ -19,4 +19,9 @@ class Tag extends Model
     {
         return $this->name;
     }
+
+    public function experts()
+    {
+        return $this->belongsToMany('App\Expert')->withTimestamps();
+    }
 }
