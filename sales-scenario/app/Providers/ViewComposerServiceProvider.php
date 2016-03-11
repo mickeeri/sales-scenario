@@ -74,7 +74,19 @@ class ViewComposerServiceProvider extends ServiceProvider
     {
         //Get x number of tags by parameter in function random()
         $tagsToTake = $toTake;
-        $allTags = Tag::all();
+        $allTags = Tag::all()->filter(function($tag)
+        {
+            /** @var Tag $tag */
+            if(count($tag->experts()->get()) != 0)
+            {
+                //Tag has at least on expert and is not filtered out
+                return $tag;
+            }
+
+            //Tag has no Experts...
+            return false;
+
+        });
 
         if(!$allTags->count())
         {
