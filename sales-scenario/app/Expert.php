@@ -46,4 +46,18 @@ class Expert extends Model
     {
         return $this->full_name;
     }
+
+    /**
+     * Cascade for experts podcasts
+     */
+    public static function boot()
+    {
+        parent::boot();
+
+        static::deleted(function($expert)
+        {
+            $expert->podcasts()->delete();
+
+        });
+    }
 }
