@@ -59,7 +59,7 @@ class AuthController extends Controller
                 'max:25',
                 'min:2',
                 'unique:users',
-                'Regex:/^[a-z0-9]{1}[a-z0-9-_\.]*$/'],
+                'Regex:/^[a-z0-9]{1}[a-z0-9-_\.]*$/i'],
             'email' => 'required|email|max:50|unique:users',
             'password' => 'required|confirmed|min:6',
         ]);
