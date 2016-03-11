@@ -11,19 +11,17 @@ class DashboardFuncTest extends TestCase
 
     public function test_expert_with_most_podcasts_show(){
 
-        //Since the factory creates expert with max 10 podcasts, this expert must be most contributing
-
         $leastContributing = $this->createExpertWithMultiplePodcasts(2);
 
         for ($i = 0; $i < 5; $i++) {
             $this->createExpertWithMultiplePodcasts(5);
         }
 
-        $mostContributing = $this->createExpertWithMultiplePodcasts(11);
+        $mostContributing = $this->createExpertWithMultiplePodcasts(8);
 
         $this->visit('dashboard')
-            ->see("$mostContributing->full_name")
-            ->dontSee("$leastContributing->full_name");
+            ->seeInElement(".explore-list", "$mostContributing->full_name")
+           ->dontSeeInElement(".explore-list", "$leastContributing->full_name");
     }
 
     public function test_expert_not_most_contributing_not_show(){
