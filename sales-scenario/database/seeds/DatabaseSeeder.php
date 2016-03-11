@@ -107,7 +107,8 @@ class LinksTableSeeder extends Seeder {
             ['display' => 'Links',      'url' => 'Link',    'main' => 1],
             ['display' => 'Users',      'url' => 'User',    'main' => null],
             ['display' => 'Experts',    'url' => 'Expert',  'main' => null],
-            ['display' => 'Podcasts',   'url' => 'Podcast', 'main' => null]
+            ['display' => 'Podcasts',   'url' => 'Podcast', 'main' => null],
+            ['display' => 'Tags',       'url' => 'Tag',     'main' => null]
         ];
 
         foreach($defaultLinksSalesScenario as $link)
