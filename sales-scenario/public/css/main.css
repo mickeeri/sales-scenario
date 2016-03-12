@@ -680,7 +680,7 @@ nav ul li a:hover {
 
 .history-filter ul li:first-child{
     color: rgba(0,0,0,0.8);
-    font-size: 18px;
+    font-size: 16px;
     font-weight: 700;
     margin-bottom: 20px;
     text-transform: uppercase;
@@ -873,13 +873,13 @@ nav ul li a:hover {
 .filter-popup{
     display: none;
     background-color: white;
+    border-radius: 5px;
     box-shadow: #afafaf 0 0 20px;
     font-size: 12px;
     line-height: 16px;
     max-height: calc(100% - 150px);
     max-width: calc(100% - 80px);
     overflow: auto;
-    padding: 10px;
     position: fixed;
     right: calc(50% - 450px);
     top: 120px;
@@ -889,7 +889,31 @@ nav ul li a:hover {
 }
 
 .filter-popup ul {
-    -webkit-padding-start: 10px;
+     display: block;
+     float: left;
+     margin-left: 5px;
+     -webkit-padding-start: 5px;
+ }
+
+
+.filter-popup ul a{
+    font-size: 11px;
+    margin-left: -10px;
+}
+
+.filter-heading{
+    border-radius: 3px;
+    display: block;
+    font-size: 16px !important ;
+    font-weight: 700;
+    margin-bottom: 30px;
+    margin-left: -18px;
+    padding: 2px;
+    width: auto;
+}
+
+.filter-heading-topics{
+    margin-left: -2px;
 }
 
 #filter_tags li {
@@ -910,7 +934,7 @@ nav ul li a:hover {
     float: left;
     width:19px;
     height:19px;
-    margin: 5px 5px 0 0;
+    margin: 1px 5px 0 0;
     /*vertical-align:middle;*/
     background:url(check_radio_sheet.png) left top no-repeat;
     cursor:pointer;
@@ -923,7 +947,7 @@ nav ul li a:hover {
 #filter_tags p {
     display: block;
     font-weight: 700;
-    line-height: 25px;
+    line-height: 20px;
     margin-left: 30px;
 }
 

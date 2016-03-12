@@ -38,7 +38,7 @@
     @if (Auth::check())
         <div id="header" class="orange-nav">
             <div id="menu_open"></div>
-            <a href="/" id="logo">
+            <a href="http://www.salesscenario.com" id="logo">
                 <img src="/img/logo_small.png"/>
             </a>
             <nav class="wrapper">
