@@ -442,6 +442,16 @@ nav ul li a:hover {
     position: relative;
 }
 
+/* Do not remove this! */
+.share-button{
+    margin: 0;
+}
+
+.a2a_label {
+    width: 0;
+}
+/* end /*
+
 /************************************** Footer **************************************/
 
 #footer{
@@ -768,6 +778,9 @@ nav ul li a:hover {
 }
 
 /************************************** Profile form **************************************/
+.update-form{
+    padding: 0 10px;
+}
 
 .update-form input {
     border: solid 1px #b1b3b4;
