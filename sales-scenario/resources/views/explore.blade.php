@@ -15,6 +15,7 @@
             </div>
             <div class="filter-popup" data-selected="{{ $tag }}">
                 <ul id="filter_tags">
+                    <li class="filter-heading filter-heading-topics">Topics</li>
                     @foreach($tags as $tags )
                         <li>
                             <label>
@@ -24,13 +25,13 @@
                             </label>
                         </li>
                     @endforeach
-                    <li class="li-show-all">
-                        <label>
-                            <input type="checkbox" id="check_all" name="show-all" checked/>
-                            <span></span>
-                            <p class="tag-text show-all">Show All</p>
-                        </label>
-                    </li>
+                        <li class="li-show-all">
+                            <label>
+                                <input type="checkbox" id="check_all" name="show-all" checked/>
+                                <span></span>
+                                <p class="tag-text show-all">Show All</p>
+                            </label>
+                        </li>
                 </ul>
             </div>
         </div>
