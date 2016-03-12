@@ -298,6 +298,10 @@ button:hover, .button:hover, input[type=submit]:hover {
     margin-left: 7px;
 }
 
+.unautorized-form{
+    padding: 0 10px;
+}
+
 /************************************** Misc **************************************/
 
 html, body {
@@ -437,6 +441,16 @@ nav ul li a:hover {
     margin: 0 auto;
     position: relative;
 }
+
+/* Do not remove this! */
+.share-button{
+    margin: 0;
+}
+
+.a2a_label {
+    width: 0;
+}
+/* end /*
 
 /************************************** Footer **************************************/
 
@@ -764,6 +778,9 @@ nav ul li a:hover {
 }
 
 /************************************** Profile form **************************************/
+.update-form{
+    padding: 0 10px;
+}
 
 .update-form input {
     border: solid 1px #b1b3b4;
@@ -1042,7 +1059,7 @@ nav ul li a:hover {
     .wrapper,
     .wrapper.no-ipad-padding{
         width: auto;
-        padding: 0 10px;
+        padding: 0;
         box-sizing: border-box;
         position: relative;
     }
