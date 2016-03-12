@@ -2,11 +2,10 @@
 
 @section('content')
     <div class="wrapper">
-        <form method="POST" action="{{ url('/login') }}">
+        <form class="unautorized-form" method="POST" action="{{ url('/login') }}">
             {!! csrf_field() !!}
 
             @include('unauthorized.logo')
-
             <div class="form-group{{ $errors->has('username') ? ' has-error' : '' }}">
                 <input id="input_email" type="text" name="username" minlength="2" maxlength="25" placeholder="Username" value="{{ old('username') }}">
 
@@ -42,7 +41,6 @@
             </div>
             <div class="clear"></div>
             <button type="submit" class="full-width button upper top-space">Sign in</button>
-
 
         </form>
     </div>

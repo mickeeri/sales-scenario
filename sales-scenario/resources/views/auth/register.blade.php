@@ -2,7 +2,7 @@
 
 @section('content')
     <div class="wrapper">
-        <form method="POST" action="{{ url('/register') }}">
+        <form class="unautorized-form" method="POST" action="{{ url('/register') }}">
             {!! csrf_field() !!}
 
             @include('unauthorized.logo')
