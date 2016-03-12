@@ -23,7 +23,7 @@
                                 <span></span>
                                 <p class="tag-text">{{ $tags->name }}</p>
                             </label>
-                        </li>
+                        </li><!---->
                     @endforeach
                         <li class="li-show-all">
                             <label>

@@ -34,7 +34,7 @@
                             <span class="title">{{ $podcast->title }}</span><br/>
                             <span class="podcast-date">{{ $podcast->expert->full_name }}<br/>Played on {{ $podcast->pivot->created_at->format('F d Y') }}</span>
                         </a>
-                    </li>
+                    </li><!---->
                 @endforeach
             @else
                 <p>You have not yet listened to any podcasts</p>
