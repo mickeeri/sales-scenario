@@ -84,4 +84,22 @@ class TestCase extends Illuminate\Foundation\Testing\TestCase
             unlink(public_path() . '/expert_photo/' . $expert->photo);
         }
     }
+
+    protected function getURLforPlayerView()
+    {
+        $this->login();
+        $expert = $this->getExpertWithPodcast();
+        $podcast = $expert->podcasts[0];
+        return $player = '/player/' . $expert->slug . '/' . $podcast->slug;
+    }
+
+    protected function getLinksForMostContributingAndExploreTopics(){
+        //Now, MostC and ExploreT are always booth on the same page, hence the combo function
+        //In the future it might be better to split those up and put them in the test classes again
+        $a = array(
+            $this->getURLforPlayerView(),
+            "dashboard"
+        );
+        return $a;
+    }
 }
