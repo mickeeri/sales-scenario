@@ -7529,10 +7529,13 @@ and open the template in the editor.
     Author     : alireza
 */
 .login {
-  background-image: url('../img/bg-login.jpg');
-  background-repeat: no-repeat;
-  background-size: cover;
+  background-color: #e95d0f;
 }
+
+.login .logo-holder img{
+  max-width: 100%;
+}
+
 .mes-box {
   margin-top: 30%;
 }
