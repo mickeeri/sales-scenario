@@ -27,13 +27,4 @@ class DashboardFuncTest extends TestCase
         }
     }
 
-    public function test_expert_without_podcast_not_show(){
-        for ($i = 0; $i < 4; $i++) {
-            $this->createExpertWithMultiplePodcasts(1);
-        }
-
-        $expert_no_podcasts = factory(App\Expert::class)->create();
-        $this->visit('dashboard')
-            ->dontSeeLink("$expert_no_podcasts->full_name");
-    }
 }

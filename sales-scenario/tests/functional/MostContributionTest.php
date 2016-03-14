@@ -79,7 +79,9 @@ class MostContributingTest extends TestCase
         }
 
         $expert_no_podcasts = factory(App\Expert::class)->create();
-        $this->visit($this->getURL())
-            ->dontSeeLink("$expert_no_podcasts->full_name");
+        foreach($this->getVisitLinks() as $link){
+            $this->visit($this->getURL())
+                ->dontSeeLink("$expert_no_podcasts->full_name");
+        }
     }
 }
