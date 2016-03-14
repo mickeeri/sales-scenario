@@ -79,8 +79,14 @@ class ViewComposerServiceProvider extends ServiceProvider
             /** @var Tag $tag */
             if(count($tag->experts()->get()) != 0)
             {
-                //Tag has at least on expert and is not filtered out
-                return $tag;
+                // Check if expert has podcast.
+                foreach ($tag->experts()->get() as $expert) {
+
+                    if (count($expert->podcasts) > 0) {
+                        //Tag has at least on expert and is not filtered out
+                        return $tag;
+                    }
+                }
             }
 
             //Tag has no Experts...
