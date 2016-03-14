@@ -186,9 +186,9 @@ button:hover, .button:hover, input[type=submit]:hover {
     font-size: 13px;
     display: block;
     color: #b1b3b4;
-    text-decoration: none;
-    margin-top: 20px;
-    margin-left: 20px;
+    text-decoration: underline;
+    margin: 0 auto;
+    text-align: center;
 }
 
 /**

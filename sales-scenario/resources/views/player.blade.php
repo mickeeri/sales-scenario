@@ -34,6 +34,7 @@
                 <div class="description">
                     <p class="podcast-title center">{{ $podcast->title }}</p>
                     <p class="center"><a class="podcast-author" href="#">By {{ $author->first_name }} {{ $author->last_name }}</a></p>
+                    <a href="{{ url('/expert/' . $author->slug) }}" class="small go-back-link ">Visit profile  page</a>
                     <div id="expert_info">
                         <h4>About {{ $author->first_name }} {{ $author->last_name }}</h4>
                         <p>{{ $author->info }}</p>
@@ -56,7 +57,7 @@
 
             <h2 class="center">Explore topics</h2>
             @include('partials.explore_topics')
-            <a href="{{ url('/expert/' . $author->slug) }}" class="small go-back-link">Back to expert</a>
+
         </div>
     </div>
 @endsection
