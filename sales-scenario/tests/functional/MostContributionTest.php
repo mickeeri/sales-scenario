@@ -9,8 +9,6 @@ class MostContributingTest extends TestCase
     use WithoutMiddleware;
     use DatabaseTransactions;
 
-
-
     private function getURL()
     {
         $this->login();
@@ -18,6 +16,7 @@ class MostContributingTest extends TestCase
         $podcast = $expert->podcasts[0];
         return $player = '/player/' . $expert->slug . '/' . $podcast->slug;
     }
+
     private function getVisitLinks(){
         $a = array(
             $this->getURL(),
@@ -26,9 +25,8 @@ class MostContributingTest extends TestCase
         return $a;
 
     }
-    public function test_expert_with_most_podcasts_show(){
 
-        //Since the factory creates expert with max 10 podcasts, this expert must be most contributing
+    public function test_expert_with_most_podcasts_show(){
 
         $leastContributing = $this->createExpertWithMultiplePodcasts(2);
 
@@ -36,12 +34,15 @@ class MostContributingTest extends TestCase
             $this->createExpertWithMultiplePodcasts(5);
         }
 
-        $mostContributing = $this->createExpertWithMultiplePodcasts(11);
+        // Now there are seven experts. Most contributing only shows five.
+        $mostContributing = $this->createExpertWithMultiplePodcasts(8);
 
         foreach($this->getVisitLinks() as $link){
+            // Assert that the expert with the most podcasts are visible and that the
+            // expert with the least podcast is not.
             $this->visit($link)
-                ->see("$mostContributing->full_name")
-                ->dontSee("$leastContributing->full_name");
+                ->seeInElement(".explore-list", "$mostContributing->full_name")
+                ->dontSeeInElement(".explore-list", "$leastContributing->full_name");
         }
     }
 
@@ -52,7 +53,6 @@ class MostContributingTest extends TestCase
             $this->visit($link)
                 ->dontSeeLink("$expert_no_podcasts->full_name");
         }
-
     }
 
     public function test_expert_without_podcast_not_show(){
