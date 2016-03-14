@@ -4,7 +4,7 @@ use Illuminate\Foundation\Testing\WithoutMiddleware;
 use Illuminate\Foundation\Testing\DatabaseMigrations;
 use Illuminate\Foundation\Testing\DatabaseTransactions;
 
-class PartialViewListsTest extends TestCase
+class MostContributingTest extends TestCase
 {
     use WithoutMiddleware;
     use DatabaseTransactions;
@@ -18,6 +18,14 @@ class PartialViewListsTest extends TestCase
         $podcast = $expert->podcasts[0];
         return $player = '/player/' . $expert->slug . '/' . $podcast->slug;
     }
+    private function getVisitLinks(){
+        $a = array(
+            $this->getURL(),
+            "dashboard"
+        );
+        return $a;
+
+    }
     public function test_expert_with_most_podcasts_show(){
 
         //Since the factory creates expert with max 10 podcasts, this expert must be most contributing
@@ -30,17 +38,20 @@ class PartialViewListsTest extends TestCase
 
         $mostContributing = $this->createExpertWithMultiplePodcasts(11);
 
-        $this->visit($this->getURL())
-            ->see("$mostContributing->full_name")
-            ->dontSee("$leastContributing->full_name");
+        foreach($this->getVisitLinks() as $link){
+            $this->visit($link)
+                ->see("$mostContributing->full_name")
+                ->dontSee("$leastContributing->full_name");
+        }
     }
 
     public function test_expert_not_most_contributing_not_show(){
 
         $expert_no_podcasts = factory(App\Expert::class)->create();
-
-        $this->visit($this->getURL())
-            ->dontSeeLink("$expert_no_podcasts->full_name");
+        foreach($this->getVisitLinks() as $link){
+            $this->visit($link)
+                ->dontSeeLink("$expert_no_podcasts->full_name");
+        }
 
     }
 
