@@ -9,25 +9,9 @@ class ExploreTopicsTest extends TestCase
     use WithoutMiddleware;
     use DatabaseTransactions;
 
-    private function getURL()
-    {
-        $this->login();
-        $expert = $this->getExpertWithPodcast();
-        $podcast = $expert->podcasts[0];
-        return $player = '/player/' . $expert->slug . '/' . $podcast->slug;
-    }
-
-    private function getVisitLinks(){
-        $a = array(
-            $this->getURL(),
-            "dashboard"
-        );
-        return $a;
-    }
-
     public function test_5_tags_always_show(){
 
-        // Tags without experts does not show, so each tag needs an expert
+        // Tags without experts does not show, so we need an expert
         $expert = $this->createExpertWithMultiplePodcasts(2);
         $tags = [];
 
@@ -41,7 +25,7 @@ class ExploreTopicsTest extends TestCase
             $expert->tags()->attach($tag);
         }
 
-        foreach ($this->getVisitLinks() as $link) {
+        foreach ($this->getLinksForMostContributingAndExploreTopics() as $link) {
 
             // Tags are randomized, so lets make sure we see the 5 tags after a refresh.
             for ($i = 0; $i < 2; $i++) {
