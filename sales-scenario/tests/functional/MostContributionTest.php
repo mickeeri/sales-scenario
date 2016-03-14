@@ -55,24 +55,6 @@ class MostContributingTest extends TestCase
 
     }
 
-    public function test_5_tags_always_show(){
-        $tags = [];
-        for ($i = 0; $i < 5; $i++) {
-            $tags[] = \App\Tag::create([
-                'name' => "Tag name " . $i
-            ]);
-        }
-
-        //Tags are randomized, so lets make sure we see the 5 tags after a refresh
-        for ($i = 0; $i < 2; $i++) {
-            $this->visit($this->getURL());
-
-            foreach ($tags as $tag) {
-                $this->seeLink($tag->name);
-            }
-        }
-    }
-
     public function test_expert_without_podcast_not_show(){
         for ($i = 0; $i < 4; $i++) {
             $this->createExpertWithMultiplePodcasts(1);

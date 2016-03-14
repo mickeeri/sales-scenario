@@ -4,10 +4,26 @@ use Illuminate\Foundation\Testing\WithoutMiddleware;
 use Illuminate\Foundation\Testing\DatabaseMigrations;
 use Illuminate\Foundation\Testing\DatabaseTransactions;
 
-class DashboardFuncTest extends TestCase
+class ExploreTopicsTest extends TestCase
 {
     use WithoutMiddleware;
     use DatabaseTransactions;
+
+    private function getURL()
+    {
+        $this->login();
+        $expert = $this->getExpertWithPodcast();
+        $podcast = $expert->podcasts[0];
+        return $player = '/player/' . $expert->slug . '/' . $podcast->slug;
+    }
+    private function getVisitLinks(){
+        $a = array(
+            $this->getURL(),
+            "dashboard"
+        );
+        return $a;
+
+    }
 
     public function test_5_tags_always_show(){
         $tags = [];
@@ -19,7 +35,7 @@ class DashboardFuncTest extends TestCase
 
         //Tags are randomized, so lets make sure we see the 5 tags after a refresh
         for ($i = 0; $i < 2; $i++) {
-            $this->visit("dashboard");
+            $this->visit($this->getURL());
 
             foreach ($tags as $tag) {
                 $this->seeLink($tag->name);
