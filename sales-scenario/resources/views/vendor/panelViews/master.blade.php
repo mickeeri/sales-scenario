@@ -3,8 +3,8 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <link rel="shortcut icon" href="{{asset('packages/serverfireteam/panel/favicon.ico')}}" type="image/x-icon">
-    <link rel="icon" href="{{asset('packages/serverfireteam/panel/favicon.ico')}}" type="image/x-icon">
+    <link rel="shortcut icon" href="{{asset('img/icons/favicon-32.png')}}" type="image/png">
+    <link rel="icon" href="{{asset('img/icons/favicon-32.png')}}" type="image/png">
     
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="">
