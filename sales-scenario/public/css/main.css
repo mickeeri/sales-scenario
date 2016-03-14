@@ -663,6 +663,7 @@ nav ul li a:hover {
     margin-left: -100px;
     margin-top: -200px;
     height: 400px;
+    overflow: auto;
 }
 
 #expert_info h4 {
@@ -748,11 +749,17 @@ nav ul li a:hover {
 
 .info .expert-tags {
     margin-top: 0;
-    font-size: 16px;
+    font-size: 14px;
+    padding-left: 0;
+}
+
+.info {
+    overflow: auto;
 }
 
 .info h1 {
     margin-bottom: 10px;
+    text-align: left;
 }
 
 .experts-podcasts h3 {
@@ -767,7 +774,7 @@ nav ul li a:hover {
     width: 200px;
     height: 200px;
     display: block;
-    margin-right: 40px;
+    margin: 30px 40px 0 0;
 }
 
 .expert-website {
@@ -1264,6 +1271,10 @@ nav ul li a:hover {
     .expert-img {
         margin: 20px auto;
         float: none;
+    }
+
+    .info h1 {
+        text-align: center;
     }
 
     /***********************

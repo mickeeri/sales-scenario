@@ -7,9 +7,7 @@
 @section('content')
     <div class="profile-information">
         <div class="wrapper">
-            <div class="image-div">
-                @include('partials.expert_img', array('src' =>$expert->photo, 'class' =>'expert-img', 'first' =>$expert->first_name, 'last' =>$expert->last_name))
-            </div>
+            @include('partials.expert_img', array('src' =>$expert->photo, 'class' =>'expert-img', 'first' =>$expert->first_name, 'last' =>$expert->last_name))
             <div class="info">
                 <h1>{{ $expert->first_name }} {{ $expert->last_name }} </h1>
                 <ul class="expert-tags">
