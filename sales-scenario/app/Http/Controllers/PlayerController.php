@@ -18,7 +18,7 @@ class PlayerController extends Controller
         $podcast = Podcast::findBySlugOrId($track);
 
         if($author && (!$podcast || $podcast->expert_id != $author->id)) {
-            return redirect('expert/'.$expert)->with('status', "The podcast you are looking for can't be found.");
+            return redirect('expert/'.$expert)->with('status', "The blog radio you are looking for can't be found.");
         }elseif(!$author){
             return redirect('explore')->with('status', "The sales expert you are looking for can't be found.");
         }

@@ -515,6 +515,7 @@ nav ul li a:hover {
 
 .slick-prev {
     left: 30px;
+    z-index: 2;
 }
 
 .slick-prev:before, .slick-next:before {
