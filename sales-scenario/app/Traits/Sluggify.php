@@ -33,6 +33,10 @@ trait Sluggify
                 $query->where('id', '!=', $this->id);
             }
 
+            if($this->usesSoftDeleting()){
+                $query->withTrashed();
+            }
+
             if($query->get()->isEmpty()){
                 break;
             }
@@ -107,6 +111,16 @@ trait Sluggify
             return static::find($slug);
         }
         return $result;
+    }
+
+    /**
+     * Does this model use softDeleting?
+     *
+     * @return bool
+     */
+    protected function usesSoftDeleting()
+    {
+        return method_exists($this, 'BootSoftDeletes');
     }
     
 }
