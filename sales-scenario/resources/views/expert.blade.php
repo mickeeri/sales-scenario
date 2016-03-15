@@ -24,7 +24,7 @@
     </div>
     <div class="experts-podcasts">
         <div class="wrapper">
-            <h2 class="center">Podcasts</h2>
+            <h2 class="center">Audio Blogs</h2>
         </div>
         @if(count($expert->podcasts))
             <div class="wrapper no-padding">
