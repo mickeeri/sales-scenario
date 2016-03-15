@@ -50,6 +50,17 @@ class SlugTest extends TestCase
         $this->assertEquals("first-name-last-name-2", $expert3->slug);
     }
 
+    public function test_model_with_soft_delete_does_not_break_constraint()
+    {
+        $expert = $this->getExpert();
+        $this->assertEquals("first-name-last-name", $expert->slug);
+
+        $expert->delete();
+
+        $verify = $this->getExpert();
+        $this->assertEquals("first-name-last-name-1", $verify->slug);
+    }
+
     public function test_tag_slugs_iterates()
     {
         $tag = $this->getTag();
