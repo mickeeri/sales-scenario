@@ -2,7 +2,7 @@
 
 @section('content')
     <div class="wrapper">
-        <form method="POST" action="{{ url('/password/reset') }}">
+        <form class="unautorized-form" method="POST" action="{{ url('/password/reset') }}">
             {!! csrf_field() !!}
 
             @include('unauthorized.logo')
