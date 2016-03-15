@@ -3,7 +3,7 @@
 <!-- Main Content -->
 @section('content')
     <div class="wrapper">
-        <form method="POST" action="{{ url('/password/email') }}">
+        <form class="unautorized-form" method="POST" action="{{ url('/password/email') }}">
             {!! csrf_field() !!}
 
             @include('unauthorized.logo')
