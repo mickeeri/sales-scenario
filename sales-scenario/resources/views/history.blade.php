@@ -37,7 +37,7 @@
                     </li><!---->
                 @endforeach
             @else
-                <li>You have not yet listened to any audio blogs</li>
+                <li>You have not yet listened to any blog radios</li>
             @endif
 
 
