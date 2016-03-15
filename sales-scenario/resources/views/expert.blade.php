@@ -17,7 +17,7 @@
                 </ul>
                 <p>{{ $expert->info }}</p>
                 @if ($expert->website)
-                    <a class="expert-website" href=" {{ $expert->website }}">Visit website</a>
+                    <a class="expert-website" href=" {{ $expert->website }}" target="_blank" >Visit website</a>
                 @endif
             </div>
         </div>
