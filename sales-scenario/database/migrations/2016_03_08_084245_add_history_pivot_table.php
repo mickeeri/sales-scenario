@@ -14,8 +14,8 @@ class AddHistoryPivotTable extends Migration
     {
         Schema::create('podcast_user', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('podcast_id');
-            $table->integer('user_id')->unsigned()->index();;
+            $table->integer('podcast_id')->unsigned()->index();
+            $table->integer('user_id')->unsigned()->index();
             $table->timestamps();
 
             $table->foreign('user_id')
@@ -23,6 +23,10 @@ class AddHistoryPivotTable extends Migration
                 ->on('users')
                 ->onDelete('cascade');
 
+            $table->foreign('podcast_id')
+                ->references('id')
+                ->on('podcasts')
+                ->onDelete('cascade');
         });
     }
 
