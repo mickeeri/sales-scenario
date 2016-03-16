@@ -65,35 +65,6 @@ class PodcastController extends CrudController{
 
 	private function loadEventHandlers()
 	{
-		Podcast::saving(function($podcast){
-			if (isset($podcast->filename) && is_null($podcast->filename) ||
-					empty($podcast->filename)) {
-				return false;
-			}
-			return true;
-		});
-
-		Podcast::saved(function($podcast){
-			$tempLocation = Podcast::podcastLocation().'temp/';
-			$tempFileName = $podcast->filename;
-
-			if (file_exists($tempLocation.$tempFileName)) {
-				$extension = pathinfo($tempLocation.$tempFileName, PATHINFO_EXTENSION);
-
-				if (!empty($extension)) { // Make sure file has extension.
-					$finalFileName = $podcast->id.'.'.$extension;
-
-					if (file_exists(Podcast::podcastLocation().$finalFileName)) { // If file exists, delete it first.
-						unlink(Podcast::podcastLocation().$finalFileName);
-					}
-
-					rename($tempLocation.$tempFileName, Podcast::podcastLocation().$finalFileName);
-					$podcast->filename = $finalFileName;
-					$podcast->save();
-				}
-			}
-		});
-
 		Podcast::deleting(function($podcast) {
 			// before delete
 			if (!empty($podcast->filename) && file_exists(Podcast::podcastLocation().$podcast->filename)) {
