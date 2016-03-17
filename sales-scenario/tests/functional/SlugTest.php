@@ -26,10 +26,15 @@ class SlugTest extends TestCase
 
     private function getPodcast($expert)
     {
-        return App\Podcast::create([
-            'title' => "Podcast name",
-            'expert_id' => $expert->id
-        ]);
+        $podcast = new \App\Podcast();
+        $podcast->expert_id = $expert->id;
+        $podcast->title = "Podcast name";
+        $podcast->filename = str_random(6).'m4a';
+        $podcast->save();
+        // Assigns filename same as podcast id and saves again.
+        $podcast->filename = $podcast->id.'.m4a';
+        $podcast->save();
+        return $podcast;
     }
 
     public function test_expert_slugs_iterates()
