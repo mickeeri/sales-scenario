@@ -76,8 +76,6 @@ Varje medlem fyller själv i arbetad tid på varje uppgift och detta sammanstäl
 
 **[Testrapport manuella testfall](https://docs.google.com/spreadsheets/d/1dDWbZILeAmRntMPzCi-98c64xXvfXwfCxUklWVjcEzI/edit?usp=sharing)** - Rapport över genomförda manuella testfall. Samtliga manuella tester gås igenom varje iteration. 
 
-**[Automatiska tester](https://docs.google.com/spreadsheets/d/1dDWbZILeAmRntMPzCi-98c64xXvfXwfCxUklWVjcEzI/edit#gid=559725036)** - Namnen på våra automatiska tester som körs i applikationen
-
 **[Tester i  enheter och webbläsare](https://docs.google.com/spreadsheets/d/1dDWbZILeAmRntMPzCi-98c64xXvfXwfCxUklWVjcEzI/edit#gid=903271585)** - Tester som genomförs i många olika enheter och webbläsare. Främst större tester såsom att ljuduppspelaren fungerar samt att layouten ser bra ut.
 
 **[Testförslag](https://docs.google.com/spreadsheets/d/1dDWbZILeAmRntMPzCi-98c64xXvfXwfCxUklWVjcEzI/edit#gid=756904634)** - Förslag på nya tester. "Testernas bollplank" där nya testidéer skrivs ner så de ej glöms bort. På onsdagar gås testförslagen igenom och vad som skall testas under testfasen (onsdag-fredag) bestäms gemensamt. 
