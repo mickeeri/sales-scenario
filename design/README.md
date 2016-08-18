@@ -1,6 +1,6 @@
 #Godkända vyer
 ###Vy 2 - Login
-![Alt](https://github.com/mickeeri/sales-scenario/blob/master/design/jpg/Proposal_2_login.png?raw=true)
+![Alt](https://github.com/mickeeri/sales-scenario/blob/master/design/proposal/Proposal_2_login.png)
 
 ###Vy 5 - Open menu
 ![Alt](https://github.com/mickeeri/sales-scenario//blob/master/design/jpg/Proposal_2_open_menu.png?raw=true)
