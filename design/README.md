@@ -18,4 +18,4 @@
 ![Alt](https://github.com/mickeeri/sales-scenario/blob/master/design/proposal/Proposal_2_player_1.png)
 
 ###Applikationens designflöde
-[Se länk](https://github.com/mickeeri/sales-scenario/blob/master/design/pdf/SalesScenario%20Designfl%C3%B6de.pdf)
+[Se länk](https://github.com/mickeeri/sales-scenario/blob/master/design/desktop%20mockups/SalesScenario%20Designfl%C3%B6de.pdf)
