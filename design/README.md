@@ -3,10 +3,10 @@
 ![Alt](https://github.com/mickeeri/sales-scenario/blob/master/design/proposal/Proposal_2_login.png)
 
 ###Vy 5 - Open menu
-![Alt](https://github.com/mickeeri/sales-scenario//blob/master/design/jpg/Proposal_2_open_menu.png?raw=true)
+![Alt](https://github.com/mickeeri/sales-scenario/blob/master/design/proposal/Proposal_2_open_menu.png)
 
 ###Vy 4 - Dashboard
-![Alt](https://github.com/mickeeri/sales-scenario//blob/master/design/desktop%20mockups/vy4-dashboard_B.jpg?raw=true)
+![Alt](https://github.com/mickeeri/sales-scenario/blob/master/design/proposal/Proposal_2_dashboard.png)
 ![Alt](https://github.com/mickeeri/sales-scenario//blob/master/design/jpg/Proposal_2_dashboard.png?raw=true)
 
 ###Vy 6 - Explore
