@@ -28,9 +28,9 @@ Kundens slutleverans: [blogradio.salesscenario.com](http://blogradio.salesscenar
 Gruppens dev-server: [utbildning.fridaholmstrom.se](http://utbildning.fridaholmstrom.se)
 
 ###Källkod
-Applikationen finns i katalogen [/sales-scenario](https://github.com/rn222cx/1DV411_Grupp3/tree/master/sales-scenario).
+Applikationen finns i katalogen [/sales-scenario](https://github.com/mickeeri/sales-scenario/tree/master/sales-scenario).
 
-**[Körinstruktioner Homestead](https://github.com/rn222cx/1DV411_Grupp3/wiki/K%C3%B6rinstruktioner-Homestead)** - Instruktioner för hur en fungerande utvecklingsmiljö sätts upp.
+**[Körinstruktioner Homestead](https://github.com/mickeeri/sales-scenario/wiki/K%C3%B6rinstruktioner-Homestead)** - Instruktioner för hur en fungerande utvecklingsmiljö sätts upp.
 
 **[Teknisk specifikation](https://github.com/rn222cx/1DV411_Grupp3/wiki/Teknisk-specifikation)** - Information om tekniker som används i applikationen, arkitektur, systemdesign och hur man kommer igång med utvecklingsmiljön samt rekommenderat arbetssätt med Github.
 
