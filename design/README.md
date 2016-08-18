@@ -7,7 +7,7 @@
 
 ###Vy 4 - Dashboard
 ![Alt](https://github.com/mickeeri/sales-scenario/blob/master/design/proposal/Proposal_2_dashboard.png)
-![Alt](https://github.com/mickeeri/sales-scenario/blob/master/design/jpg/Proposal_2_dashboard.png)
+![Alt](https://github.com/mickeeri/sales-scenario/blob/master/design/proposal/Proposal_2_explore.png)
 
 ###Vy 6 - Explore
 ![Alt](https://github.com/mickeeri/sales-scenario//blob/master/design/desktop%20mockups/vy6-explore.jpg?raw=true)
