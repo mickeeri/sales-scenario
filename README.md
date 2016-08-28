@@ -1,7 +1,7 @@
 # 1DV411_Grupp3
 
 #Sales Scenario
-Projektet ingår i kursen [Webbprojekt I](https://coursepress.lnu.se/kurs/webbprojekt-i/) (1DV411) som ges vid Linnéuniversitetet i Kalmar
+Projektet ingår i kursen [Webbprojekt I](https://github.com/mickeeri/sales-scenario/wiki) (1DV411) som ges vid Linnéuniversitetet i Kalmar
 
 ##[Wikin med samtlig dokumentation och länkar](https://github.com/mickeeri/sales-scenario/wiki)
 
